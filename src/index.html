@@ -1,0 +1,887 @@
+---
+layout: layouts/base.html
+title: Weave Studio - Professional Web Development
+description: Professional web development services creating modern, high-performance websites and experiences.
+language: en
+---
+
+
+<!-- Navigation is now in base.html layout -->
+
+<main id="main-content" class="main" role="main">
+  <section id="hero" class="hero" aria-labelledby="hero-title">
+    <div class="hero__container">
+      <div class="hero__content">
+        <h1 id="hero-title" class="hero__title">
+          <span class="hero__title-line" data-i18n="hero.titleFirstLine">Weaving ideas into</span>
+          <span class="hero__title-animated" data-rotating-text></span>
+        </h1>
+        <p class="hero__description" data-i18n="hero.description">
+          Beautifully designed, professional websites. Developed especially for
+          small businesses, freelancers, and creatives.
+        </p>
+        <div class="hero__actions">
+          <a href="#contact" class="btn btn--primary hero__cta"
+            data-i18n="hero.ctaPrimary">Learn More</a
+          >
+          <a href="#services" class="btn btn--secondary hero__learn-more"
+            data-i18n="hero.ctaLearnMore">Our Services</a
+          >
+        </div>
+      </div>
+      <div class="hero__visual" aria-hidden="true">
+        <!-- Hero visual/illustration will be added here -->
+      </div>
+    </div>
+
+    <a
+      href="#welcome"
+      class="hero__scroll-hint"
+      aria-label="Scroll down to learn more"
+    >
+      <span class="sr-only">Scroll down to learn more</span>
+      <svg class="hero__scroll-icon" focusable="false" aria-hidden="true">
+        <use href="#icon-arrow-down"></use>
+      </svg>
+    </a>
+  </section>
+
+  <section id="welcome" class="welcome" aria-labelledby="welcome-title">
+    <div class="welcome__container">
+      <h2 id="welcome-title" class="welcome__title section-title" data-i18n="welcome.title">
+        Welcome to Weave Studio
+      </h2>
+      <h3 class="welcome__subtitle" data-i18n="welcome.subtitle">An Independent Web Design Studio</h3>
+      <div class="welcome__content">
+        <div class="welcome__paragraph">
+          <p data-i18n="welcome.content.paragraph1">
+            Tending to all your website needs, so that you can focus on what
+            really matters.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="services" aria-labelledby="services-title">
+    <div class="services__container">
+      <h2 id="services-title" class="services__title section-title" data-i18n="services.title">
+        What We Do
+      </h2>
+      <h3 class="services__subtitle" data-i18n="services.subtitle">Websites that work for you</h3>
+
+      <div class="services__intro">
+        <p data-i18n="services.intro.paragraph1">
+          Every website is built to do more than just look good — it's designed to work hard for your business.
+        </p>
+        <p data-i18n="services.intro.paragraph2">
+          Whether you need a simple landing page, portfolio, a business website, or a full-fledged e-commerce store, be ensured that your website is professional-looking, user-friendly, and optimized for maximum results.
+        </p>
+      </div>
+
+      <div class="services__offerings">
+        <div class="services__grid" data-scroll-reveal>
+          <article class="service-card">
+            <i data-lucide="monitor-smartphone" class="service-card__icon"></i>
+            <h4 class="service-card__title" data-i18n="services.items.0.title">Website Development</h4>
+            <p class="service-card__description" data-i18n="services.items.0.description">
+              Professional-looking and optimized websites built to perform on all devices.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <i data-lucide="palette" class="service-card__icon"></i>
+            <h4 class="service-card__title" data-i18n="services.items.1.title">Custom Designs</h4>
+            <p class="service-card__description" data-i18n="services.items.1.description">
+              Tailor-made layouts to match your brand and your audience.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <i data-lucide="pen-tool" class="service-card__icon"></i>
+            <h4 class="service-card__title" data-i18n="services.items.2.title">Content Writing</h4>
+            <p class="service-card__description" data-i18n="services.items.2.description">
+              Clear, engaging, and SEO-friendly copywriting for your website.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <i data-lucide="settings" class="service-card__icon"></i>
+            <h4 class="service-card__title" data-i18n="services.items.3.title">Website Maintenance</h4>
+            <p class="service-card__description" data-i18n="services.items.3.description">
+              Regular updates, backups, and support to keep your website healthy.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <i data-lucide="shopping-cart" class="service-card__icon"></i>
+            <h4 class="service-card__title" data-i18n="services.items.4.title">E-Commerce</h4>
+            <p class="service-card__description" data-i18n="services.items.4.description">
+              Seamless online stores with secure payment integrations.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <i data-lucide="chart-no-axes-column-increasing" class="service-card__icon"></i>
+            <h4 class="service-card__title" data-i18n="services.items.5.title">SEO</h4>
+            <p class="service-card__description" data-i18n="services.items.5.description">
+              Technical and on-page optimisation to help your website rank higher.
+            </p>
+          </article>
+        </div>
+      </div>
+
+      <div class="services__cta">
+        <p class="services__cta-paragraph" data-i18n="services.cta.paragraph">
+          From custom development to maintenance, staying focused on performance, clarity, and results is at the core. Whether you're launching something new or refining your current setup, Weave Studio creates fast, functional websites that truly deliver.
+        </p>
+        <div class="services__cta-card">
+          <p data-i18n="services.cta.text">Let's Build Something Great Together</p>
+          <a href="#contact" class="btn btn--primary" data-i18n="services.cta.button">Get Started</a>
+        </div>
+      </div>
+
+      <div class="services__pricing">
+        <h3 class="pricing-title" data-i18n="services.pricing.title">Pricing Options</h3>
+        <div class="pricing-grid">
+          <div class="pricing-package">
+            <h4 data-i18n="services.pricing.packages.0.title">Standard Website Package</h4>
+            <p data-i18n="services.pricing.packages.0.description">Perfect for businesses ready to establish their online presence.</p>
+            <ul>
+              <li data-i18n="services.pricing.packages.0.features.0">5 professionally designed pages</li>
+              <li data-i18n="services.pricing.packages.0.features.1">Mobile-optimized and lightning fast</li>
+              <li data-i18n="services.pricing.packages.0.features.2">Contact forms and SEO setup</li>
+              <li data-i18n="services.pricing.packages.0.features.3">Payment: 50% upfront, 50% on completion</li>
+              <li data-i18n="services.pricing.packages.0.features.4">Add-ons available: Extra pages, blog setup, content management system</li>
+            </ul>
+          </div>
+
+          <div class="pricing-package pricing-package--coming-soon">
+            <h4 data-i18n="services.pricing.packages.1.title">Website + Support Package</h4>
+            <p data-i18n="services.pricing.packages.1.description">Everything in the standard package, plus ongoing partnership.</p>
+            <ul>
+              <li data-i18n="services.pricing.packages.1.features.0">All standard website features</li>
+              <li data-i18n="services.pricing.packages.1.features.1">12 months free hosting</li>
+              <li data-i18n="services.pricing.packages.1.features.2">12 months unlimited edits</li>
+              <li data-i18n="services.pricing.packages.1.features.3">Priority support for changes and additions</li>
+              <li data-i18n="services.pricing.packages.1.features.4">Payment: Monthly installments over 12 months</li>
+            </ul>
+            <div class="pricing-package__overlay">
+              <span class="pricing-package__overlay-text" data-i18n="services.pricing.availableSoon">Available Soon</span>
+            </div>
+          </div>
+
+          <div class="pricing-package">
+            <h4 data-i18n="services.pricing.packages.2.title">E-Commerce Package</h4>
+            <p data-i18n="services.pricing.packages.2.description">Custom online stores built for results.</p>
+            <ul>
+              <li data-i18n="services.pricing.packages.2.features.0">Custom Shopify store design</li>
+              <li data-i18n="services.pricing.packages.2.features.1">Secure payment processing</li>
+              <li data-i18n="services.pricing.packages.2.features.2">Integrated shipping</li>
+              <li data-i18n="services.pricing.packages.2.features.3">Shopify tutorial walkthrough</li>
+              <li data-i18n="services.pricing.packages.2.features.4">Full product management in Shopify CMS</li>
+              <li data-i18n="services.pricing.packages.2.features.5">Custom pricing based on requirements</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="portfolio" aria-labelledby="portfolio-title">
+    <div class="portfolio__container">
+      <h2 id="portfolio-title" class="portfolio__title section-title" data-i18n="portfolio.title">
+        Recent Work
+      </h2>
+      <h3 class="portfolio__subtitle" data-i18n="portfolio.subtitle">Building a portfolio of projects we're proud of</h3>
+
+      <div class="portfolio__content">
+        <p class="portfolio__content-paragraph1" data-i18n="portfolio.content.paragraph1">
+          Selective about the projects taken on, focusing on quality over quantity.<br />Each project receives full attention and creative energy to deliver exceptional results.
+        </p>
+
+        <div class="portfolio__featured">
+          <h4 data-i18n="portfolio.featured.title">Featured Project</h4>
+          <div class="portfolio__featured-content">
+            <div class="portfolio__featured-image">
+              <a href="https://david-artfacilitator.co.il/" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="/assets/images/soul-collage.jpg"
+                  alt="David Art Facilitator - SoulCollage Landing Page"
+                  width="1440"
+                  height="777"
+                  loading="lazy"
+                />
+              </a>
+            </div>
+            <p data-i18n="portfolio.featured.description">
+              <strong>David Art Facilitator</strong> – A professional landing page showcasing an art therapy workshop. Built with a focus on visual storytelling, accessibility, and seamless user experience.
+              <br><br>
+              <a href="https://david-artfacilitator.co.il/" target="_blank" rel="noopener noreferrer">Visit site →</a>
+            </p>
+          </div>
+        </div>
+
+        <p class="portfolio__content-paragraph2" data-i18n="portfolio.content.paragraph2">
+          Your project could be featured here next. Actively working with businesses who value quality, aesthetics, and a thoughtful approach to web development.
+        </p>
+      </div>
+
+      <div class="portfolio__cta">
+        <p data-i18n="portfolio.cta.text">Let's Build Something Great Together</p>
+        <a href="#contact" class="btn btn--primary" data-i18n="portfolio.cta.button">Get Started</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="features" aria-labelledby="features-title">
+    <div class="features__container">
+      <h2 id="features-title" class="features__title section-title" data-i18n="services.features.title">Key Features</h2>
+      <div class="features__grid" data-scroll-reveal>
+        <div class="feature-item">
+          <i data-lucide="smartphone" class="feature-item__icon"></i>
+          <h4 data-i18n="services.features.list1.title">Mobile First Design. Fully Responsive</h4>
+          <p data-i18n="services.features.list1.description">Websites that look great on all mobile, tablet, and desktop sizes so visitors can access your beautiful website from anywhere.</p>
+        </div>
+        <div class="feature-item">
+          <i data-lucide="zap" class="feature-item__icon"></i>
+          <h4 data-i18n="services.features.list2.title">Powerful Performance. Optimized Page Speed</h4>
+          <p data-i18n="services.features.list2.description">Smartly coded and well-maintained websites load in 1 second or less, ensuring maximum reach and visibility.</p>
+        </div>
+        <div class="feature-item">
+          <i data-lucide="code" class="feature-item__icon"></i>
+          <h4 data-i18n="services.features.list3.title">Solid Code. Secure & Reliable</h4>
+          <p data-i18n="services.features.list3.description">No bloated plugins or sketchy themes. Just solid, well-maintained code you can rely on.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG SECTION - Commented out until content is ready
+  <section id="blog" class="blog-preview" aria-labelledby="blog-title">
+    <div class="blog-preview__container">
+      <h2 id="blog-title" class="blog-preview__title section-title" data-i18n="blog.title">
+        Recently From the Blog
+      </h2>
+      <h3 class="blog-preview__subtitle" data-i18n="blog.subtitle">Helpful insights and honest guidance</h3>
+      <div class="blog-preview__grid" role="list"> -->
+        <!-- Latest blog posts - dynamically loaded from collections -->
+        <!-- {% if collections.blog.size > 0 %}
+          {% assign latestPosts = collections.blog | reverse | limit: 4 %}
+          {% for post in latestPosts %}
+            <article class="blog-card" role="listitem" data-lang="{{ post.data.language }}">
+              {% if post.data.featured_image %}
+                <div class="blog-card__image" aria-hidden="true">
+                  <img
+                    src="{{ post.data.featured_image }}"
+                    alt="{{ post.data.title }}"
+                    loading="lazy"
+                  />
+                </div>
+              {% endif %}
+
+              <div class="blog-card__content">
+                <div class="blog-card__meta">
+                  <time datetime="{{ post.date | dateIso }}">
+                    {{ post.date | readableDate }}
+                  </time>
+                  {% if post.data.category %}
+                    <span class="blog-card__category" data-i18n="{{ post.data.category | translateCategory }}">{{ post.data.category }}</span>
+                  {% endif %}
+                </div>
+
+                <h3 class="blog-card__title">
+                  <a href="{{ post.url }}">
+                    {{ post.data.title }}
+                  </a>
+                </h3>
+
+                {% if post.data.description %}
+                  <p class="blog-card__excerpt">{{ post.data.description }}</p>
+                {% endif %}
+
+                <div class="blog-card__footer">
+                  <a href="{{ post.url }}" class="blog-card__read-more">
+                    Read More →
+                  </a>
+                  {% if post.templateContent %}
+                    <span class="blog-card__reading-time">
+                      {{ post.templateContent | readingTime }} <span data-i18n="blog.minRead">min read</span>
+                    </span>
+                  {% endif %}
+                </div>
+              </div>
+            </article>
+          {% endfor %}
+        {% else %} -->
+          <!-- Fallback content when no posts exist -->
+          <!-- <article class="blog-card" role="listitem">
+            <div class="blog-card__image" aria-hidden="true">
+              <img
+                data-src="/assets/images/blog-placeholder-1.jpg"
+                alt="blog-placeholder-1"
+              />
+            </div>
+            <div class="blog-card__content">
+              <div class="blog-card__meta">
+                <time datetime="2024-01-01">January 1, 2024</time>
+                <span class="blog-card__category" data-i18n="blog.categories.webDevelopment">Web Development</span>
+              </div>
+              <h3 class="blog-card__title" data-i18n="blog.placeholder.title">Coming Soon</h3>
+              <p class="blog-card__excerpt" data-i18n="blog.placeholder.excerpt1">
+                Blog posts will appear here with the latest insights and tips from
+                our team.
+              </p>
+              <a href="/blog/" class="blog-card__link" data-i18n="blog.readMore">Read More</a>
+            </div>
+          </article>
+          <article class="blog-card" role="listitem">
+            <div class="blog-card__image" aria-hidden="true">
+              <img
+                data-src="/assets/images/blog-placeholder-2.jpg"
+                alt="blog-placeholder-2"
+              />
+            </div>
+            <div class="blog-card__content">
+              <div class="blog-card__meta">
+                <time datetime="2024-01-01">January 1, 2024</time>
+                <span class="blog-card__category" data-i18n="blog.categories.design">Design</span>
+              </div>
+              <h3 class="blog-card__title" data-i18n="blog.placeholder.title">Coming Soon</h3>
+              <p class="blog-card__excerpt" data-i18n="blog.placeholder.excerpt2">
+                Stay tuned for articles about the latest trends in web design and
+                development.
+              </p>
+              <a href="/blog/" class="blog-card__link" data-i18n="blog.readMore">Read More</a>
+            </div>
+          </article>
+          <article class="blog-card" role="listitem">
+            <div class="blog-card__image" aria-hidden="true">
+              <img
+                data-src="/assets/images/blog-placeholder-3.jpg"
+                alt="blog-placeholder-3"
+              />
+            </div>
+            <div class="blog-card__content">
+              <div class="blog-card__meta">
+                <time datetime="2024-01-01">January 1, 2024</time>
+                <span class="blog-card__category" data-i18n="blog.categories.performance">Performance</span>
+              </div>
+              <h3 class="blog-card__title" data-i18n="blog.placeholder.title">Coming Soon</h3>
+              <p class="blog-card__excerpt" data-i18n="blog.placeholder.excerpt3">
+                Learn about optimizing your website for better performance and
+                user experience.
+              </p>
+              <a href="/blog/" class="blog-card__link" data-i18n="blog.readMore">Read More</a>
+            </div>
+          </article>
+          <article class="blog-card" role="listitem">
+            <div class="blog-card__image" aria-hidden="true">
+              <img
+                data-src="/assets/images/blog-placeholder-4.jpg"
+                alt="blog-placeholder-4"
+              />
+            </div>
+            <div class="blog-card__content">
+              <div class="blog-card__meta">
+                <time datetime="2024-01-01">January 1, 2024</time>
+                <span class="blog-card__category" data-i18n="blog.categories.seo">SEO</span>
+              </div>
+              <h3 class="blog-card__title" data-i18n="blog.placeholder.title">Coming Soon</h3>
+              <p class="blog-card__excerpt" data-i18n="blog.placeholder.excerpt4">
+                Discover strategies to improve your search engine rankings and
+                drive more traffic.
+              </p>
+              <a href="/blog/" class="blog-card__link" data-i18n="blog.readMore">Read More</a>
+            </div>
+          </article>
+        {% endif %}
+      </div>
+      <div class="blog-preview__cta">
+        <a href="/blog/" class="btn btn--secondary" data-i18n="blog.viewAll">View All Posts</a>
+      </div>
+    </div>
+  </section>
+  END BLOG SECTION -->
+
+  <section id="about" class="about" aria-labelledby="about-title">
+    <div class="about__container">
+      <h2 id="about-title" class="about__title section-title" data-i18n="about.title">Behind The Scenes</h2>
+      <div class="about__content">
+        <div class="about__text">
+          <p data-i18n="about.content.paragraph1">
+            Weave Studio is a one-man operation.
+          </p>
+          <p data-i18n="about.content.paragraph2">
+            A freelance web developer focused on crafting clean,
+            professional-looking websites that feel good to use on any device.
+          </p>
+          <p data-i18n="about.content.paragraph3">
+            Building custom-coded websites and teaming up with designers,
+            copywriters, and SEO specialists when needed, to make sure every
+            project delivers — both visually and strategically.
+          </p>
+          <p data-i18n="about.content.paragraph4">
+            The goal is simple: to help small businesses and entrepreneurs bring
+            their ideas to life online through powerful, engaging digital experiences.
+          </p>
+        </div>
+        <div class="about__image" aria-hidden="true">
+          <img
+            data-src="/assets/images/about/profile.jpg"
+            alt="Weave Studio Profile Picture"
+            width="362"
+            height="550"
+            class="lazy-load"
+          />
+          <div class="about__image-label">
+            <span class="about__image-label-name" data-i18n="about.profile.name">Assaf Yechiel</span>
+            <span class="about__image-label-title" data-i18n="about.profile.title">Front End Developer</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion Section -->
+  <section id="faq" class="faq" aria-labelledby="faq-title">
+    <div class="faq__container">
+      <h2 id="faq-title" class="faq__title section-title" data-i18n="faq.homeTitle">
+        Common Questions
+      </h2>
+      <h3 class="faq__subtitle" data-i18n="faq.homeSubtitle">
+        Quick, simple answers that help you know what to expect
+      </h3>
+
+      <!-- Filter Buttons -->
+      <div class="faq__filters" role="group" aria-label="FAQ categories">
+        <button
+          class="faq-filter faq-filter--active"
+          data-filter="process"
+          aria-pressed="true"
+          data-i18n="faq.filters.process">
+          Process
+        </button>
+        <button
+          class="faq-filter"
+          data-filter="pricing"
+          aria-pressed="false"
+          data-i18n="faq.filters.pricing">
+          Pricing
+        </button>
+        <button
+          class="faq-filter"
+          data-filter="technical"
+          aria-pressed="false"
+          data-i18n="faq.filters.technical">
+          Technical
+        </button>
+      </div>
+
+      <div class="faq__grid">
+        <!-- Process Questions -->
+        <div class="faq-accordion" data-category="process">
+          <h3 class="faq-accordion__question">
+            <button aria-expanded="false">
+              <span data-i18n="faq.categories.process.q1.question">How does your web design process work?</span>
+              <svg class="faq-accordion__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </h3>
+          <div class="faq-accordion__answer" aria-hidden="true">
+            <p data-i18n="faq.categories.process.q1.answer">
+              Each project starts with a short discovery call to understand your goals, audience, and overall style — no "perfect brand" required. From there, I create a personalized website plan and design direction before moving into development. You'll see progress in clear stages, with space for feedback at every step.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-accordion" data-category="process">
+          <h3 class="faq-accordion__question">
+            <button aria-expanded="false">
+              <span data-i18n="faq.categories.process.q2.question">How long does a typical project take?</span>
+              <svg class="faq-accordion__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </h3>
+          <div class="faq-accordion__answer" aria-hidden="true">
+            <p data-i18n="faq.categories.process.q2.answer">
+              A website can take anywhere from 2–6 weeks, depending on project size, how quickly content is ready, and how many refinements we make together. You'll get a clear timeline before we start so you always know what to expect.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-accordion" data-category="process">
+          <h3 class="faq-accordion__question">
+            <button aria-expanded="false">
+              <span data-i18n="faq.categories.process.q3.question">What do you need from me to get started?</span>
+              <svg class="faq-accordion__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </h3>
+          <div class="faq-accordion__answer" aria-hidden="true">
+            <p data-i18n="faq.categories.process.q3.answer">
+              Once we agree on the project details and pricing, I'll ask for your text, images, logo (if you have one), and a few examples of sites or styles you like. Don't worry if everything isn't ready — I'll guide you through what's needed, step by step.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-accordion" data-category="process">
+          <h3 class="faq-accordion__question">
+            <button aria-expanded="false">
+              <span data-i18n="faq.categories.process.q4.question">Do you offer revisions?</span>
+              <svg class="faq-accordion__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </h3>
+          <div class="faq-accordion__answer" aria-hidden="true">
+            <p data-i18n="faq.categories.process.q4.answer">
+              Yes — every project includes two rounds of revisions, with flexibility if we need an extra round to fine-tune things. The goal is always to make sure your site feels just right, not to rush the process.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pricing Questions -->
+        <div class="faq-accordion hidden" data-category="pricing">
+          <h3 class="faq-accordion__question">
+            <button aria-expanded="false">
+              <span data-i18n="faq.categories.pricing.q1.question">How much does a website cost?</span>
+              <svg class="faq-accordion__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </h3>
+          <div class="faq-accordion__answer" aria-hidden="true">
+            <p data-i18n="faq.categories.pricing.q1.answer">
+              Every project is different. A custom 5 page website starts at $1,500 (₪4500). The exact price depends on the number of pages, level of design detail, and any special features. After our initial chat, you'll receive a clear proposal and quote — no surprises.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-accordion hidden" data-category="pricing">
+          <h3 class="faq-accordion__question">
+            <button aria-expanded="false">
+              <span data-i18n="faq.categories.pricing.q2.question">What is your payment structure like?</span>
+              <svg class="faq-accordion__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </h3>
+          <div class="faq-accordion__answer" aria-hidden="true">
+            <p data-i18n="faq.categories.pricing.q2.answer">
+              Payments are paid 50% upfront and 50% on completion. I'm also piloting a subscription option, which spreads costs over time and includes ongoing support — contact me if you'd like early access.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-accordion hidden" data-category="pricing">
+          <h3 class="faq-accordion__question">
+            <button aria-expanded="false">
+              <span data-i18n="faq.categories.pricing.q3.question">What's included in your packages?</span>
+              <svg class="faq-accordion__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </h3>
+          <div class="faq-accordion__answer" aria-hidden="true">
+            <p data-i18n="faq.categories.pricing.q3.answer">
+              All projects include planning, custom design, responsive development (mobile, tablet & laptop), basic SEO setup, and performance optimization. You'll also receive a handover guide for any necessary technical know-how and support after launch to make sure everything runs smoothly.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-accordion hidden" data-category="pricing">
+          <h3 class="faq-accordion__question">
+            <button aria-expanded="false">
+              <span data-i18n="faq.categories.pricing.q4.question">What if I already have a website?</span>
+              <svg class="faq-accordion__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </h3>
+          <div class="faq-accordion__answer" aria-hidden="true">
+            <p data-i18n="faq.categories.pricing.q4.answer">
+              That's totally fine — I can refresh or rebuild your existing site, keeping what still works and improving what doesn't. It's a great way to modernize your online presence without starting from scratch.
+            </p>
+          </div>
+        </div>
+
+        <!-- Technical Questions -->
+        <div class="faq-accordion hidden" data-category="technical">
+          <h3 class="faq-accordion__question">
+            <button aria-expanded="false">
+              <span data-i18n="faq.categories.technical.q1.question">What platforms do you use?</span>
+              <svg class="faq-accordion__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </h3>
+          <div class="faq-accordion__answer" aria-hidden="true">
+            <p data-i18n="faq.categories.technical.q1.answer">
+              I build using lightweight, modern tools — not site builders like WordPress or Wix. This means faster load times, better security, and more flexibility for your website. Each site is coded by hand to fit your business, not a template.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-accordion hidden" data-category="technical">
+          <h3 class="faq-accordion__question">
+            <button aria-expanded="false">
+              <span data-i18n="faq.categories.technical.q2.question">Will I be able to update my website myself?</span>
+              <svg class="faq-accordion__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </h3>
+          <div class="faq-accordion__answer" aria-hidden="true">
+            <p data-i18n="faq.categories.technical.q2.answer">
+              Yes. If you'd like to make simple updates (like changing text or images, uploading blog posts, etc.), I can connect a lightweight content management system (CMS). It works a bit like a WordPress dashboard but without the clutter — letting you edit content safely through a simple interface. For advanced edits, I'm always available to help.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-accordion hidden" data-category="technical">
+          <h3 class="faq-accordion__question">
+            <button aria-expanded="false">
+              <span data-i18n="faq.categories.technical.q3.question">Do you provide hosting or maintenance?</span>
+              <svg class="faq-accordion__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </h3>
+          <div class="faq-accordion__answer" aria-hidden="true">
+            <p data-i18n="faq.categories.technical.q3.answer">
+              Yes — I handle domain registration and hosting setup for you. Domains are billed annually, and hosting can be billed monthly or yearly, depending on your preference. Ongoing maintenance (such as updates, performance monitoring, backups) is optional, and can be added anytime.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-accordion hidden" data-category="technical">
+          <h3 class="faq-accordion__question">
+            <button aria-expanded="false">
+              <span data-i18n="faq.categories.technical.q4.question">How do you keep websites fast and reliable?</span>
+              <svg class="faq-accordion__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </h3>
+          <div class="faq-accordion__answer" aria-hidden="true">
+            <p data-i18n="faq.categories.technical.q4.answer">
+              Each site is built to be responsive, fast-loading, and accessible across devices. I focus on clean, efficient code and modern best practices — so your website performs smoothly for years to come.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact" aria-labelledby="contact-title">
+    <div class="contact__container">
+      <h2 id="contact-title" class="contact__title section-title" data-i18n="contact.title">
+        Let's Build Something Great Together
+      </h2>
+      <h3 class="contact__subtitle" data-i18n="contact.subtitle">Ready to discuss your project?</h3>
+
+      <div class="contact__content">
+        <div class="contact__approach">
+          <p class="contact__description" data-i18n="contact.description">
+            If you're looking for a reliable developer to create or improve your website, I'd be happy to learn more about your project.
+          </p>
+
+          <div class="contact__expectations">
+            <h4 data-i18n="contact.expectations.title">What to Expect:</h4>
+            <ul>
+              <li data-i18n="contact.expectations.list1"><strong>Initial discussion</strong>: Understanding your needs and goals</li>
+              <li data-i18n="contact.expectations.list2"><strong>Clear project outline</strong>: Detailed scope, timeline, and pricing</li>
+              <li data-i18n="contact.expectations.list3"><strong>Collaborative process</strong>: Regular updates and feedback throughout development</li>
+            </ul>
+          </div>
+        </div>
+
+        <form
+          class="contact__form"
+          action="/contact-handler.php"
+          method="POST"
+          name="contact"
+          data-contact-form
+          aria-labelledby="contact-title"
+        >
+
+          <!-- Hidden field for site identification in email notifications -->
+          <input type="hidden" name="site" value="weavewebdesign.com" />
+
+          <div class="contact__form-grid">
+            <div class="form-group">
+              <label for="name" class="form-label" data-i18n="contact.form.fields.name.label"
+                >Name
+                <span class="required" aria-label="required">*</span></label
+              >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="form-input"
+                required
+                aria-required="true"
+                aria-describedby="name-error"
+                autocomplete="name"
+                data-i18n-placeholder="contact.form.fields.name.placeholder"
+              />
+              <span
+                id="name-error"
+                class="form-error"
+                role="alert"
+                aria-live="polite"
+              ></span>
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label" data-i18n="contact.form.fields.email.label"
+                >Email
+                <span class="required" aria-label="required">*</span></label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-input"
+                required
+                aria-required="true"
+                aria-describedby="email-error"
+                autocomplete="email"
+                data-i18n-placeholder="contact.form.fields.email.placeholder"
+              />
+              <span
+                id="email-error"
+                class="form-error"
+                role="alert"
+                aria-live="polite"
+              ></span>
+            </div>
+          </div>
+
+          <div class="form-group form-group--full">
+            <label for="project-type" class="form-label" data-i18n="contact.form.fields.projectType.label"
+              >Project Type
+              <span class="required" aria-label="required">*</span></label
+            >
+            <select
+              id="project-type"
+              name="project-type"
+              class="form-select"
+              required
+              aria-required="true"
+              aria-describedby="project-type-error"
+            >
+              <option value="" data-i18n="contact.form.fields.projectType.options.0">Select a project type</option>
+              <option value="website" data-i18n="contact.form.fields.projectType.options.1">New Website</option>
+              <option value="redesign" data-i18n="contact.form.fields.projectType.options.2">Website Redesign</option>
+              <option value="ecommerce" data-i18n="contact.form.fields.projectType.options.3">E-commerce Store</option>
+              <option value="maintenance" data-i18n="contact.form.fields.projectType.options.4">Maintenance & Support</option>
+              <option value="other" data-i18n="contact.form.fields.projectType.options.5">Other</option>
+            </select>
+            <span
+              id="project-type-error"
+              class="form-error"
+              role="alert"
+              aria-live="polite"
+            ></span>
+          </div>
+
+          <div class="form-group form-group--full">
+            <label for="message" class="form-label" data-i18n="contact.form.fields.message.label"
+              >Message
+              <span class="required" aria-label="required">*</span></label
+            >
+            <textarea
+              id="message"
+              name="message"
+              class="form-textarea"
+              rows="5"
+              required
+              aria-required="true"
+              aria-describedby="message-error"
+              autocomplete="off"
+              data-i18n-placeholder="contact.form.fields.message.placeholder"
+            ></textarea>
+            <span
+              id="message-error"
+              class="form-error"
+              role="alert"
+              aria-live="polite"
+            ></span>
+          </div>
+
+          <div class="contact__bot-field" hidden>
+            <label for="bot-field">Don't fill this out if you're human</label>
+            <input id="bot-field" name="bot-field" />
+          </div>
+
+          <button type="submit" class="btn btn--primary contact__submit">
+            <span class="btn__text" data-i18n="contact.form.submit">Send Message</span>
+            <span class="btn__spinner" aria-hidden="true"></span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+<!-- Footer is now in base.html layout -->
+
+
+<svg class="sr-only" aria-hidden="true">
+  <defs>
+    <symbol id="icon-sun" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="5" />
+      <line x1="12" y1="1" x2="12" y2="3" />
+      <line x1="12" y1="21" x2="12" y2="23" />
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+      <line x1="1" y1="12" x2="3" y2="12" />
+      <line x1="21" y1="12" x2="23" y2="12" />
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+    </symbol>
+
+    <symbol id="icon-moon" viewBox="0 0 24 24">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+    </symbol>
+
+    <symbol id="icon-arrow-down" viewBox="0 0 24 24">
+      <path 
+        d="M12,0C5.383,0,0,5.383,0,12s5.383,12,12,12,12-5.383,12-12S18.617,0,12,0Zm0,23c-6.065,0-11-4.935-11-11S5.935,1,12,1s11,4.935,11,11-4.935,11-11,11Z"/><path d="M16.649,11.119l-2.882,2.831c-.188,.188-.475,.448-.774,.715-.566,.502-1.42,.502-1.986,0-.3-.267-.587-.527-.777-.718l-2.879-2.828c-.197-.193-.514-.191-.707,.006s-.191,.514,.006,.707l2.876,2.825c.197,.197,.5,.474,.817,.756,.473,.419,1.064,.628,1.657,.628s1.185-.209,1.657-.628c.317-.282,.62-.559,.814-.753l2.879-2.828c.197-.193,.199-.51,.006-.707-.193-.196-.509-.199-.707-.006Z"      />
+    </symbol>
+
+    <symbol id="icon-web-design" viewBox="0 0 24 24">
+      <path
+        d="M12 2L2 7v10c0 5.55 3.84 9.739 9 11 5.16-1.261 9-5.45 9-11V7l-10-5z"
+      />
+    </symbol>
+
+    <symbol id="icon-web-development" viewBox="0 0 24 24">
+      <rect x="2" y="3" width="20" height="14" rx="2" />
+      <line x1="8" y1="21" x2="16" y2="21" />
+      <line x1="12" y1="17" x2="12" y2="21" />
+    </symbol>
+
+    <symbol id="icon-ecommerce" viewBox="0 0 24 24">
+      <circle cx="9" cy="12" r="1" />
+      <circle cx="15" cy="12" r="1" />
+      <path
+        d="M21 5H3a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1z"
+      />
+      <path d="M3 10v8a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-8" />
+    </symbol>
+
+    <symbol id="icon-maintenance" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="3" />
+      <path
+        d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
+      />
+    </symbol>
+  </defs>
+</svg>

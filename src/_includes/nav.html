@@ -1,0 +1,122 @@
+<!-- Navigation Component - Modern Sticky Header -->
+<header class="header" role="banner">
+  <nav class="nav" aria-label="Main navigation" data-component="nav">
+    <div class="nav__container">
+      <!-- Logo -->
+      <a href="/#" class="nav__logo" aria-label="Weave Studio home">
+        <img src="/assets/images/logo.svg" alt="Weave Studio" class="nav__logo-image" />
+        <span class="nav__logo-text">
+          <span class="nav__logo-text-primary" data-i18n="nav.logoWeave">Weave</span><span class="nav__logo-text-accent" data-i18n="nav.logoStudio">Studio</span>
+        </span>
+      </a>
+
+      <!-- Desktop & Tablet Navigation Menu -->
+      <ul class="nav__menu" role="menu">
+        <li class="nav__item" role="none">
+          <a href="/#services" class="nav__link" role="menuitem" data-i18n="nav.services">Services</a>
+        </li>
+        <li class="nav__item" role="none">
+          <a href="/#portfolio" class="nav__link" role="menuitem" data-i18n="nav.portfolio">Portfolio</a>
+        </li>
+        <!-- BLOG NAV LINK - Commented out until blog content is ready
+        <li class="nav__item" role="none">
+          <a href="/#blog" class="nav__link" role="menuitem" data-i18n="nav.blog">Blog</a>
+        </li>
+        -->
+        <li class="nav__item" role="none">
+          <a href="/#about" class="nav__link" role="menuitem" data-i18n="nav.about">About</a>
+        </li>
+        <li class="nav__item" role="none">
+          <a href="/#faq" class="nav__link" role="menuitem" data-i18n="nav.faq">FAQ</a>
+        </li>
+        <li class="nav__item" role="none">
+          <a href="/#contact" class="nav__link nav__link--cta" role="menuitem" data-i18n="nav.contact">Get Started</a>
+        </li>
+      </ul>
+
+      <!-- Mobile Navigation Menu Overlay -->
+      <ul class="nav__menu--mobile" role="menu" aria-labelledby="nav-menu" id="nav-menu">
+        <li class="nav__item" role="none">
+          <a href="/#services" class="nav__link" role="menuitem" data-i18n="nav.services">Services</a>
+        </li>
+        <li class="nav__item" role="none">
+          <a href="/#portfolio" class="nav__link" role="menuitem" data-i18n="nav.portfolio">Portfolio</a>
+        </li>
+        <!-- BLOG NAV LINK - Commented out until blog content is ready
+        <li class="nav__item" role="none">
+          <a href="/#blog" class="nav__link" role="menuitem" data-i18n="nav.blog">Blog</a>
+        </li>
+        -->
+        <li class="nav__item" role="none">
+          <a href="/#about" class="nav__link" role="menuitem" data-i18n="nav.about">About</a>
+        </li>
+        <li class="nav__item" role="none">
+          <a href="/#faq" class="nav__link" role="menuitem" data-i18n="nav.faq">FAQ</a>
+        </li>
+        <li class="nav__item" role="none">
+          <a href="/#contact" class="nav__link nav__link--cta" role="menuitem" data-i18n="nav.contact">Get Started</a>
+        </li>
+      </ul>
+
+      <!-- Action Buttons -->
+      <div class="nav__actions">
+        <!-- Theme Toggle Button -->
+        <button
+          class="nav__theme-toggle"
+          type="button"
+          aria-label="Toggle theme"
+          data-theme-toggle
+        >
+          <span class="sr-only">Toggle between light and dark theme</span>
+          <svg
+            class="nav__theme-icon nav__theme-icon--light"
+            focusable="false"
+            aria-hidden="true"
+            width="20"
+            height="20"
+          >
+            <use href="#icon-sun"></use>
+          </svg>
+          <svg
+            class="nav__theme-icon nav__theme-icon--dark"
+            focusable="false"
+            aria-hidden="true"
+            width="20"
+            height="20"
+          >
+            <use href="#icon-moon"></use>
+          </svg>
+        </button>
+
+        <!-- Language Toggle Button - Pill Badge -->
+        <button
+          class="nav__language-toggle"
+          type="button"
+          aria-label="Switch language to Hebrew"
+          data-language-toggle
+        >
+          <span class="sr-only">Switch website language</span>
+          <span class="nav__language-pill">
+            <span class="nav__language-option" data-lang-current lang="en">EN</span>
+            <span class="nav__language-divider">|</span>
+            <span class="nav__language-option nav__language-option--next" data-lang-next lang="he">עב</span>
+            <span class="nav__language-indicator"></span>
+          </span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button
+          class="nav__mobile-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+          aria-label="Toggle navigation menu"
+          data-mobile-toggle
+        >
+          <span class="sr-only">Toggle navigation menu</span>
+          <span class="nav__hamburger" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,81 @@
+---
+layout: layouts/base.html
+title: Blog - Weave Studio
+description: Latest insights and guidance on web development, design, and performance optimization.
+language: en
+pageClass: page-blog-listing
+---
+
+<main id="main-content" class="main" role="main">
+  <section class="blog-listing" aria-labelledby="blog-listing-title">
+  <div class="blog-listing__container">
+    <header class="blog-listing__header">
+      <h1 id="blog-listing-title" class="blog-listing__title section-title" data-i18n="blog.listingTitle">
+        Blog
+      </h1>
+      <p class="blog-listing__description" data-i18n="blog.listingDescription">
+        Helpful insights and honest guidance on web development, design, and performance.
+      </p>
+    </header>
+
+    <div class="blog-listing__content">
+      {% if collections.blog %}
+        <div class="blog-listing__grid" role="list">
+          {% for post in collections.blog %}
+            <article class="blog-card" role="listitem" data-lang="{{ post.data.language }}">
+              {% if post.data.featured_image %}
+                <div class="blog-card__image" aria-hidden="true">
+                  <img
+                    src="{{ post.data.featured_image }}"
+                    alt="{{ post.data.title }}"
+                    loading="lazy"
+                  />
+                </div>
+              {% endif %}
+
+              <div class="blog-card__content">
+                <div class="blog-card__meta">
+                  <time datetime="{{ post.date | dateIso }}">
+                    {{ post.date | readableDate }}
+                  </time>
+                  {% if post.data.category %}
+                    <span class="blog-card__category" data-i18n="{{ post.data.category | translateCategory }}">{{ post.data.category }}</span>
+                  {% endif %}
+                </div>
+
+                <h2 class="blog-card__title">
+                  <a href="{{ post.url }}">
+                    {{ post.data.title }}
+                  </a>
+                </h2>
+
+                {% if post.data.description %}
+                  <p class="blog-card__excerpt">{{ post.data.description }}</p>
+                {% endif %}
+
+                <div class="blog-card__footer">
+                  <a href="{{ post.url }}" class="blog-card__read-more">
+                    Read More →
+                  </a>
+                  <span class="blog-card__reading-time">
+                    {{ post.templateContent | readingTime }} <span data-i18n="blog.readTimeLabel">min read</span>
+                  </span>
+                </div>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+
+        <!-- Pagination structure (ready for when needed) -->
+        <nav class="blog-listing__pagination" aria-label="Blog pagination">
+          <!-- Pagination will be added when there are more than 10 posts -->
+        </nav>
+      {% else %}
+        <div class="blog-listing__empty">
+          <p data-i18n="blog.emptyMessage">No blog posts yet. Check back soon for the latest insights!</p>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  </section>
+</main>

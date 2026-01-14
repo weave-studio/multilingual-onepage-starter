@@ -1,0 +1,53 @@
+---
+layout: layouts/base.html
+pageClass: page-blog-post
+---
+
+<main id="main-content" class="main" role="main">
+  <article class="post" itemscope itemtype="https://schema.org/BlogPosting" data-post-lang="{{ language }}" data-post-url="{{ page.url }}">
+  <header class="post__header">
+    <div class="post__meta">
+      <time
+        class="post__date"
+        datetime="{{ date | dateIso }}"
+        itemprop="datePublished"
+      >
+        {{ date | readableDate }}
+      </time>
+      <span class="post__reading-time">
+        {{ content | readingTime }} <span data-i18n="blog.readTimeLabel">min read</span>
+      </span>
+      {% if category %}
+        <span class="post__category">{{ category }}</span>
+      {% endif %}
+    </div>
+
+    <h1 class="post__title" itemprop="headline">{{ title }}</h1>
+
+    {% if description %}
+      <p class="post__description">{{ description }}</p>
+    {% endif %}
+  </header>
+
+  {% if featured_image %}
+    <div class="post__featured-image">
+      <img
+        src="{{ featured_image }}"
+        alt="{{ title }}"
+        itemprop="image"
+        loading="lazy"
+      />
+    </div>
+  {% endif %}
+
+  <div class="post__content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  <footer class="post__footer">
+    <div class="post__back-link">
+      <a href="/blog/" class="btn btn--secondary" data-i18n="blog.backToBlog">← Back to Blog</a>
+    </div>
+  </footer>
+  </article>
+</main>

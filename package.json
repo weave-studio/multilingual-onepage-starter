@@ -1,0 +1,57 @@
+{
+  "name": "multilingual-onepage-starter",
+  "version": "0.1.0",
+  "description": "Professional Eleventy starter template with unlimited multilingual support, SCSS, dark mode, RTL, and AI-assisted development",
+  "main": "index.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy",
+    "preview": "eleventy --serve --host",
+    "serve": "npm run build && npm run preview",
+    "eleventy": "eleventy",
+    "lint": "eslint src --ext .js,.mjs",
+    "lint:fix": "eslint src --ext .js,.mjs --fix",
+    "format": "prettier --write \"src/**/*.{js,mjs,json,html,njk,md,css,scss}\"",
+    "format:check": "prettier --check \"src/**/*.{js,mjs,json,html,njk,md,css,scss}\"",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@axe-core/cli": "^4.11.0",
+    "concurrently": "^8.2.1",
+    "eslint": "^8.48.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.3",
+    "vite": "^4.4.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YOUR-USERNAME/multilingual-onepage-starter.git"
+  },
+  "keywords": [
+    "eleventy",
+    "starter-template",
+    "multilingual",
+    "i18n",
+    "rtl",
+    "accessibility",
+    "scss",
+    "dark-mode",
+    "vite",
+    "ai-development"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YOUR-USERNAME/multilingual-onepage-starter/issues"
+  },
+  "homepage": "https://github.com/YOUR-USERNAME/multilingual-onepage-starter#readme",
+  "dependencies": {
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
+    "@11ty/eleventy-plugin-vite": "^7.0.0"
+  }
+}
