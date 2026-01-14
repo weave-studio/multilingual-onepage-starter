@@ -1,0 +1,43 @@
+# Session tracking files (personal, not part of template)
+progress.md
+activeContext.md
+
+# Planning documents (keep for reference but optional)
+TEMPLATE_EXTRACTION_PLAN.md
+TEMPLATE_CONVERSATION_REFERENCE.md
+IMPLEMENTATION_PLAN.md
+
+# Eleventy
+dist/
+_site/
+.eleventy-cache/
+
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Build artifacts
+*.css.map
+*.js.map
+
+# Temporary files
+*.tmp
+.cache/
