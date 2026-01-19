@@ -1,0 +1,270 @@
+// ==========================================================================
+// HERO SECTION COMPONENT
+// Homepage hero with gradient background, title, description, and CTA
+// ==========================================================================
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+/* === HERO SECTION === */
+.hero {
+  /* Use svh (small viewport height) - prevents stutter during iOS address bar transitions */
+  min-height: 100vh; /* Fallback for older browsers */
+  min-height: 100svh; /* Modern browsers - static height, no reflow during address bar animation */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: $space-16;
+  background: linear-gradient(
+    135deg,
+    var(--theme-hero-gradient-start) 0%,
+    var(--theme-hero-gradient-end) 100%
+  );
+  position: relative;
+  overflow: hidden;
+
+  /* Mobile: Ensure hero fits in visible viewport */
+  @media (max-width: 767px) {
+    min-height: 100vh; /* Fallback for older browsers */
+    min-height: 100svh; /* Small viewport - prevents layout shifts when address bar hides/shows */
+    padding-top: $space-16;
+    padding-bottom: $space-12;
+  }
+
+  /* Animated gradient overlay for hero section */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      45deg,
+      transparent 0%,
+      rgba(14, 165, 233, 0.08) 25%,
+      rgba(201, 130, 107, 0.08) 50%,
+      rgba(14, 165, 233, 0.08) 75%,
+      transparent 100%
+    );
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Floating orb background effect */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 5%;
+    right: -5%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(
+      circle at center,
+      rgba(14, 165, 233, 0.25) 0%,
+      transparent 70%
+    );
+    border-radius: 50%;
+    animation: float-orb 20s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+
+    /* Responsive sizing for mobile */
+    @include md {
+      width: 300px;
+      height: 300px;
+      top: 20%;
+    }
+  }
+
+  /* RTL positioning - orb on left side in Hebrew */
+  [dir="rtl"] &::after {
+    right: auto;
+    left: -5%;
+    animation: float-orb-rtl 20s ease-in-out infinite;
+  }
+
+  /* Respect user preference for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    &::before {
+      animation: none;
+      background-position: 0% 50%;
+    }
+
+    &::after {
+      animation: none;
+      transform: translate(0, 0) scale(1);
+    }
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes float-orb {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-100px, 50px) scale(1.1);
+  }
+  66% {
+    transform: translate(50px, -80px) scale(0.9);
+  }
+}
+
+/* RTL animation adjustment */
+@keyframes float-orb-rtl {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(100px, 50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-50px, -80px) scale(0.9);
+  }
+}
+
+.hero__container {
+  max-width: $container-7xl;
+  margin: 0 auto;
+  padding: $space-8 $space-4;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-12;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+
+  @include lg {
+    grid-template-columns: 2fr 1fr;
+    padding: $space-24 $space-16 $space-16;
+  }
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: $space-16;
+}
+
+.hero__title {
+  text-align: center;
+  font-size: clamp($font-size-4xl, 8vw, $font-size-7xl);
+  font-weight: $font-weight-black;
+  line-height: $line-height-tight;
+  margin-bottom: $space-6;
+  color: var(--color-neutral-900);
+}
+
+.hero__title-line {
+  display: block;
+}
+
+.hero__title-animated {
+  --gradient: linear-gradient(
+    135deg,
+    $color-primary-600,
+    $color-primary-500
+  );
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: $color-primary-600; // Fallback if background-clip not supported
+  display: block; /* Force new line and prevent inline with previous text */
+  position: relative;
+  min-height: 1.2em; /* Reserve space to prevent layout shift when text loads */
+  opacity: 1; // Ensure visible by default (JS will animate opacity)
+
+  /* Ensure animated text doesn't cause layout shift when empty */
+  &:empty::before {
+    content: 'loading'; /* Placeholder text that matches typical word length */
+    visibility: hidden;
+  }
+}
+
+.hero__description {
+  text-align: center;
+  font-size: $font-size-xl;
+  line-height: $line-height-relaxed;
+  color: var(--color-neutral-600);
+  margin-bottom: $space-8;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-4;
+
+  /* Very small screens: Reduce button size to keep them inline */
+  @media (max-width: 340px) {
+    gap: $space-2;
+
+    .btn {
+      padding: $space-2 $space-4;
+      font-size: $font-size-sm;
+    }
+  }
+
+  @include md {
+    align-self: flex-end;
+  }
+}
+
+// Hero scroll hint animation
+.hero__scroll-hint {
+  position: absolute;
+  bottom: $space-8;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  text-decoration: none;
+
+  svg {
+    width: 64px;
+    animation: bounce 2.5s infinite;
+    color: var(--color-neutral-600);
+  }
+
+  // RTL: Flip scroll hint direction
+  [dir='rtl'] & svg {
+    transform: scaleX(-1);
+  }
+}
+
+// === ROTATING TEXT ANIMATION ===
+@keyframes rotate-text {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+// Rotating text smooth transition state
+.hero__title-animated.rotate-text {
+  opacity: 1;
+}
+
+// Bounce animation for scroll hint
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}

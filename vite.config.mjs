@@ -64,6 +64,10 @@ export default defineConfig({
   css: {
     devSourcemap: true,
     preprocessorOptions: {
+      scss: {
+        charset: false,
+        additionalData: `@use "sass:math";`
+      },
       css: {
         charset: false
       }

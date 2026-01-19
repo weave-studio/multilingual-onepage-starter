@@ -1,0 +1,230 @@
+// ==========================================================================
+// BUTTONS COMPONENT
+// All button styles including variants, states, and animations
+// ==========================================================================
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+/* === BUTTONS === */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  padding: $space-3 $space-6;
+  border-radius: $border-radius-md;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-base;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all $transition-fast;
+  position: relative;
+  overflow: hidden;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  // === PRIMARY BUTTON ===
+  &--primary {
+    background: linear-gradient(
+      135deg,
+      var(--theme-accent-terracotta) 0%,
+      var(--theme-accent-terracotta-hover) 100%
+    );
+    color: var(--color-neutral-700);
+    box-shadow:
+      0 4px 14px 0 rgba(201, 130, 107, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Shimmer effect on hover */
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+      );
+      transition: left 0.5s ease;
+      pointer-events: none;
+    }
+
+    &:hover::before {
+      left: 100%;
+    }
+
+    /* Ripple effect on click */
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      transform: translate(-50%, -50%);
+      transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &:active::after {
+      width: 300px;
+      height: 300px;
+      opacity: 0;
+      transition: width 0s, height 0s, opacity 0.5s ease;
+    }
+
+    &:hover,
+    &:focus {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow:
+        0 6px 16px 0 rgba(201, 130, 107, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      background: linear-gradient(
+        135deg,
+        var(--theme-accent-terracotta-hover) 0%,
+        var(--theme-accent-terracotta) 100%
+      );
+    }
+
+    &:active {
+      transform: translateY(-1px) scale(1.02);
+      box-shadow:
+        0 4px 12px 0 rgba(201, 130, 107, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    /* Respect reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      &::before,
+      &::after {
+        display: none;
+      }
+
+      &:hover,
+      &:focus {
+        transform: none;
+      }
+
+      &:active {
+        transform: none;
+      }
+    }
+  }
+
+  // === SECONDARY BUTTON ===
+  &--secondary {
+    background: transparent;
+    color: $color-primary-600;
+    border: 1px solid $color-primary-600;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+
+    /* Shimmer effect for secondary buttons */
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(14, 165, 233, 0.2),
+        transparent
+      );
+      transition: left 0.5s ease;
+      pointer-events: none;
+    }
+
+    &:hover::before {
+      left: 100%;
+    }
+
+    &:hover,
+    &:focus {
+      background: $color-primary-50;
+      border-color: $color-primary-700;
+      color: $color-primary-700;
+      transform: translateY(-2px) scale(1.02);
+      box-shadow:
+        0 4px 12px 0 rgba(14, 165, 233, 0.2),
+        inset 0 1px 0 rgba(14, 165, 233, 0.1);
+    }
+
+    &:active {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 2px 6px 0 rgba(14, 165, 233, 0.15);
+    }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      &::before {
+        display: none;
+      }
+
+      &:hover,
+      &:focus {
+        transform: none;
+      }
+
+      &:active {
+        transform: none;
+      }
+    }
+  }
+
+  // === LOADING STATE ===
+  &--loading {
+    pointer-events: none;
+  }
+
+  // === BUTTON SPINNER ===
+  &__spinner {
+    display: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spinner 0.6s linear infinite;
+  }
+
+  // === BUTTON TEXT ===
+  &__text {
+    transition: opacity $transition-fast;
+  }
+}
+
+/* Spinner animation */
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Honeypot field - hidden from users but accessible to bots */
+.contact__bot-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

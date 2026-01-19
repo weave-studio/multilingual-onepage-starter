@@ -7,14 +7,11 @@
     "node": ">=18.0.0"
   },
   "scripts": {
-    "dev": "concurrently \"npm:scss:watch\" \"npm:eleventy:dev\"",
-    "build": "npm run scss:build && eleventy",
+    "dev": "eleventy --serve",
+    "build": "eleventy",
     "preview": "eleventy --serve --host",
     "serve": "npm run build && npm run preview",
-    "scss:build": "sass src/assets/scss/main.scss:src/assets/css/main.css --no-source-map",
-    "scss:watch": "sass src/assets/scss/main.scss:src/assets/css/main.css --watch --no-source-map",
     "eleventy": "eleventy",
-    "eleventy:dev": "eleventy --serve",
     "lint": "eslint src --ext .js,.mjs",
     "lint:fix": "eslint src --ext .js,.mjs --fix",
     "format": "prettier --write \"src/**/*.{js,mjs,json,html,njk,md,css,scss}\"",

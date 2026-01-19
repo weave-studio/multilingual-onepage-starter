@@ -1,4 +1,7 @@
 // Weave Studio - Main JavaScript
+// Import SCSS styles
+import '../scss/main.scss'
+
 import { initTheme } from './theme.js'
 import { initNavigation } from './navigation.js'
 import { initNavbarScroll } from './scroll-behavior.js'

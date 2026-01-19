@@ -1,0 +1,85 @@
+// ==========================================================================
+// BACK-TO-TOP BUTTON COMPONENT
+// Fixed button that appears on scroll to return to page top
+// ==========================================================================
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.back-to-top {
+  position: fixed;
+  bottom: $space-6;
+  inset-inline-end: $space-6;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $theme-accent-terracotta;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: $z-index-fixed;
+  box-shadow: $shadow-lg;
+  transition: all $transition-normal;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+
+  &:hover {
+    background: $theme-accent-terracotta-hover;
+    transform: translateY(0) scale(1.1);
+    box-shadow: $shadow-xl;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary-500;
+    outline-offset: 2px;
+  }
+
+  // Show button when visible
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  // Back-to-top icon
+  svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+    pointer-events: none;
+  }
+
+  // Mobile responsive
+  @media (max-width: 640px) {
+    width: 40px;
+    height: 40px;
+    bottom: $space-4;
+    inset-inline-end: $space-4;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+// === REDUCE MOTION SUPPORT ===
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+
+    &.visible {
+      transform: none;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+// ==========================================================================
+// RTL SUPPORT - LOGICAL PROPERTIES
+// RTL-aware utilities for margin, padding, and text alignment
+// ==========================================================================
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// ==========================================================================
+// RTL-AWARE MARGIN UTILITIES
+// ==========================================================================
+
+.margin-inline-start {
+  margin-inline-start: $space-4;
+}
+
+.margin-inline-end {
+  margin-inline-end: $space-4;
+}
+
+// ==========================================================================
+// RTL-AWARE PADDING UTILITIES
+// ==========================================================================
+
+.padding-inline-start {
+  padding-inline-start: $space-4;
+}
+
+.padding-inline-end {
+  padding-inline-end: $space-4;
+}
+
+// ==========================================================================
+// RTL-AWARE TEXT ALIGNMENT
+// ==========================================================================
+
+.text-start {
+  text-align: start;
+}
+
+.text-end {
+  text-align: end;
+}
+
+// ==========================================================================
+// ACCESSIBILITY UTILITIES
+// ==========================================================================
+
+// Screen reader only - hide visually but keep accessible
+.sr-only {
+  @include sr-only;
+}

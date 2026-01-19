@@ -1,0 +1,107 @@
+// ==========================================================================
+// GRID SYSTEM
+// Layout utilities and grid helpers
+// ==========================================================================
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// === CONTAINER UTILITIES ===
+.container {
+  @include container;
+
+  &--narrow {
+    @include container-narrow;
+  }
+
+  &--wide {
+    @include container-wide;
+  }
+}
+
+// === GRID UTILITIES ===
+.grid {
+  display: grid;
+  gap: $space-6;
+
+  &--2 {
+    grid-template-columns: repeat(1, 1fr);
+
+    @include md {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &--3 {
+    grid-template-columns: repeat(1, 1fr);
+
+    @include md {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include lg {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &--4 {
+    grid-template-columns: repeat(1, 1fr);
+
+    @include sm {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include lg {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &--gap-sm {
+    gap: $space-4;
+  }
+
+  &--gap-lg {
+    gap: $space-8;
+  }
+
+  &--gap-xl {
+    gap: $space-12;
+  }
+}
+
+// === FLEX UTILITIES ===
+.flex {
+  display: flex;
+
+  &--center {
+    @include flex-center;
+  }
+
+  &--between {
+    @include flex-between;
+  }
+
+  &--start {
+    @include flex-start;
+  }
+
+  &--column {
+    @include flex-column;
+  }
+
+  &--wrap {
+    flex-wrap: wrap;
+  }
+
+  &--gap-sm {
+    gap: $space-2;
+  }
+
+  &--gap-md {
+    gap: $space-4;
+  }
+
+  &--gap-lg {
+    gap: $space-6;
+  }
+}

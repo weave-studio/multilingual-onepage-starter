@@ -1,0 +1,255 @@
+// ==========================================================================
+// FAQ ACCORDION COMPONENT
+// Interactive accordion for FAQ section with expand/collapse functionality
+// ==========================================================================
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// === FAQ FILTERS ===
+.faq__filters {
+  display: flex;
+  justify-content: center;
+  gap: $space-3;
+  margin-bottom: $space-12;
+  flex-wrap: wrap;
+
+  @include md {
+    gap: $space-4;
+  }
+}
+
+// FAQ filter button styles
+.faq-filter {
+  background: transparent;
+  border: 2px solid $color-neutral-300;
+  color: var(--color-neutral-700);
+  padding: $space-3 $space-8; // 0.75rem 2rem
+  border-radius: $border-radius-full;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  transition:
+    background-color $transition-fast,
+    border-color $transition-fast,
+    color $transition-fast,
+    transform $transition-fast;
+
+  &:hover {
+    border-color: $color-primary-500;
+    color: $color-primary-600;
+    transform: translateY(-2px);
+  }
+
+  &:focus {
+    outline: 2px solid $color-primary-500;
+    outline-offset: 2px;
+  }
+
+  // Active state
+  &--active {
+    background: $color-primary-600;
+    border-color: $color-primary-600;
+    color: white;
+
+    &:hover {
+      background: $color-primary-500;
+      border-color: $color-primary-500;
+      color: white;
+    }
+  }
+}
+
+.faq__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-6;
+  margin-bottom: $space-12;
+
+  .faq-accordion {
+    transition: opacity $transition-normal, transform $transition-normal;
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  @include md {
+    gap: $space-8;
+  }
+}
+
+// === FAQ ACCORDION COMPONENT ===
+.faq-accordion {
+  background: var(--color-neutral-50);
+  border: 1px solid $color-neutral-200;
+  border-radius: $border-radius-2xl;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+}
+
+// === QUESTION BUTTON STYLING ===
+.faq-accordion__question {
+  margin: 0;
+
+  button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-4;
+    padding: $space-6;
+    background: none;
+    border: none;
+    color: var(--theme-text-primary);
+    font-family: $font-family-heading;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-snug;
+    text-align: start;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s ease, background-color 0.2s ease;
+
+    // Gradient accent bar on expanded state
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(
+        180deg,
+        $color-primary-500,
+        var(--theme-accent-terracotta)
+      );
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 0 $border-radius-sm $border-radius-sm 0;
+
+      // RTL positioning
+      [dir="rtl"] & {
+        left: auto;
+        right: 0;
+        border-radius: $border-radius-sm 0 0 $border-radius-sm;
+      }
+    }
+
+    // Show accent bar when expanded
+    &[aria-expanded="true"] {
+      background: rgba(14, 165, 233, 0.05);
+
+      &::before {
+        transform: scaleY(1);
+      }
+
+      .faq-accordion__icon {
+        transform: rotate(45deg);
+
+        // RTL: Icon should rotate in opposite direction
+        [dir="rtl"] & {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+
+    &:hover {
+      color: $color-primary-600;
+      background-color: var(--color-neutral-100);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-primary-500;
+      outline-offset: -2px;
+    }
+
+    // RTL support
+    [dir="rtl"] & {
+      text-align: end;
+    }
+
+    @media (max-width: 768px) {
+      font-size: $font-size-lg;
+      padding: $space-5;
+    }
+  }
+}
+
+// === ICON STYLING AND ROTATION ===
+.faq-accordion__icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: var(--theme-text-secondary);
+  transition: transform 0.3s ease;
+
+  @media (max-width: 768px) {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+// === ANSWER CONTENT ===
+.faq-accordion__answer {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease, opacity 0.2s ease;
+  opacity: 0;
+
+  &[aria-hidden="false"] {
+    max-height: 50rem;
+    opacity: 1;
+  }
+
+  p {
+    margin: 0;
+    padding: $space-6;
+    color: var(--color-neutral-700);
+    font-size: $font-size-lg;
+    line-height: $line-height-relaxed;
+
+    @media (max-width: 768px) {
+      font-size: $font-size-base;
+      padding: $space-5;
+    }
+  }
+}
+
+// === REDUCED MOTION SUPPORT ===
+@media (prefers-reduced-motion: reduce) {
+  .faq-accordion,
+  .faq-accordion__answer,
+  .faq-accordion__icon,
+  .faq-accordion__question button {
+    transition: none;
+  }
+
+  .faq-accordion__question button {
+    &[aria-expanded="true"] .faq-accordion__icon {
+      transform: none;
+    }
+
+    // Instant reveal for gradient accent bar
+    &::before {
+      transition: opacity 0.2s ease;
+      transform: scaleY(1);
+      opacity: 0;
+    }
+
+    &[aria-expanded="true"]::before {
+      opacity: 1;
+    }
+  }
+}
+
+// === FAQ CTA BUTTON ===
+.faq__cta {
+  text-align: center;
+  margin-top: $space-12;
+}

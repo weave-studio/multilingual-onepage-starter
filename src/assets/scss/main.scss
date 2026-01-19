@@ -1,0 +1,139 @@
+@charset "UTF-8";
+
+// ==========================================================================
+// MAIN SCSS ENTRY POINT
+// Multilingual One-Page Starter Template
+// Professional Web Development Framework
+// ==========================================================================
+
+// === CONFIGURATION ===
+// Variables and mixins must be imported first (but don't emit CSS)
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// === BASE STYLES ===
+// Foundation styles that apply globally
+@forward 'base/reset';
+@forward 'base/custom-properties';
+@forward 'base/typography';
+@forward 'base/utilities';
+
+// === LAYOUT ===
+// Layout patterns and grid systems
+@forward 'layout/grid';
+@forward 'layout/sections';
+
+// === COMPONENTS ===
+// Reusable UI components
+@forward 'components/navigation';
+@forward 'components/hero';
+@forward 'components/buttons';
+@forward 'components/forms';
+@forward 'components/cards';
+@forward 'components/accordion';
+@forward 'components/sections';
+@forward 'components/footer';
+@forward 'components/back-to-top';
+
+// === THEMES ===
+// Theme variations (dark mode, RTL)
+@forward 'themes/dark-mode';
+@forward 'themes/rtl';
+
+// === UTILITIES & HELPERS ===
+// Additional utility styles
+
+// Animations and keyframes
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// === PRINT STYLES ===
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  // Hide non-essential elements when printing
+  .nav,
+  .footer,
+  .back-to-top {
+    display: none !important;
+  }
+}

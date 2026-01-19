@@ -1,0 +1,51 @@
+// ==========================================================================
+// CSS CUSTOM PROPERTIES
+// Define theme variables that can change at runtime for dark mode
+// ==========================================================================
+
+@use '../variables' as *;
+
+:root {
+  // Hero gradients
+  --theme-hero-gradient-start: #{$theme-hero-gradient-start};
+  --theme-hero-gradient-end: #{$theme-hero-gradient-end};
+
+  // Section backgrounds
+  --theme-bg-welcome-about: #{$theme-bg-welcome-about};
+  --theme-bg-services: #{$theme-bg-services};
+  --theme-bg-faq: #{$theme-bg-faq};
+  --theme-bg-contact: #{$theme-bg-contact};
+
+  // Accent colors
+  --theme-accent-terracotta: #{$theme-accent-terracotta};
+  --theme-accent-terracotta-hover: #{$theme-accent-terracotta-hover};
+
+  // Text colors
+  --theme-text-primary: #{$theme-text-primary};
+  --theme-text-secondary: #{$theme-text-secondary};
+
+  // Borders
+  --theme-border: #{$theme-border};
+
+  // Navigation
+  --theme-nav-bg: #{$theme-nav-bg};
+  --theme-nav-bg-scrolled: #{$theme-nav-bg-scrolled};
+
+  // Neutral colors (for components that need to change in dark mode)
+  --color-neutral-50: #{$color-neutral-50};
+  --color-neutral-100: #{$color-neutral-100};
+  --color-neutral-200: #{$color-neutral-200};
+  --color-neutral-300: #{$color-neutral-300};
+  --color-neutral-400: #{$color-neutral-400};
+  --color-neutral-500: #{$color-neutral-500};
+  --color-neutral-600: #{$color-neutral-600};
+  --color-neutral-700: #{$color-neutral-700};
+  --color-neutral-800: #{$color-neutral-800};
+  --color-neutral-900: #{$color-neutral-900};
+
+  // Primary colors (for links, buttons that change in dark mode)
+  --color-primary-400: #{$color-primary-400};
+  --color-primary-500: #{$color-primary-500};
+  --color-primary-600: #{$color-primary-600};
+  --color-primary-700: #{$color-primary-700};
+}

@@ -1,0 +1,64 @@
+// ==========================================================================
+// SECTION LAYOUT
+// Common section layout patterns
+// ==========================================================================
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// === SECTION BASE ===
+.section {
+  @include section-padding;
+
+  &--sm {
+    @include section-padding-sm;
+  }
+
+  &--no-padding-top {
+    padding-top: 0;
+  }
+
+  &--no-padding-bottom {
+    padding-bottom: 0;
+  }
+}
+
+// === SECTION HEADER ===
+.section-header {
+  text-align: center;
+  margin-bottom: $space-12;
+
+  &__title {
+    @include heading-2;
+    margin-bottom: $space-4;
+  }
+
+  &__description {
+    @include body-text-lg;
+    max-width: 60ch;
+    margin: 0 auto;
+  }
+
+  &__subtitle {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: $theme-accent-terracotta;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wide;
+    margin-bottom: $space-2;
+  }
+}
+
+// === SECTION CONTENT ===
+.section-content {
+  max-width: $container-5xl;
+  margin: 0 auto;
+
+  &--narrow {
+    max-width: $container-4xl;
+  }
+
+  &--wide {
+    max-width: $container-7xl;
+  }
+}

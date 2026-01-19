@@ -128,10 +128,12 @@ export class FAQFilter {
       liveRegion.setAttribute('aria-live', 'polite')
       liveRegion.setAttribute('aria-atomic', 'true')
       liveRegion.style.position = 'absolute'
-      liveRegion.style.left = '-10000px'
+      liveRegion.style.clip = 'rect(0, 0, 0, 0)'
+      liveRegion.style.clipPath = 'inset(50%)'
       liveRegion.style.width = '1px'
       liveRegion.style.height = '1px'
       liveRegion.style.overflow = 'hidden'
+      liveRegion.style.whiteSpace = 'nowrap'
       document.body.appendChild(liveRegion)
     }
 

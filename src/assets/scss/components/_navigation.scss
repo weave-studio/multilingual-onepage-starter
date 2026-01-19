@@ -1,0 +1,588 @@
+// ==========================================================================
+// NAVIGATION COMPONENT
+// Header, navigation menu, skip link, language switcher, and mobile menu
+// ==========================================================================
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// === SKIP LINK ===
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: $color-primary-600;
+  color: var(--color-neutral-50);
+  padding: $space-2 $space-4;
+  text-decoration: none;
+  border-radius: $border-radius-md;
+  z-index: $z-index-tooltip;
+  transition: top $transition-fast;
+
+  &:focus {
+    top: 6px;
+  }
+}
+
+// === HEADER & NAVIGATION ===
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+  backdrop-filter: blur(30px);
+  border-bottom: 1px solid transparent;
+  z-index: $z-index-sticky;
+  transition: background $transition-normal,
+              backdrop-filter $transition-normal,
+              border-bottom $transition-normal,
+              box-shadow $transition-normal;
+
+  // Enhanced glassmorphism when scrolled
+  &.scrolled {
+    background: var(--theme-nav-bg-scrolled);
+    backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid var(--theme-border);
+    box-shadow:
+      0 4px 6px -1px rgb(0 0 0 / 0.05),
+      0 2px 4px -1px rgb(0 0 0 / 0.03);
+  }
+}
+
+.nav {
+  position: relative;
+}
+
+.nav__container {
+  @include flex-between;
+  max-width: $container-7xl;
+  margin: 0 auto;
+  padding: $space-4 $space-4;
+
+  @include lg {
+    padding: $space-6 $space-8;
+  }
+}
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.nav__logo-image {
+  height: 40px;
+  width: auto;
+  transition: opacity $transition-fast;
+  // Apply primary color to logo
+  filter: brightness(0) saturate(100%) invert(34%) sepia(100%) saturate(291%) hue-rotate(166deg) brightness(96%) contrast(94%);
+
+  .nav__logo:hover &,
+  .nav__logo:focus & {
+    opacity: 0.8;
+  }
+
+  // Tablet and below - smaller logo
+  @media (max-width: 374px) {
+    height: 32px;
+  }
+}
+
+// Logo text styling
+.nav__logo-text {
+  display: inline-flex;
+  align-items: baseline;
+  line-height: 1;
+  white-space: nowrap;
+  letter-spacing: -0.02em;
+  font-size: $font-size-2xl;
+  text-decoration: none !important;
+  flex-direction: row;
+
+  @include lg {
+    font-size: $font-size-3xl;
+  }
+
+  @media (max-width: 374px) {
+    font-size: $font-size-lg;
+  }
+}
+
+.nav__logo-text-primary {
+  font-family: serif;
+  font-weight: 500;
+  color: var(--color-neutral-800) !important;
+  transition: color $transition-fast;
+  text-decoration: none !important;
+}
+
+.nav__logo-text-accent {
+  margin-left: 1px;
+  font-family: serif;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--theme-accent-terracotta) !important;
+  transition: color $transition-fast;
+  text-decoration: none !important;
+
+  // RTL spacing adjustment
+  [dir="rtl"] & {
+    margin-left: 0;
+    margin-right: 1px;
+  }
+}
+
+// === DESKTOP NAVIGATION ===
+// Desktop: Hidden by default (mobile-first)
+.nav__menu {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  // Desktop: Show horizontal navigation on tablet+
+  @include md {
+    display: flex;
+    align-items: center;
+    gap: $space-4;
+    font-size: $font-size-sm;
+  }
+
+  // Desktop: Show horizontal navigation on desktop
+  @include lg {
+    gap: $space-10;
+    font-size: $font-size-lg;
+  }
+
+  @include xl {
+    gap: $space-14;
+  }
+}
+
+// === MOBILE NAVIGATION OVERLAY ===
+// Mobile: Separate overlay menu hidden by default
+.nav__menu--mobile {
+  position: fixed;
+  top: 69px;
+  left: 0;
+  right: 0;
+  background: var(--theme-hero-gradient-start);
+  transform: translateX(100%);
+  transition: none; // Disable transitions by default to prevent sliding when language changes
+  z-index: $z-index-sticky;
+  box-shadow: none; // No shadow when hidden
+  padding: $space-6 0;
+  list-style: none;
+  margin: 0;
+
+  // Mobile: Show overlay when open - only animate when opening/closing
+  &.mobile-menu-open {
+    transform: translateX(0);
+    transition: transform $transition-normal; // Enable transition only when open
+    box-shadow: $shadow-2xl; // Show shadow when open
+  }
+
+  // Mobile: Only show mobile menu on small screens
+  @media (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-6;
+  }
+
+  // Hide mobile menu on tablet and larger screens
+  @include md {
+    display: none !important;
+  }
+}
+
+// Mobile: Account for fixed header and mobile menu
+@media (max-width: 767px) {
+  .hero {
+    padding-top: 40px;
+  }
+}
+
+// === SHARED LINK STYLES ===
+.nav__link {
+  position: relative;
+  font-weight: $font-weight-medium;
+  color: var(--color-neutral-700);
+  transition: color $transition-fast;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--theme-accent-terracotta);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    [dir="rtl"] & {
+      transform-origin: left;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--color-neutral-700);
+
+    &::after {
+      transform: scaleX(1);
+      transform-origin: left;
+
+      [dir="rtl"] & {
+        transform-origin: right;
+      }
+    }
+  }
+}
+
+// Contact CTA link styling
+.nav__link--cta {
+  padding: $space-2 $space-4;
+  border-radius: $border-radius-full;
+  background: linear-gradient(
+    135deg,
+    $color-primary-500,
+    $color-primary-600
+  );
+  color: var(--color-neutral-50);
+  font-weight: $font-weight-semibold;
+  transition:
+    transform $transition-fast,
+    box-shadow $transition-fast,
+    background $transition-fast;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+
+  // Remove underline effect from CTA button
+  &::after {
+    display: none;
+  }
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+    background: linear-gradient(
+      135deg,
+      $color-primary-400,
+      $color-primary-500
+    );
+    color: var(--color-neutral-50);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.nav__actions {
+  @include flex-start;
+  gap: $space-2;
+}
+
+// === THEME TOGGLE ===
+// Enhanced theme toggle button
+.nav__theme-toggle {
+  position: relative;
+  @include flex-center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  padding: $space-2;
+  border-radius: $border-radius-full;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  &:hover {
+    background: $color-neutral-100;
+    transform: scale(1.1);
+  }
+
+  // Active state - press down effect
+  &:active {
+    transform: scale(0.95);
+  }
+
+  // Focus state for accessibility
+  &:focus-visible {
+    outline: 2px solid $color-primary-500;
+    outline-offset: 2px;
+  }
+}
+
+// Enhanced theme icon animations
+.nav__theme-icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  color: var(--color-neutral-700);
+  transition:
+    transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.3s ease 0.15s;
+  display: inline-block;
+  transform-origin: center;
+
+  // Light mode: show moon (to switch to dark), hide sun
+  &--light {
+    opacity: 0;
+    transform: rotate(180deg) scale(0);
+    pointer-events: none;
+  }
+
+  &--dark {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+
+    [dir="rtl"] & {
+      transform: rotate(0deg) scale(1);
+      pointer-events: none;
+    }
+  }
+}
+
+// Hover animation with enhanced rotation
+.nav__theme-toggle:hover .nav__theme-icon--dark {
+  transform: rotate(-15deg) scale(1.15);
+
+  [dir="rtl"] & {
+    transform: rotate(-15deg) scale(1.15);
+  }
+}
+
+// Pulse animation on click
+@keyframes theme-toggle-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.nav__theme-toggle:active .nav__theme-icon {
+  animation: theme-toggle-pulse 0.3s ease;
+}
+
+// Respect reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .nav__theme-toggle {
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      transform: none;
+      opacity: 0.8;
+    }
+
+    &:active {
+      transform: none;
+      opacity: 0.9;
+    }
+  }
+
+  .nav__theme-icon {
+    transition: opacity 0.2s ease;
+    transform: none !important;
+  }
+
+  @keyframes theme-toggle-pulse {
+    0%, 100% { transform: scale(1); }
+  }
+}
+
+// === LANGUAGE TOGGLE ===
+// Language toggle - Pill Badge Design
+.nav__language-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all $transition-normal;
+
+  &:hover {
+    transform: scale(1.05);
+
+    .nav__language-pill {
+      background: $color-neutral-200;
+      border-color: var(--theme-accent-terracotta);
+    }
+  }
+}
+
+// Language pill container
+.nav__language-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 4px 10px;
+  min-width: 70px;
+  background: $color-neutral-100;
+  border: 1px solid $color-neutral-200;
+  border-radius: $border-radius-full;
+  font-size: 0.75rem;
+  font-weight: $font-weight-semibold;
+  transition: all $transition-normal;
+
+  // Responsive sizing for smaller screens
+  @media (max-width: 1024px) {
+    padding: 3px 8px;
+    min-width: 60px;
+    font-size: 0.7rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 5px 6px;
+    min-width: 55px;
+    min-height: 28px;
+    font-size: 0.65rem;
+  }
+}
+
+// Language options
+.nav__language-option {
+  position: relative;
+  z-index: 2;
+  padding: 2px 6px;
+  color: var(--color-neutral-700);
+  transition: color $transition-fast;
+  line-height: 1;
+  font-size: 0.75rem;
+
+  // Active language is bold
+  &[data-lang-current] {
+    font-weight: $font-weight-bold;
+  }
+
+  // Inactive language is medium weight
+  &[data-lang-next] {
+    font-weight: $font-weight-medium;
+  }
+
+  // Responsive sizing for smaller screens
+  @media (max-width: 1024px) {
+    padding: 2px 4px;
+    font-size: 0.7rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 2px 3px;
+    font-size: 0.65rem;
+  }
+}
+
+// Divider
+.nav__language-divider {
+  position: relative;
+  z-index: 2;
+  color: var(--color-neutral-300);
+  font-weight: $font-weight-light;
+  opacity: 0.5;
+  font-size: 0.65rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.6rem;
+  }
+}
+
+// Sliding indicator background
+.nav__language-indicator {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  bottom: 3px;
+  width: calc(50% - 6px);
+  background: $theme-accent-terracotta;
+  border-radius: $border-radius-full;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+
+  // Slide indicator when language is Hebrew
+  [lang="he"] & {
+    transform: translateX(calc(100% + 6px));
+  }
+}
+
+// Respect reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .nav__language-toggle:hover {
+    transform: none;
+  }
+
+  .nav__language-indicator {
+    transition: none;
+  }
+}
+
+// === MOBILE MENU TOGGLE ===
+// Mobile menu button
+.nav__mobile-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  background: none;
+  border: none;
+  padding: $space-2;
+  cursor: pointer;
+
+  @include md {
+    display: none;
+  }
+}
+
+.nav__hamburger {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--color-neutral-900);
+  position: relative;
+  transition: all $transition-fast;
+  border-radius: 1px;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: inherit;
+    border-radius: 1px;
+    transition: all $transition-fast;
+  }
+
+  // Top line: positioned 8px above center
+  &::before {
+    top: -8px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+
+  // Bottom line: positioned 8px below center
+  &::after {
+    bottom: -8px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+}
+
+// === X ANIMATION: Hamburger to Close Button ===
+.nav__hamburger.active {
+  background: transparent;
+
+  &::before {
+    // Top line → upper diagonal
+    background: var(--theme-text-primary);
+    transform: rotate(-45deg) translateY(11px);
+  }
+
+  &::after {
+    // Bottom line → lower diagonal
+    background: var(--theme-text-primary);
+    transform: rotate(45deg) translateY(-11px);
+  }
+}

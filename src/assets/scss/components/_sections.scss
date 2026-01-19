@@ -1,0 +1,780 @@
+// ==========================================================================
+// SECTION COMPONENTS
+// All page section containers in website order: welcome, services, portfolio, features, blog, about, FAQ, contact
+// ==========================================================================
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// === WELCOME SECTION ===
+.welcome {
+  padding: $space-16 0;
+  background-color: var(--theme-bg-welcome-about);
+  border-bottom: 1px solid var(--theme-border);
+
+  &__container {
+    max-width: $container-6xl;
+    margin: 0 auto;
+    padding: 0 $space-4;
+  }
+
+  &__title {
+    @include heading-2;
+    text-align: center;
+    margin-bottom: $space-8;
+
+    @media (max-width: 768px) {
+      margin-bottom: $space-6;
+    }
+
+    @include lg {
+      margin: $space-10 0 $space-8;
+    }
+  }
+
+  &__subtitle {
+    @include heading-3;
+    text-align: center;
+    margin-bottom: $space-6;
+
+    @media (max-width: 768px) {
+      margin-bottom: $space-4;
+    }
+  }
+
+  &__content {
+    max-width: 60ch;
+    margin: 0 auto;
+    text-align: center;
+
+    @media (max-width: 768px) {
+      max-width: none;
+      padding-inline: $space-4;
+    }
+  }
+
+  &__paragraph {
+    font-size: $font-size-lg;
+    line-height: $line-height-relaxed;
+    margin-bottom: $space-6;
+    color: var(--theme-text-secondary);
+    display: block;
+  }
+}
+
+// Ensure RTL compatibility - keep centered
+[dir="rtl"] .welcome__title,
+[dir="rtl"] .welcome__subtitle,
+[dir="rtl"] .welcome__content {
+  text-align: center;
+}
+
+// === SERVICES SECTION (Main container only - cards in _cards.scss) ===
+.services {
+  padding: $space-16 0;
+  background-color: var(--theme-bg-services);
+
+  &__container {
+    @include container;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: $space-12;
+  }
+
+  &__title {
+    @include heading-2;
+    margin-bottom: $space-4;
+  }
+
+  &__description {
+    @include body-text-lg;
+    max-width: 60ch;
+    margin: 0 auto;
+  }
+
+  &__subtitle {
+    @include heading-3;
+    text-align: center;
+    margin-bottom: $space-12;
+  }
+
+  // Services grid for service-card components
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-8;
+    margin-bottom: $space-16;
+
+    @include sm {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include lg {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  // Services intro section
+  &__intro {
+    text-align: center;
+    margin-bottom: $space-16;
+    max-width: 60ch;
+    margin-inline: auto;
+
+    p {
+      font-size: $font-size-lg;
+      line-height: $line-height-relaxed;
+      color: var(--theme-text-secondary);
+      margin-bottom: $space-6;
+    }
+  }
+
+  // Services CTA
+  &__cta {
+    text-align: center;
+    margin-bottom: $space-16;
+    max-width: 60ch;
+    margin-inline: auto;
+    font-size: $font-size-lg;
+    line-height: $line-height-relaxed;
+    color: var(--theme-text-secondary);
+
+    p {
+      margin-bottom: $space-8;
+    }
+  }
+
+  &__cta-card {
+    margin: auto;
+    text-align: center;
+    max-width: 50ch;
+    background: var(--color-neutral-50);
+    padding: $space-12;
+    border-radius: $border-radius-2xl;
+    border: 1px solid $color-neutral-200;
+  }
+}
+
+// === PORTFOLIO SECTION (Main container - cards in _cards.scss) ===
+.portfolio {
+  @include section-padding;
+  background-color: var(--theme-bg-welcome-about);
+
+  &__container {
+    @include container;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: $space-12;
+  }
+
+  &__title {
+    @include heading-2;
+    margin-bottom: $space-4;
+  }
+
+  &__description {
+    @include body-text-lg;
+  }
+
+  &__subtitle {
+    @include heading-3;
+    text-align: center;
+    margin-bottom: $space-12;
+  }
+
+  &__content {
+    padding-bottom: $space-8;
+    max-width: 75ch;
+    margin-inline: auto;
+
+    p {
+      text-align: center;
+      margin-bottom: $space-8;
+      max-width: 60ch;
+      margin-inline: auto;
+      font-size: $font-size-lg;
+      line-height: $line-height-relaxed;
+      color: var(--theme-text-secondary);
+    }
+  }
+
+  &__grid {
+    display: grid;
+    gap: $space-8;
+
+    @include md {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include lg {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  // Featured project showcase
+  &__featured {
+    text-align: center;
+    margin-bottom: $space-8;
+    background: var(--color-neutral-50);
+    padding: $space-10;
+    border-radius: $border-radius-2xl;
+    border: 1px solid $color-neutral-200;
+    box-shadow: $shadow-md;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 8px 16px -4px rgb(0 0 0 / 0.1),
+        0 4px 8px -4px rgb(0 0 0 / 0.05);
+    }
+
+    // Respect reduced motion
+    @media (prefers-reduced-motion: reduce) {
+      &:hover {
+        transform: none;
+      }
+    }
+
+    h4 {
+      font-size: $font-size-xl;
+      font-weight: $font-weight-bold;
+      margin-bottom: $space-4;
+      color: var(--theme-text-primary);
+    }
+
+    p {
+      font-size: $font-size-lg;
+      line-height: $line-height-relaxed;
+      color: var(--theme-text-secondary);
+      max-width: 60ch;
+      margin-inline: auto;
+
+      a {
+        position: relative;
+        color: var(--theme-text-primary);
+        text-decoration: none;
+        font-weight: $font-weight-medium;
+        transition: color $transition-fast;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background: var(--theme-accent-terracotta);
+          transform: scaleX(0);
+          transform-origin: right;
+          transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+          [dir='rtl'] & {
+            transform-origin: left;
+          }
+        }
+
+        &:hover,
+        &:focus {
+          color: var(--color-neutral-700);
+
+          &::after {
+            transform: scaleX(1);
+            transform-origin: left;
+
+            [dir='rtl'] & {
+              transform-origin: right;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__featured-content {
+    display: flex;
+    flex-direction: column;
+    gap: $space-6;
+    align-items: center;
+  }
+
+  &__featured-image {
+    width: 100%;
+    max-width: 800px;
+    border-radius: $border-radius-lg;
+    overflow: hidden;
+    box-shadow: $shadow-xl;
+    transition:
+      transform $transition-normal,
+      box-shadow $transition-normal;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: $shadow-2xl;
+
+      img {
+        transform: scale(1.02);
+      }
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform $transition-slow;
+    }
+
+    // Mobile responsiveness - critical fix!
+    @media (max-width: 767px) {
+      max-width: 100%;
+    }
+  }
+
+  // Portfolio CTA section
+  &__cta {
+    margin: auto;
+    text-align: center;
+    max-width: 50ch;
+    background: var(--color-neutral-50);
+    padding: $space-12;
+    border-radius: $border-radius-2xl;
+    border: 1px solid $color-neutral-200;
+
+    p {
+      font-size: $font-size-xl;
+      margin-bottom: $space-6;
+      color: var(--theme-text-primary);
+      font-weight: $font-weight-medium;
+    }
+  }
+}
+
+// === FEATURES SECTION ===
+.features {
+  @include section-padding;
+  background-color: var(--theme-bg-services);
+  border-top: 1px solid var(--theme-border);
+
+  &__container {
+    @include container;
+  }
+
+  &__title {
+    @include heading-2;
+    text-align: center;
+    margin-bottom: $space-12;
+  }
+
+  // Features grid - 3 columns on tablet+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-8;
+
+    @include md {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+// === BLOG SECTION (Main container - cards in _cards.scss) ===
+.blog-preview {
+  @include section-padding;
+
+  &__container {
+    @include container;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: $space-12;
+  }
+
+  &__title {
+    @include heading-2;
+    margin-bottom: $space-4;
+  }
+
+  &__description {
+    @include body-text-lg;
+  }
+
+  &__grid {
+    display: grid;
+    gap: $space-8;
+
+    @include md {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include lg {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__cta {
+    text-align: center;
+    margin-top: $space-12;
+  }
+}
+
+// === ABOUT SECTION ===
+.about {
+  @include section-padding;
+  background-color: var(--theme-bg-welcome-about);
+  border-top: 1px solid var(--theme-border);
+
+  &__container {
+    @include container;
+  }
+
+  &__content {
+    display: grid;
+    max-width: $container-5xl;
+    margin: 0 auto;
+    padding: 0 $space-4 0;
+
+    @include md {
+      grid-template-columns: 1.5fr 1fr;
+      gap: $space-14;
+    }
+
+    @include lg {
+      grid-template-columns: 2fr 1fr;
+      gap: $space-20;
+    }
+  }
+
+  &__title {
+    @include heading-2;
+    text-align: center;
+    margin-bottom: $space-8;
+  }
+
+  &__text {
+    text-align: center;
+    margin-bottom: $space-8;
+    max-width: 60ch;
+    margin-inline: auto;
+    font-size: $font-size-lg;
+    line-height: $line-height-relaxed;
+    color: var(--theme-text-secondary);
+
+    @include lg {
+      padding-top: $space-20;
+    }
+  }
+
+  // About paragraphs - 4 content blocks
+  &__paragraphs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-8;
+    margin: 0 auto;
+    max-width: 70ch; // Optimal reading width
+
+    @include md {
+      grid-template-columns: 1fr 1fr;
+      gap: $space-10;
+    }
+  }
+
+  &__paragraph {
+    @include body-text-lg;
+    margin-bottom: $space-6;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // About image with label animation
+  &__image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $space-4;
+
+    img {
+      width: 100%;
+      max-width: 400px; // Critical: prevents horizontal scroll
+      height: auto;
+      aspect-ratio: 362 / 550; // Prevents layout shift during lazy load
+      border-radius: $border-radius-2xl;
+      border-top-left-radius: 6rem;
+      border-bottom-right-radius: 6rem;
+      box-shadow: $shadow-lg;
+      object-fit: cover;
+      transition: transform $transition-normal, box-shadow $transition-normal;
+
+      &:hover {
+        transform: scale(1.02);
+        box-shadow: $shadow-2xl;
+      }
+
+      // RTL: Flip the custom border radius
+      [dir='rtl'] & {
+        border-top-left-radius: 6rem;
+        border-bottom-right-radius: 6rem;
+        border-top-right-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+        transform: scaleX(-1);
+
+        &:hover {
+          transform: scaleX(-1) scale(1.02);
+        }
+      }
+    }
+
+    // Mobile responsiveness
+    @media (max-width: 767px) {
+      margin-top: $space-8;
+
+      img {
+        max-width: 300px; // Further constrain on mobile
+      }
+    }
+  }
+
+  // Animated label on image
+  &__image-label {
+    position: absolute;
+    bottom: $space-6;
+    left: $space-6;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    padding: $space-2 $space-4;
+    border-radius: $border-radius-md;
+    box-shadow: $shadow-md;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    transition:
+      transform $transition-normal,
+      box-shadow $transition-normal;
+    opacity: 0;
+    transform: translateX(-100%);
+
+    &.is-visible {
+      animation: slideInFromLeft 0.6s ease-out forwards;
+    }
+
+    // RTL: Move label to bottom right
+    [dir='rtl'] & {
+      left: auto;
+      right: $space-6;
+      transform: translateX(100%);
+
+      &.is-visible {
+        animation: slideInFromRight 0.6s ease-out forwards;
+      }
+    }
+
+    // Reduce motion preference
+    @media (prefers-reduced-motion: reduce) {
+      opacity: 1;
+      transform: translateX(0);
+
+      &.is-visible {
+        animation: none;
+      }
+    }
+  }
+
+  &__image:hover &__image-label {
+    transform: translateX(-3px) translateY(3px);
+    box-shadow: $shadow-lg;
+
+    // RTL: Flip hover direction
+    [dir='rtl'] & {
+      transform: translateX(3px) translateY(3px);
+    }
+  }
+
+  &__image-label-name {
+    font-weight: $font-weight-bold;
+    font-size: $font-size-base;
+    color: var(--color-neutral-900);
+    line-height: 1.2;
+  }
+
+  &__image-label-title {
+    font-size: $font-size-xs;
+    color: var(--color-neutral-600);
+    font-weight: $font-weight-medium;
+    line-height: 1.2;
+  }
+}
+
+// Keyframe animations for about image label
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// === FAQ SECTION (Main container - accordion in _accordion.scss) ===
+.faq {
+  @include section-padding;
+  background-color: var(--theme-bg-faq);
+
+  &__container {
+    max-width: $container-6xl;
+    margin: 0 auto;
+    padding: 0 $space-4;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: $space-12;
+  }
+
+  &__title {
+    @include heading-2;
+    margin-bottom: $space-4;
+  }
+
+  &__subtitle {
+    @include heading-3;
+    text-align: center;
+    margin-bottom: $space-12;
+  }
+
+  &__description {
+    @include body-text-lg;
+    max-width: 60ch;
+    margin: 0 auto;
+  }
+}
+
+// === CONTACT SECTION ===
+.contact {
+  @include section-padding;
+  background-color: var(--theme-bg-contact);
+  border-top: 1px solid var(--theme-border);
+
+  &__container {
+    max-width: $container-6xl;
+    margin: 0 auto;
+    padding: 0 $space-4;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: $space-12;
+  }
+
+  &__title {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-extrabold;
+    font-family: $font-family-heading;
+    line-height: $line-height-tight;
+    text-align: center;
+    margin-bottom: $space-8;
+    padding-bottom: 1rem;
+    color: var(--theme-text-primary);
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--theme-accent-terracotta), $color-primary-500);
+      border-radius: 2px;
+    }
+
+    @include md {
+      font-size: $font-size-4xl;
+    }
+  }
+
+  &__subtitle {
+    font-family: $font-family-heading;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-medium;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: $space-12;
+    color: var(--theme-text-secondary);
+    max-width: 60ch;
+    margin-inline: auto;
+  }
+
+  &__description {
+    @include body-text-lg;
+    color: var(--theme-text-secondary);
+  }
+
+  // Contact content grid - approach card | form
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-12;
+
+    @include lg {
+      grid-template-columns: 1fr 2fr;
+      align-items: start;
+    }
+
+    // Mobile responsiveness
+    @media (max-width: 1023px) {
+      grid-template-columns: 1fr;
+      gap: $space-8;
+    }
+  }
+
+  &__form {
+    background: white;
+    padding: $space-8;
+    border-radius: $border-radius-2xl;
+    box-shadow: $shadow-lg;
+    border: 1px solid var(--theme-border);
+
+    @include md {
+      padding: $space-10;
+    }
+  }
+
+  // Form grid for input fields
+  &__form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-6;
+
+    @include sm {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    // Mobile: single column
+    @media (max-width: 640px) {
+      grid-template-columns: 1fr;
+      gap: $space-4;
+    }
+  }
+}
