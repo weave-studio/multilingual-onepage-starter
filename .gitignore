@@ -7,6 +7,9 @@ TEMPLATE_EXTRACTION_PLAN.md
 TEMPLATE_CONVERSATION_REFERENCE.md
 IMPLEMENTATION_PLAN.md
 
+# All markdown files in docs/ (personal development notes)
+docs/*.md
+
 # Eleventy
 dist/
 _site/
