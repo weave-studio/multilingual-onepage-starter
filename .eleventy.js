@@ -51,18 +51,20 @@ module.exports = function(eleventyConfig) {
       .sort((a, b) => b.date - a.date);
   });
 
-  // Add English blog collection
-  eleventyConfig.addCollection("blogEn", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("src/blog/*.md")
-      .filter(post => post.data.language === 'en')
-      .sort((a, b) => b.date - a.date);
-  });
+  // Dynamically generate per-language blog collections
+  // Reads language configuration from site.js
+  const siteData = require('./src/_data/site.js');
+  const languages = siteData.multilingual.languages;
 
-  // Add Hebrew blog collection
-  eleventyConfig.addCollection("blogHe", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("src/blog/*.md")
-      .filter(post => post.data.language === 'he')
-      .sort((a, b) => b.date - a.date);
+  languages.forEach(lang => {
+    // Generate collection name: 'en' -> 'blogEn', 'he' -> 'blogHe', 'es' -> 'blogEs'
+    const collectionName = `blog${lang.code.charAt(0).toUpperCase()}${lang.code.slice(1)}`;
+
+    eleventyConfig.addCollection(collectionName, function(collectionApi) {
+      return collectionApi.getFilteredByGlob("src/blog/*.md")
+        .filter(post => post.data.language === lang.code)
+        .sort((a, b) => b.date - a.date);
+    });
   });
 
   // Add reading time filter for blog posts

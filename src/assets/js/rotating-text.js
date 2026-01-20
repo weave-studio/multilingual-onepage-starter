@@ -4,7 +4,7 @@
  *
  * @returns {function} Cleanup function to remove event listeners and stop animation
  */
-import { translations } from './translations-data.js'
+import { getTranslations, hasLanguage } from './translations/index.js'
 import { getCurrentLanguage } from './language.js'
 
 // eslint-disable-next-line consistent-return
@@ -26,7 +26,8 @@ export function initRotatingText() { // eslint-disable-line consistent-return
   function getWords() {
     // Get current language and use it to access translations
     const currentLang = getCurrentLanguage()
-    const currentWords = translations[currentLang]?.hero?.rotatingWords
+    const langTranslations = getTranslations(currentLang)
+    const currentWords = langTranslations?.hero?.rotatingWords
 
     if (currentWords && Array.isArray(currentWords)) {
       return currentWords
@@ -77,9 +78,10 @@ export function initRotatingText() { // eslint-disable-line consistent-return
   function handleLanguageChange(event) {
     // Use the language from event detail instead of getCurrentLanguage()
     const newLanguage = event.detail?.language
-    if (newLanguage && ['en', 'he'].includes(newLanguage)) {
+    if (newLanguage && hasLanguage(newLanguage)) {
       // Directly update words with the new language
-      const newWords = translations[newLanguage]?.hero?.rotatingWords
+      const langTranslations = getTranslations(newLanguage)
+      const newWords = langTranslations?.hero?.rotatingWords
       if (newWords && Array.isArray(newWords)) {
         words = newWords
 

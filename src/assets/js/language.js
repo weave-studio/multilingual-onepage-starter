@@ -1,97 +1,120 @@
 /**
- * Language switching functionality with bilingual support
- * Handles automatic language detection, manual switching, and content updates
+ * Multilingual System - Generic Language Engine
+ * Supports unlimited languages via configuration
  */
-import { translations } from './translations-data.js'
 
-// Language detection priority: localStorage → browser language → default Hebrew
-const STORAGE_KEY = 'weave-studio-language'
-const DEFAULT_LANGUAGE = 'he' // Hebrew as default
+import { getTranslations, hasLanguage, getAvailableLanguages } from './translations/index.js'
 
-let currentLanguage = DEFAULT_LANGUAGE
-let currentTranslations = translations[currentLanguage]
+// Configuration - matches site.js multilingual config
+const CONFIG = {
+  defaultLanguage: 'en',
+  storageKey: 'site-language',
+  languages: [
+    { code: 'en', name: 'English', nativeName: 'English', dir: 'ltr' },
+    { code: 'he', name: 'Hebrew', nativeName: 'עברית', dir: 'rtl' },
+    { code: 'es', name: 'Spanish', nativeName: 'Español', dir: 'ltr' }
+  ]
+}
+
+// Runtime state
+let currentLanguage = CONFIG.defaultLanguage
+let currentTranslations = null
+let dropdownBuilt = false
+
+// RTL lookup set for O(1) performance
+const rtlLanguages = new Set(
+  CONFIG.languages.filter(l => l.dir === 'rtl').map(l => l.code)
+)
+
+// ============================================
+// UTILITY FUNCTIONS
+// ============================================
 
 /**
- * Detect the user's preferred language based on priority
- * @returns {string} Language code ('en' or 'he')
+ * Get nested value from object using dot notation
+ * Supports array indices: "services.items.0.title"
+ */
+function getNestedValue(obj, path) {
+  return path.split('.').reduce((current, key) => {
+    if (current === null || current === undefined) return undefined
+    // Handle array indices
+    const index = parseInt(key, 10)
+    if (!isNaN(index) && Array.isArray(current)) {
+      return current[index]
+    }
+    return current[key]
+  }, obj)
+}
+
+/**
+ * Check if language code is RTL
+ */
+function isRTL(langCode) {
+  return rtlLanguages.has(langCode)
+}
+
+/**
+ * Get language configuration by code
+ */
+function getLanguageConfig(langCode) {
+  return CONFIG.languages.find(l => l.code === langCode)
+}
+
+// ============================================
+// DETECTION
+// ============================================
+
+/**
+ * Detect user's preferred language
+ * Priority: blog post attr -> localStorage -> browser -> default
  */
 function detectUserLanguage() {
-  // 1. Check if we're on a blog post page - use the post's language
+  // 1. Blog post language attribute
   const postArticle = document.querySelector('.post[data-post-lang]')
   if (postArticle) {
     const postLang = postArticle.getAttribute('data-post-lang')
-    if (postLang && translations[postLang]) {
-      return postLang
-    }
+    if (hasLanguage(postLang)) return postLang
   }
 
-  // 2. Check localStorage for saved preference
-  const saved = localStorage.getItem(STORAGE_KEY)
-  if (saved && translations[saved]) {
-    return saved
-  }
+  // 2. LocalStorage preference
+  const saved = localStorage.getItem(CONFIG.storageKey)
+  if (saved && hasLanguage(saved)) return saved
 
-  // 3. Check browser language
+  // 3. Browser language
   const browserLang = navigator.language || navigator.userLanguage
-  if (browserLang && browserLang.startsWith('he')) {
-    return 'he'
-  }
-  if (browserLang && browserLang.startsWith('en')) {
-    return 'en'
+  if (browserLang) {
+    // Try exact match first
+    if (hasLanguage(browserLang)) return browserLang
+    // Try language code without region
+    const langCode = browserLang.split('-')[0]
+    if (hasLanguage(langCode)) return langCode
   }
 
-  // 4. Default to Hebrew
-  return DEFAULT_LANGUAGE
+  // 4. Default
+  return CONFIG.defaultLanguage
 }
 
-/**
- * Set the website language and update all content
- * @param {string} language - Language code ('en' or 'he')
- */
-function setLanguage(language) {
-  if (!translations[language]) {
-    console.warn(`Language '${language}' not found in translations`)
-    return
-  }
-
-  currentLanguage = language
-  currentTranslations = translations[currentLanguage]
-
-  // Save to localStorage
-  localStorage.setItem(STORAGE_KEY, language)
-
-  // Update HTML attributes for language and RTL
-  updateHtmlAttributes()
-
-  // Update all text content
-  updateContent()
-
-  // Update navigation specifically
-  updateNavigation()
-
-  // Update form if present
-  updateForm()
-
-  // Dispatch custom event for other modules to listen
-  document.dispatchEvent(new CustomEvent('languageChanged', {
-    detail: { language, translations: currentTranslations }
-  }))
-}
+// ============================================
+// CONTENT UPDATES
+// ============================================
 
 /**
  * Update HTML document attributes for language and direction
  */
 function updateHtmlAttributes() {
   document.documentElement.lang = currentLanguage
-  document.documentElement.dir = currentLanguage === 'he' ? 'rtl' : 'ltr'
+  document.documentElement.dir = isRTL(currentLanguage) ? 'rtl' : 'ltr'
+
+  // Update body class for CSS hooks
+  document.body.classList.toggle('rtl', isRTL(currentLanguage))
 
   // Update language toggle button aria-label
   const languageToggle = document.querySelector('[data-language-toggle]')
   if (languageToggle) {
-    const isEnglish = currentLanguage === 'en'
-    languageToggle.setAttribute('aria-label',
-      isEnglish ? currentTranslations.nav.switchToHebrew : currentTranslations.nav.currentLanguage
-    )
+    const currentConfig = getLanguageConfig(currentLanguage)
+    if (currentConfig) {
+      languageToggle.setAttribute('aria-label', `Switch language`)
+    }
   }
 }
 
@@ -101,7 +124,7 @@ function updateHtmlAttributes() {
 function updateContent() {
   // Helper function to get nested translation values
   function getTranslation(path) {
-    return path.split('.').reduce((obj, key) => obj?.[key], currentTranslations)
+    return getNestedValue(currentTranslations, path)
   }
 
   // Update elements with data-i18n attribute
@@ -188,19 +211,207 @@ function updateNavigation() {
     themeToggle.setAttribute('aria-label', navTranslations.toggleTheme)
   }
 
-  // Update language toggle
+  // Update language toggle - build dynamically based on language count
+  buildLanguageSwitcher()
+}
+
+/**
+ * Build language switcher UI based on available languages
+ */
+function buildLanguageSwitcher() {
   const languageToggle = document.querySelector('[data-language-toggle]')
-  if (languageToggle) {
+  if (!languageToggle) return
+
+  const languageCount = CONFIG.languages.length
+
+  if (languageCount <= 1) {
+    // Single language - hide the switcher entirely
+    languageToggle.style.display = 'none'
+    return
+  }
+
+  // Ensure switcher is visible (in case previously hidden)
+  languageToggle.style.display = ''
+
+  if (languageCount === 2) {
+    // Use simple toggle for 2 languages - always show first language code | second language native abbreviation
+    const firstLang = CONFIG.languages[0]
+    const secondLang = CONFIG.languages[1]
+
     const currentText = languageToggle.querySelector('[data-lang-current]')
     const nextText = languageToggle.querySelector('[data-lang-next]')
-    if (currentLanguage === 'en') {
-      if (currentText) currentText.textContent = 'EN'
-      if (nextText) nextText.textContent = 'עב'
+
+    if (currentText && nextText && firstLang && secondLang) {
+      currentText.textContent = firstLang.code.toUpperCase()
+      nextText.textContent = secondLang.nativeName.substring(0, 2)
+    }
+  } else {
+    // For 3+ languages, build dropdown ONCE, then update on language changes
+    if (!dropdownBuilt) {
+      buildLanguageDropdown()
+      dropdownBuilt = true
     } else {
-      if (currentText) currentText.textContent = 'עב'
-      if (nextText) nextText.textContent = 'EN'
+      updateLanguageDropdown()
     }
   }
+}
+
+/**
+ * Build dropdown menu for 3+ languages
+ */
+function buildLanguageDropdown() {
+  const languageToggle = document.querySelector('[data-language-toggle]')
+  if (!languageToggle) return
+
+  // Remove the simple toggle event listener if exists
+  languageToggle.removeEventListener('click', toggleLanguage)
+
+  // Get current language config
+  const currentConfig = getLanguageConfig(currentLanguage)
+
+  // Replace button content with dropdown structure
+  languageToggle.innerHTML = `
+    <span class="sr-only">Select website language</span>
+    <span class="nav__language-pill">
+      <span class="nav__language-current">${currentConfig ? currentConfig.code.toUpperCase() : 'EN'}</span>
+      <svg class="nav__language-chevron" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+  `
+
+  // Create dropdown menu container
+  let dropdownMenu = document.querySelector('.nav__language-menu')
+  if (!dropdownMenu) {
+    dropdownMenu = document.createElement('ul')
+    dropdownMenu.className = 'nav__language-menu'
+    dropdownMenu.setAttribute('role', 'menu')
+    dropdownMenu.setAttribute('hidden', '')
+    languageToggle.parentElement.style.position = 'relative'
+    languageToggle.parentElement.appendChild(dropdownMenu)
+  }
+
+  // Clear and populate menu with all languages
+  dropdownMenu.innerHTML = ''
+  CONFIG.languages.forEach(lang => {
+    const li = document.createElement('li')
+    li.setAttribute('role', 'none')
+
+    const button = document.createElement('button')
+    button.className = 'nav__language-menu-item'
+    button.setAttribute('role', 'menuitem')
+    button.setAttribute('data-lang', lang.code)
+    button.setAttribute('lang', lang.code)
+    button.setAttribute('dir', lang.dir)
+
+    if (lang.code === currentLanguage) {
+      button.classList.add('nav__language-menu-item--active')
+      button.setAttribute('aria-current', 'true')
+    }
+
+    button.innerHTML = `
+      <span class="nav__language-menu-code">${lang.code.toUpperCase()}</span>
+      <span class="nav__language-menu-name">${lang.nativeName}</span>
+    `
+
+    // Add click handler for language selection
+    button.addEventListener('click', (e) => {
+      e.stopPropagation()
+      const newLang = button.getAttribute('data-lang')
+      if (newLang && newLang !== currentLanguage) {
+        setLanguage(newLang)
+      }
+      closeLanguageDropdown()
+    })
+
+    li.appendChild(button)
+    dropdownMenu.appendChild(li)
+  })
+
+  // Toggle dropdown on button click
+  languageToggle.addEventListener('click', (e) => {
+    e.stopPropagation()
+    toggleLanguageDropdown()
+  })
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!languageToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+      closeLanguageDropdown()
+    }
+  })
+
+  // Keyboard navigation
+  languageToggle.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeLanguageDropdown()
+      languageToggle.focus()
+    }
+  })
+}
+
+/**
+ * Toggle language dropdown menu visibility
+ */
+function toggleLanguageDropdown() {
+  const dropdownMenu = document.querySelector('.nav__language-menu')
+  if (!dropdownMenu) return
+
+  const isHidden = dropdownMenu.hasAttribute('hidden')
+
+  if (isHidden) {
+    dropdownMenu.removeAttribute('hidden')
+    dropdownMenu.setAttribute('aria-expanded', 'true')
+  } else {
+    closeLanguageDropdown()
+  }
+}
+
+/**
+ * Close language dropdown menu
+ */
+function closeLanguageDropdown() {
+  const dropdownMenu = document.querySelector('.nav__language-menu')
+  if (!dropdownMenu) return
+
+  dropdownMenu.setAttribute('hidden', '')
+  dropdownMenu.setAttribute('aria-expanded', 'false')
+}
+
+/**
+ * Update language dropdown display after language change
+ * Updates current language indicator and active states
+ * Does NOT recreate HTML or add event listeners
+ */
+function updateLanguageDropdown() {
+  const languageToggle = document.querySelector('[data-language-toggle]')
+  if (!languageToggle) return
+
+  // Get current language config
+  const currentConfig = getLanguageConfig(currentLanguage)
+
+  // Update the current language code in button
+  const currentSpan = languageToggle.querySelector('.nav__language-current')
+  if (currentSpan && currentConfig) {
+    currentSpan.textContent = currentConfig.code.toUpperCase()
+  }
+
+  // Update active states in menu items
+  const dropdownMenu = document.querySelector('.nav__language-menu')
+  if (!dropdownMenu) return
+
+  const menuItems = dropdownMenu.querySelectorAll('.nav__language-menu-item')
+  menuItems.forEach(item => {
+    const itemLang = item.getAttribute('data-lang')
+
+    if (itemLang === currentLanguage) {
+      item.classList.add('nav__language-menu-item--active')
+      item.setAttribute('aria-current', 'true')
+    } else {
+      item.classList.remove('nav__language-menu-item--active')
+      item.removeAttribute('aria-current')
+    }
+  })
 }
 
 /**
@@ -469,12 +680,7 @@ function updateFormPlaceholders() {
     const key = element.getAttribute('data-i18n-placeholder')
 
     // Navigate through nested translation object
-    const keys = key.split('.')
-    let value = currentTranslations
-
-    for (const k of keys) {
-      value = value?.[k]
-    }
+    const value = getNestedValue(currentTranslations, key)
 
     if (value && typeof value === 'string') {
       element.placeholder = value
@@ -482,35 +688,78 @@ function updateFormPlaceholders() {
   })
 }
 
+// ============================================
+// MAIN API
+// ============================================
+
 /**
- * Toggle between English and Hebrew
+ * Set website language and update all content
  */
-export function toggleLanguage() {
-  const newLanguage = currentLanguage === 'en' ? 'he' : 'en'
-
-  // Check if we're on a blog post page
-  const postArticle = document.querySelector('.post[data-post-lang][data-post-url]')
-
-  if (postArticle) {
-    const currentPostLang = postArticle.getAttribute('data-post-lang')
-    const currentPostUrl = postArticle.getAttribute('data-post-url')
-
-    // If we're switching languages on a blog post, redirect to the other language version
-    if (currentPostLang === 'en' && newLanguage === 'he') {
-      // Redirect from /blog/slug/ to /blog/he/slug/
-      const newUrl = currentPostUrl.replace('/blog/', '/blog/he/')
-      window.location.href = newUrl
-      return
-    } else if (currentPostLang === 'he' && newLanguage === 'en') {
-      // Redirect from /blog/he/slug/ to /blog/slug/
-      const newUrl = currentPostUrl.replace('/blog/he/', '/blog/')
-      window.location.href = newUrl
-      return
-    }
+function setLanguage(language) {
+  if (!hasLanguage(language)) {
+    console.warn(`Language '${language}' not available`)
+    return
   }
 
-  // For all other pages, just toggle the language
-  setLanguage(newLanguage)
+  currentLanguage = language
+  currentTranslations = getTranslations(language)
+
+  // Save preference
+  localStorage.setItem(CONFIG.storageKey, language)
+
+  // Update DOM
+  updateHtmlAttributes()
+  updateContent()
+  updateNavigation()
+  updateForm()
+
+  // Dispatch event for other modules
+  document.dispatchEvent(new CustomEvent('languageChanged', {
+    detail: { language, translations: currentTranslations }
+  }))
+}
+
+/**
+ * Toggle to next language (cycles through all available languages)
+ */
+export function toggleLanguage() {
+  // Handle blog post redirect
+  const postArticle = document.querySelector('.post[data-post-lang][data-post-url]')
+  if (postArticle) {
+    handleBlogLanguageSwitch(postArticle)
+    return
+  }
+
+  // Find next language
+  const currentIndex = CONFIG.languages.findIndex(l => l.code === currentLanguage)
+  const nextIndex = (currentIndex + 1) % CONFIG.languages.length
+  setLanguage(CONFIG.languages[nextIndex].code)
+}
+
+/**
+ * Handle language switch on blog posts (URL redirect)
+ */
+function handleBlogLanguageSwitch(postArticle) {
+  const currentPostLang = postArticle.getAttribute('data-post-lang')
+  const currentPostUrl = postArticle.getAttribute('data-post-url')
+
+  // Find next language
+  const currentIndex = CONFIG.languages.findIndex(l => l.code === currentPostLang)
+  const nextIndex = (currentIndex + 1) % CONFIG.languages.length
+  const nextLang = CONFIG.languages[nextIndex]
+
+  // Build new URL (simplified for now - assumes /blog/ for default, /blog/he/ for Hebrew)
+  let newUrl = currentPostUrl
+
+  // This is a simplified version - in a real implementation,
+  // you'd want to read blog path patterns from config
+  if (currentPostLang === 'he' && nextLang.code === 'en') {
+    newUrl = newUrl.replace('/blog/he/', '/blog/')
+  } else if (currentPostLang === 'en' && nextLang.code === 'he') {
+    newUrl = newUrl.replace('/blog/', '/blog/he/')
+  }
+
+  window.location.href = newUrl
 }
 
 /**
@@ -539,9 +788,12 @@ export function initLanguage() {
   // Set initial language (this will update all content)
   setLanguage(detectedLanguage)
 
-  // Set up language toggle event listener
-  const languageToggle = document.querySelector('[data-language-toggle]')
-  if (languageToggle) {
-    languageToggle.addEventListener('click', toggleLanguage)
+  // Set up language toggle event listener only for 2 languages
+  // For 3+ languages, the dropdown handles its own events in buildLanguageDropdown()
+  if (CONFIG.languages.length === 2) {
+    const languageToggle = document.querySelector('[data-language-toggle]')
+    if (languageToggle) {
+      languageToggle.addEventListener('click', toggleLanguage)
+    }
   }
 }

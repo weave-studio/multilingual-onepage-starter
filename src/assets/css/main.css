@@ -847,6 +847,99 @@ a:hover, a:focus {
     transition: none;
   }
 }
+.nav__language-current {
+  font-weight: 700;
+  color: var(--color-neutral-700);
+  line-height: 1;
+}
+
+.nav__language-chevron {
+  width: 12px;
+  height: 8px;
+  color: var(--color-neutral-500);
+  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+[aria-expanded=true] .nav__language-chevron {
+  transform: rotate(180deg);
+}
+
+.nav__language-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 160px;
+  background: var(--theme-hero-gradient-start);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: 0.375rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 4px;
+  margin: 0;
+  z-index: 1000;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1), transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav__language-menu[hidden] {
+  display: none;
+}
+[data-theme=dark] .nav__language-menu {
+  background: var(--theme-hero-gradient-start);
+  border-color: var(--color-neutral-700);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.nav__language-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 12px;
+  background: none;
+  border: none;
+  border-radius: 0.125rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  text-align: left;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav__language-menu-item:hover {
+  background: var(--color-neutral-100);
+}
+[data-theme=dark] .nav__language-menu-item:hover {
+  background: var(--color-neutral-800);
+}
+.nav__language-menu-item--active {
+  background: var(--theme-accent-terracotta);
+  color: white;
+}
+.nav__language-menu-item--active .nav__language-menu-code,
+.nav__language-menu-item--active .nav__language-menu-name {
+  color: white;
+}
+.nav__language-menu-item--active:hover {
+  background: var(--theme-accent-terracotta);
+  opacity: 0.9;
+}
+
+.nav__language-menu-code {
+  font-weight: 700;
+  color: var(--color-neutral-700);
+  min-width: 28px;
+  font-size: 0.75rem;
+}
+[data-theme=dark] .nav__language-menu-code {
+  color: var(--color-neutral-300);
+}
+
+.nav__language-menu-name {
+  font-weight: 500;
+  color: var(--color-neutral-600);
+}
+[data-theme=dark] .nav__language-menu-name {
+  color: var(--color-neutral-400);
+}
+
 .nav__mobile-toggle {
   display: flex;
   flex-direction: column;
