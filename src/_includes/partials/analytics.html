@@ -1,0 +1,33 @@
+{% comment %}
+  Analytics Configuration Partial
+
+  This partial injects analytics configuration as a data attribute for the
+  analytics.js module to consume. The actual analytics scripts are loaded
+  dynamically by JavaScript after privacy checks (DNT) pass.
+
+  Supported providers:
+  - 'ga4': Google Analytics 4
+  - 'plausible': Plausible Analytics (privacy-friendly)
+  - 'fathom': Fathom Analytics (privacy-friendly)
+  - 'none': No analytics (default)
+
+  Configuration is set in src/_data/site.js under the 'analytics' key.
+{% endcomment %}
+{% if site.analytics and site.analytics.provider != 'none' and site.analytics.trackingId %}
+<!-- Analytics Configuration for JS module -->
+<script
+  id="analytics-config"
+  type="application/json"
+  data-analytics-config='{{ site.analytics | json }}'
+></script>
+
+<!-- Preconnect hints for analytics domains (improves loading performance) -->
+{% if site.analytics.provider == 'ga4' %}
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://www.google-analytics.com">
+{% elsif site.analytics.provider == 'plausible' %}
+<link rel="preconnect" href="https://plausible.io">
+{% elsif site.analytics.provider == 'fathom' %}
+<link rel="preconnect" href="https://cdn.usefathom.com">
+{% endif %}
+{% endif %}

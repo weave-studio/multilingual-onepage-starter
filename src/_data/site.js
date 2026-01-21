@@ -33,5 +33,22 @@ module.exports = {
         dir: 'ltr'
       }
     ]
+  },
+
+  // Analytics Configuration
+  // Supports: 'ga4' (Google Analytics 4), 'plausible', 'fathom', or 'none'
+  analytics: {
+    // Provider: 'ga4' | 'plausible' | 'fathom' | 'none'
+    provider: 'none',
+
+    // Tracking ID (format varies by provider):
+    // - GA4: 'G-XXXXXXXXXX'
+    // - Plausible: 'yourdomain.com'
+    // - Fathom: 'XXXXXXXX'
+    trackingId: '',
+
+    // Privacy settings
+    respectDNT: true,      // Honor "Do Not Track" browser setting
+    anonymizeIP: true      // Anonymize visitor IP addresses (GA4 only)
   }
 }

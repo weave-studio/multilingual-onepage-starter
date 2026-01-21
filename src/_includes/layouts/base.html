@@ -114,6 +114,9 @@
       })();
     </script>
 
+    <!-- Analytics Configuration -->
+    {% include 'partials/analytics.html' %}
+
     <!-- Main Stylesheet (includes RTL styles) -->
     <link rel="stylesheet" href="/assets/css/main.css">
 
@@ -187,6 +190,7 @@
 
     <!-- JavaScript Modules -->
     <script type="module">
+      import { initAnalytics } from '/assets/js/analytics.js';
       import { initTheme } from '/assets/js/theme.js';
       import { initLanguage } from '/assets/js/language.js';
       import { initNavigation } from '/assets/js/navigation.js';
@@ -199,6 +203,9 @@
       import { FAQAccordion } from '/assets/js/accordion.js';
       import ScrollAnimations from '/assets/js/scroll-animations.js';
       import { FAQFilter } from '/assets/js/faq-filter.js';
+
+      // Initialize analytics (runs privacy checks before loading scripts)
+      initAnalytics();
 
       // Initialize theme functionality
       initTheme();
