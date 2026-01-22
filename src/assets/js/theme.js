@@ -15,7 +15,9 @@ function getPreferredTheme() {
   }
 
   // Fall back to system preference
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  return window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light'
 }
 
 /**
@@ -29,7 +31,8 @@ function applyTheme(theme) {
   // Update theme toggle button aria-label for accessibility
   const toggleButton = document.querySelector('[data-theme-toggle]')
   if (toggleButton) {
-    toggleButton.setAttribute('aria-label',
+    toggleButton.setAttribute(
+      'aria-label',
       theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'
     )
   }
@@ -39,7 +42,8 @@ function applyTheme(theme) {
  * Toggle between light and dark themes
  */
 function toggleTheme() {
-  const currentTheme = document.documentElement.getAttribute('data-theme') || 'light'
+  const currentTheme =
+    document.documentElement.getAttribute('data-theme') || 'light'
   const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
   applyTheme(newTheme)
 }
@@ -53,13 +57,15 @@ export function initTheme() {
   applyTheme(preferredTheme)
 
   // Listen for system theme changes
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-    // Only auto-switch if user hasn't manually chosen a theme
-    if (!localStorage.getItem('theme')) {
-      const newTheme = e.matches ? 'dark' : 'light'
-      applyTheme(newTheme)
-    }
-  })
+  window
+    .matchMedia('(prefers-color-scheme: dark)')
+    .addEventListener('change', e => {
+      // Only auto-switch if user hasn't manually chosen a theme
+      if (!localStorage.getItem('theme')) {
+        const newTheme = e.matches ? 'dark' : 'light'
+        applyTheme(newTheme)
+      }
+    })
 
   // Set up theme toggle button
   const themeToggle = document.querySelector('[data-theme-toggle]')
@@ -67,7 +73,7 @@ export function initTheme() {
     themeToggle.addEventListener('click', toggleTheme)
 
     // Add keyboard support
-    themeToggle.addEventListener('keydown', (e) => {
+    themeToggle.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault()
         toggleTheme()

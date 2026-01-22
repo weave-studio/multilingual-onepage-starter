@@ -37,7 +37,7 @@ export class ContactFormValidator {
     })
 
     // Handle form submission
-    this.form.addEventListener('submit', (e) => this.handleSubmit(e))
+    this.form.addEventListener('submit', e => this.handleSubmit(e))
 
     // Listen for language changes to update error messages and placeholders
     document.addEventListener('languageChanged', () => {
@@ -68,29 +68,29 @@ export class ContactFormValidator {
     const formTranslations = translations.contact.form.fields
 
     switch (fieldName) {
-    case 'name':
-      isValid = this.validateName(field.value)
-      if (!isValid) errorMessage = formTranslations.name.error
-      break
+      case 'name':
+        isValid = this.validateName(field.value)
+        if (!isValid) errorMessage = formTranslations.name.error
+        break
 
-    case 'email':
-      isValid = this.validateEmail(field.value)
-      if (!isValid) errorMessage = formTranslations.email.error
-      break
+      case 'email':
+        isValid = this.validateEmail(field.value)
+        if (!isValid) errorMessage = formTranslations.email.error
+        break
 
-    case 'project-type':
-      isValid = this.validateProjectType(field.value)
-      if (!isValid) errorMessage = 'Please select a project type'
-      break
+      case 'project-type':
+        isValid = this.validateProjectType(field.value)
+        if (!isValid) errorMessage = 'Please select a project type'
+        break
 
-    case 'message':
-      isValid = this.validateMessage(field.value)
-      if (!isValid) errorMessage = formTranslations.message.error
-      break
+      case 'message':
+        isValid = this.validateMessage(field.value)
+        if (!isValid) errorMessage = formTranslations.message.error
+        break
 
-    default:
-      // No validation for optional fields
-      break
+      default:
+        // No validation for optional fields
+        break
     }
 
     if (!isValid) {
@@ -241,7 +241,9 @@ export class ContactFormValidator {
     const translations = getCurrentTranslations()
 
     // Update placeholders using data attributes
-    const elementsWithPlaceholder = this.form.querySelectorAll('[data-i18n-placeholder]')
+    const elementsWithPlaceholder = this.form.querySelectorAll(
+      '[data-i18n-placeholder]'
+    )
 
     elementsWithPlaceholder.forEach(element => {
       const key = element.getAttribute('data-i18n-placeholder')

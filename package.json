@@ -15,20 +15,18 @@
     "scss:watch": "sass src/assets/scss/main.scss:src/assets/css/main.css --watch --no-source-map",
     "eleventy": "eleventy",
     "eleventy:dev": "eleventy --serve",
-    "lint": "eslint src --ext .js,.mjs",
-    "lint:fix": "eslint src --ext .js,.mjs --fix",
-    "format": "prettier --write \"src/**/*.{js,mjs,json,html,njk,md,css,scss}\"",
-    "format:check": "prettier --check \"src/**/*.{js,mjs,json,html,njk,md,css,scss}\"",
-    "prepare": "husky install"
+    "lint": "biome lint src",
+    "lint:fix": "biome lint src --write",
+    "format": "biome format src --write",
+    "format:check": "biome format src",
+    "check": "biome check src",
+    "check:fix": "biome check src --write"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
     "@axe-core/cli": "^4.11.0",
+    "@biomejs/biome": "^2.3.11",
     "concurrently": "^8.2.1",
-    "eslint": "^8.48.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^14.0.1",
-    "prettier": "^3.0.3",
     "sass": "^1.97.2",
     "vite": "^4.4.9"
   },

@@ -2,19 +2,16 @@
 // Import SCSS styles
 import '../scss/main.scss'
 
-import { initTheme } from './theme.js'
-import { initNavigation } from './navigation.js'
-import { initNavbarScroll } from './scroll-behavior.js'
-import { initSmoothScroll } from './scroll-behavior.js'
-import { initRotatingText } from './rotating-text.js'
 import { FAQAccordion } from './accordion.js'
+import { initBackToTop } from './back-to-top.js'
 import { initContactForm } from './form-validation.js'
 import { initLazyLoading } from './lazy-loading.js'
-import { initBackToTop } from './back-to-top.js'
+import { initNavigation } from './navigation.js'
+import { initRotatingText } from './rotating-text.js'
+import { initNavbarScroll, initSmoothScroll } from './scroll-behavior.js'
+import { initTheme } from './theme.js'
 import './scroll-animations.js'
 import './faq-filter.js'
-
-console.log('Weave Studio website loading...')
 
 document.addEventListener('DOMContentLoaded', () => {
   initTheme()
@@ -28,14 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const faqSection = document.querySelector('.faq')
   if (faqSection) {
     new FAQAccordion(faqSection)
-    console.log('FAQ accordion initialized')
   }
 
   // Initialize FAQ accordion on FAQ listing page
   const faqListingSection = document.querySelector('.faq-listing')
   if (faqListingSection) {
     new FAQAccordion(faqListingSection)
-    console.log('FAQ listing accordion initialized')
   }
 
   // Initialize contact form validation

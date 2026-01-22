@@ -5,8 +5,8 @@
 
 // Import all translation files
 import en from './en.js'
-import he from './he.js'
 import es from './es.js'
+import he from './he.js'
 
 // Registry of all loaded translations
 const translationRegistry = {

@@ -3,7 +3,7 @@
  * Supports unlimited languages via configuration
  */
 
-import { getTranslations, hasLanguage, getAvailableLanguages } from './translations/index.js'
+import { getTranslations, hasLanguage } from './translations/index.js'
 
 // Configuration - matches site.js multilingual config
 const CONFIG = {
@@ -113,7 +113,7 @@ function updateHtmlAttributes() {
   if (languageToggle) {
     const currentConfig = getLanguageConfig(currentLanguage)
     if (currentConfig) {
-      languageToggle.setAttribute('aria-label', `Switch language`)
+      languageToggle.setAttribute('aria-label', 'Switch language')
     }
   }
 }
@@ -193,8 +193,14 @@ function updateNavigation() {
   const menuItems = [
     { selector: '.nav__link[href="#hero"]', text: navTranslations.home },
     { selector: '.nav__link[href="#about"]', text: navTranslations.about },
-    { selector: '.nav__link[href="#services"]', text: navTranslations.services },
-    { selector: '.nav__link[href="#portfolio"]', text: navTranslations.portfolio },
+    {
+      selector: '.nav__link[href="#services"]',
+      text: navTranslations.services
+    },
+    {
+      selector: '.nav__link[href="#portfolio"]',
+      text: navTranslations.portfolio
+    },
     { selector: '.nav__link[href="#blog"]', text: navTranslations.blog },
     { selector: '.nav__link[href="#faq"]', text: navTranslations.faq },
     { selector: '.nav__link[href="#contact"]', text: navTranslations.contact }
@@ -202,7 +208,9 @@ function updateNavigation() {
 
   menuItems.forEach(({ selector, text }) => {
     const elements = document.querySelectorAll(selector)
-    elements.forEach(el => el.textContent = text)
+    elements.forEach(el => {
+      el.textContent = text
+    })
   })
 
   // Update theme toggle
@@ -315,7 +323,7 @@ function buildLanguageDropdown() {
     `
 
     // Add click handler for language selection
-    button.addEventListener('click', (e) => {
+    button.addEventListener('click', e => {
       e.stopPropagation()
       const newLang = button.getAttribute('data-lang')
       if (newLang && newLang !== currentLanguage) {
@@ -329,20 +337,23 @@ function buildLanguageDropdown() {
   })
 
   // Toggle dropdown on button click
-  languageToggle.addEventListener('click', (e) => {
+  languageToggle.addEventListener('click', e => {
     e.stopPropagation()
     toggleLanguageDropdown()
   })
 
   // Close dropdown when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!languageToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+  document.addEventListener('click', e => {
+    if (
+      !languageToggle.contains(e.target) &&
+      !dropdownMenu.contains(e.target)
+    ) {
       closeLanguageDropdown()
     }
   })
 
   // Keyboard navigation
-  languageToggle.addEventListener('keydown', (e) => {
+  languageToggle.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
       closeLanguageDropdown()
       languageToggle.focus()
@@ -520,8 +531,14 @@ function updatePerformanceSection() {
   const benefitsTitle = document.querySelector('.performance__benefits-title')
   if (benefitsTitle) benefitsTitle.textContent = performance.benefitsTitle
 
-  const benefitsList = document.querySelectorAll('.performance__benefits-list li')
-  const benefits = [performance.benefits.list1, performance.benefits.list2, performance.benefits.list3]
+  const benefitsList = document.querySelectorAll(
+    '.performance__benefits-list li'
+  )
+  const benefits = [
+    performance.benefits.list1,
+    performance.benefits.list2,
+    performance.benefits.list3
+  ]
   benefits.forEach((benefit, index) => {
     if (benefitsList[index]) {
       benefitsList[index].textContent = benefit
@@ -674,7 +691,9 @@ function updateForm() {
  * Update form field placeholders based on current language
  */
 function updateFormPlaceholders() {
-  const elementsWithPlaceholder = document.querySelectorAll('[data-i18n-placeholder]')
+  const elementsWithPlaceholder = document.querySelectorAll(
+    '[data-i18n-placeholder]'
+  )
 
   elementsWithPlaceholder.forEach(element => {
     const key = element.getAttribute('data-i18n-placeholder')
@@ -714,9 +733,11 @@ function setLanguage(language) {
   updateForm()
 
   // Dispatch event for other modules
-  document.dispatchEvent(new CustomEvent('languageChanged', {
-    detail: { language, translations: currentTranslations }
-  }))
+  document.dispatchEvent(
+    new CustomEvent('languageChanged', {
+      detail: { language, translations: currentTranslations }
+    })
+  )
 }
 
 /**
@@ -724,14 +745,18 @@ function setLanguage(language) {
  */
 export function toggleLanguage() {
   // Handle blog post redirect
-  const postArticle = document.querySelector('.post[data-post-lang][data-post-url]')
+  const postArticle = document.querySelector(
+    '.post[data-post-lang][data-post-url]'
+  )
   if (postArticle) {
     handleBlogLanguageSwitch(postArticle)
     return
   }
 
   // Find next language
-  const currentIndex = CONFIG.languages.findIndex(l => l.code === currentLanguage)
+  const currentIndex = CONFIG.languages.findIndex(
+    l => l.code === currentLanguage
+  )
   const nextIndex = (currentIndex + 1) % CONFIG.languages.length
   setLanguage(CONFIG.languages[nextIndex].code)
 }
@@ -744,7 +769,9 @@ function handleBlogLanguageSwitch(postArticle) {
   const currentPostUrl = postArticle.getAttribute('data-post-url')
 
   // Find next language
-  const currentIndex = CONFIG.languages.findIndex(l => l.code === currentPostLang)
+  const currentIndex = CONFIG.languages.findIndex(
+    l => l.code === currentPostLang
+  )
   const nextIndex = (currentIndex + 1) % CONFIG.languages.length
   const nextLang = CONFIG.languages[nextIndex]
 

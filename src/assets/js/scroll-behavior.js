@@ -4,7 +4,8 @@
  * On non-homepage pages, navbar becomes solid immediately on any scroll
  */
 
-const heroHeight = () => document.querySelector('.hero')?.offsetHeight || window.innerHeight
+const heroHeight = () =>
+  document.querySelector('.hero')?.offsetHeight || window.innerHeight
 
 function updateNavbarOnScroll() {
   const header = document.querySelector('.header')
@@ -39,12 +40,16 @@ export function initNavbarScroll() {
 
   // Run on scroll with throttling for performance
   let scrollTimeout
-  window.addEventListener('scroll', () => {
-    if (scrollTimeout) {
-      window.cancelAnimationFrame(scrollTimeout)
-    }
-    scrollTimeout = window.requestAnimationFrame(updateNavbarOnScroll)
-  }, { passive: true })
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (scrollTimeout) {
+        window.cancelAnimationFrame(scrollTimeout)
+      }
+      scrollTimeout = window.requestAnimationFrame(updateNavbarOnScroll)
+    },
+    { passive: true }
+  )
 }
 
 /**
@@ -52,7 +57,7 @@ export function initNavbarScroll() {
  * Handles smooth scrolling to sections when clicking anchor links
  */
 export function initSmoothScroll() {
-  document.addEventListener('click', (e) => {
+  document.addEventListener('click', e => {
     const link = e.target.closest('a')
     if (!link) return
 

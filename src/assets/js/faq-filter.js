@@ -29,13 +29,13 @@ export class FAQFilter {
 
   setupEventListeners() {
     this.filterButtons.forEach(button => {
-      button.addEventListener('click', (e) => {
+      button.addEventListener('click', e => {
         e.preventDefault()
         this.handleFilter(button)
       })
 
       // Keyboard navigation for tabs
-      button.addEventListener('keydown', (e) => {
+      button.addEventListener('keydown', e => {
         this.handleKeyboardNavigation(e, button)
       })
     })
@@ -91,28 +91,28 @@ export class FAQFilter {
     let nextIndex = currentIndex
 
     switch (e.key) {
-    case 'ArrowRight':
-      e.preventDefault()
-      nextIndex = (currentIndex + 1) % buttons.length
-      break
+      case 'ArrowRight':
+        e.preventDefault()
+        nextIndex = (currentIndex + 1) % buttons.length
+        break
 
-    case 'ArrowLeft':
-      e.preventDefault()
-      nextIndex = currentIndex === 0 ? buttons.length - 1 : currentIndex - 1
-      break
+      case 'ArrowLeft':
+        e.preventDefault()
+        nextIndex = currentIndex === 0 ? buttons.length - 1 : currentIndex - 1
+        break
 
-    case 'Home':
-      e.preventDefault()
-      nextIndex = 0
-      break
+      case 'Home':
+        e.preventDefault()
+        nextIndex = 0
+        break
 
-    case 'End':
-      e.preventDefault()
-      nextIndex = buttons.length - 1
-      break
+      case 'End':
+        e.preventDefault()
+        nextIndex = buttons.length - 1
+        break
 
-    default:
-      return
+      default:
+        return
     }
 
     buttons[nextIndex].focus()

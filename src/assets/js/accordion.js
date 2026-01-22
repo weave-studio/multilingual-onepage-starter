@@ -41,13 +41,13 @@ export class FAQAccordion {
       button.setAttribute('aria-controls', uniqueId)
 
       // Click handler
-      button.addEventListener('click', (e) => {
+      button.addEventListener('click', e => {
         e.preventDefault()
         this.toggleAccordion(accordion, button, answer)
       })
 
       // Prevent default space bar behavior on button
-      button.addEventListener('keydown', (e) => {
+      button.addEventListener('keydown', e => {
         if (e.key === ' ') {
           e.preventDefault()
         }
@@ -61,39 +61,43 @@ export class FAQAccordion {
 
       if (!button) return
 
-      button.addEventListener('keydown', (e) => {
+      button.addEventListener('keydown', e => {
         const answer = accordion.querySelector('.faq-accordion__answer')
 
         switch (e.key) {
-        case 'Enter':
-        case ' ':
-          e.preventDefault()
-          this.toggleAccordion(accordion, button, answer)
-          break
+          case 'Enter':
+          case ' ':
+            e.preventDefault()
+            this.toggleAccordion(accordion, button, answer)
+            break
 
-        case 'ArrowDown':
-          e.preventDefault()
-          this.focusNextAccordion(index)
-          break
+          case 'ArrowDown':
+            e.preventDefault()
+            this.focusNextAccordion(index)
+            break
 
-        case 'ArrowUp':
-          e.preventDefault()
-          this.focusPreviousAccordion(index)
-          break
+          case 'ArrowUp':
+            e.preventDefault()
+            this.focusPreviousAccordion(index)
+            break
 
-        case 'Home':
-          e.preventDefault()
-          this.accordions[0]?.querySelector('.faq-accordion__question button')?.focus()
-          break
+          case 'Home':
+            e.preventDefault()
+            this.accordions[0]
+              ?.querySelector('.faq-accordion__question button')
+              ?.focus()
+            break
 
-        case 'End':
-          e.preventDefault()
-          this.accordions[this.accordions.length - 1]?.querySelector('.faq-accordion__question button')?.focus()
-          break
+          case 'End':
+            e.preventDefault()
+            this.accordions[this.accordions.length - 1]
+              ?.querySelector('.faq-accordion__question button')
+              ?.focus()
+            break
 
-        default:
-          // Handle any other keys if needed
-          break
+          default:
+            // Handle any other keys if needed
+            break
         }
       })
     })
@@ -101,16 +105,18 @@ export class FAQAccordion {
 
   setupReducedMotion() {
     // Check for reduced motion preference
-    this.prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    this.prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches
 
     // Listen for changes
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-    mediaQuery.addEventListener('change', (e) => {
+    mediaQuery.addEventListener('change', e => {
       this.prefersReducedMotion = e.matches
     })
   }
 
-  toggleAccordion(accordion, button, answer) {
+  toggleAccordion(_accordion, button, answer) {
     const isExpanded = button.getAttribute('aria-expanded') === 'true'
     const willOpen = !isExpanded
 
@@ -147,12 +153,17 @@ export class FAQAccordion {
 
   focusNextAccordion(currentIndex) {
     const nextIndex = (currentIndex + 1) % this.accordions.length
-    this.accordions[nextIndex]?.querySelector('.faq-accordion__question button')?.focus()
+    this.accordions[nextIndex]
+      ?.querySelector('.faq-accordion__question button')
+      ?.focus()
   }
 
   focusPreviousAccordion(currentIndex) {
-    const prevIndex = currentIndex === 0 ? this.accordions.length - 1 : currentIndex - 1
-    this.accordions[prevIndex]?.querySelector('.faq-accordion__question button')?.focus()
+    const prevIndex =
+      currentIndex === 0 ? this.accordions.length - 1 : currentIndex - 1
+    this.accordions[prevIndex]
+      ?.querySelector('.faq-accordion__question button')
+      ?.focus()
   }
 
   announceToScreenReader(message) {

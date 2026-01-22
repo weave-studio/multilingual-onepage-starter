@@ -63,7 +63,7 @@ export function initBackToTop() {
   backToTopBtn.addEventListener('click', scrollToTop)
 
   // Keyboard handler (Space key - Enter is handled natively by <a>)
-  backToTopBtn.addEventListener('keydown', (e) => {
+  backToTopBtn.addEventListener('keydown', e => {
     if (e.key === ' ') {
       e.preventDefault()
       scrollToTop(e)
@@ -72,14 +72,18 @@ export function initBackToTop() {
 
   // Scroll event listener with throttling for performance
   let scrollTimeout
-  window.addEventListener('scroll', () => {
-    if (!scrollTimeout) {
-      scrollTimeout = setTimeout(() => {
-        toggleBackToTopVisibility()
-        scrollTimeout = null
-      }, 50)
-    }
-  }, { passive: true })
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (!scrollTimeout) {
+        scrollTimeout = setTimeout(() => {
+          toggleBackToTopVisibility()
+          scrollTimeout = null
+        }, 50)
+      }
+    },
+    { passive: true }
+  )
 
   // Initial check on load
   toggleBackToTopVisibility()

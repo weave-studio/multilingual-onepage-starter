@@ -4,11 +4,13 @@
  *
  * @returns {function} Cleanup function to remove event listeners and stop animation
  */
-import { getTranslations, hasLanguage } from './translations/index.js'
+
 import { getCurrentLanguage } from './language.js'
+import { getTranslations, hasLanguage } from './translations/index.js'
 
 // eslint-disable-next-line consistent-return
-export function initRotatingText() { // eslint-disable-line consistent-return
+export function initRotatingText() {
+  // eslint-disable-line consistent-return
   const rotatingElement = document.querySelector('.hero__title-animated')
   if (!rotatingElement) {
     console.warn('Hero rotating text element not found')
@@ -98,7 +100,9 @@ export function initRotatingText() { // eslint-disable-line consistent-return
       }
     }
 
-    console.warn('Could not update rotating text - invalid language or no words available')
+    console.warn(
+      'Could not update rotating text - invalid language or no words available'
+    )
   }
 
   // Add transition styles
@@ -123,7 +127,9 @@ export function initRotatingText() { // eslint-disable-line consistent-return
   rotatingElement.addEventListener('mouseleave', startRotation)
 
   // Respect reduced motion preference
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+  const prefersReducedMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  )
   function handleMotionPreference() {
     if (prefersReducedMotion.matches) {
       stopRotation()

@@ -48,6 +48,7 @@ class ScrollAnimations {
     }, this.observerOptions)
 
     // Observe all sections with data-scroll-reveal attribute
+    // biome-ignore lint/suspicious/useIterableCallbackReturn: observer.observe returns void
     this.sections.forEach(section => observer.observe(section))
 
     // Also observe the about image label

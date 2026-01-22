@@ -48,7 +48,7 @@ module.exports = {
     trackingId: '',
 
     // Privacy settings
-    respectDNT: true,      // Honor "Do Not Track" browser setting
-    anonymizeIP: true      // Anonymize visitor IP addresses (GA4 only)
+    respectDNT: true, // Honor "Do Not Track" browser setting
+    anonymizeIP: true // Anonymize visitor IP addresses (GA4 only)
   }
 }

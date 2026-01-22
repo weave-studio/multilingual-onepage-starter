@@ -120,7 +120,7 @@ export function initNavigation() {
     mobileToggle.addEventListener('click', toggleMobileMenu)
 
     // Keyboard support for mobile toggle
-    mobileToggle.addEventListener('keydown', (event) => {
+    mobileToggle.addEventListener('keydown', event => {
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault()
         toggleMobileMenu()

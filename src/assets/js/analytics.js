@@ -84,6 +84,7 @@ function loadGA4() {
   // Initialize dataLayer and gtag function
   window.dataLayer = window.dataLayer || []
   function gtag() {
+    // biome-ignore lint/complexity/noArguments: Google's official gtag pattern requires arguments object
     window.dataLayer.push(arguments)
   }
   window.gtag = gtag
@@ -102,7 +103,9 @@ function loadGA4() {
  */
 function loadPlausible() {
   if (!config.trackingId) {
-    console.warn('[Analytics] Plausible requires your domain as trackingId (e.g., yourdomain.com)')
+    console.warn(
+      '[Analytics] Plausible requires your domain as trackingId (e.g., yourdomain.com)'
+    )
     return
   }
 
@@ -113,9 +116,13 @@ function loadPlausible() {
   document.head.appendChild(script)
 
   // Expose plausible function for custom events
-  window.plausible = window.plausible || function() {
-    (window.plausible.q = window.plausible.q || []).push(arguments)
-  }
+  window.plausible =
+    window.plausible ||
+    function () {
+      // biome-ignore lint/complexity/noArguments: Plausible's official queue pattern
+      // biome-ignore lint/suspicious/noAssignInExpressions: Standard analytics queue pattern
+      ;(window.plausible.q = window.plausible.q || []).push(arguments)
+    }
 }
 
 /**
@@ -124,7 +131,9 @@ function loadPlausible() {
  */
 function loadFathom() {
   if (!config.trackingId) {
-    console.warn('[Analytics] Fathom requires a siteId as trackingId (e.g., ABCDEFGH)')
+    console.warn(
+      '[Analytics] Fathom requires a siteId as trackingId (e.g., ABCDEFGH)'
+    )
     return
   }
 
@@ -320,7 +329,7 @@ export function initAnalytics(userConfig = null) {
     if (analyticsEl) {
       try {
         userConfig = JSON.parse(analyticsEl.dataset.analyticsConfig)
-      } catch (e) {
+      } catch (_e) {
         console.warn('[Analytics] Failed to parse config from data attribute')
       }
     }
