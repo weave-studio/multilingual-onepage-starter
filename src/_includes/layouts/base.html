@@ -8,165 +8,7 @@
   %}
 >
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- SEO Meta Tags -->
-    <title>
-      {% if title %}{{ title }}{% else %}Weave Studio - Professional Web
-      Development{% endif %}
-    </title>
-    <meta
-      name="description"
-      content="{% if description %}{{ description }}{% else %}Professional web development services creating modern, high-performance websites and experiences.{% endif %}"
-    />
-
-    <!-- Open Graph Meta Tags -->
-    <meta
-      property="og:title"
-      content="{% if title %}{{ title }}{% else %}Weave Studio - Professional Web Development{% endif %}"
-    />
-    <meta
-      property="og:description"
-      content="{% if description %}{{ description }}{% else %}Professional web development services creating modern, high-performance websites and experiences.{% endif %}"
-    />
-    <meta property="og:image" content="https://weavewebdesign.com/assets/images/og-default.jpg" />
-    <meta property="og:url" content="https://weavewebdesign.com{{ page.url | url }}" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Weave Studio" />
-
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="{% if title %}{{ title }}{% else %}Weave Studio - Professional Web Development{% endif %}"
-    />
-    <meta
-      name="twitter:description"
-      content="{% if description %}{{ description }}{% else %}Professional web development services creating modern, high-performance websites and experiences.{% endif %}"
-    />
-    <meta name="twitter:image" content="https://weavewebdesign.com/assets/images/og-default.jpg" />
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/assets/images/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/assets/images/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/assets/images/favicon-16x16.png"
-    />
-    <link rel="manifest" href="/assets/images/site.webmanifest" />
-
-    <!-- Preconnect to external domains (MUST be before any external resource loading) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://unpkg.com" />
-
-    <!-- Inter font - Preload critical weights for better performance -->
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-    />
-
-    <!-- Hebrew fonts (only load when language is Hebrew) -->
-    {% if language == "he" %}
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Noto+Sans+Hebrew:wght@400;600;700&display=swap"
-    />
-    {% else %}
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Noto+Sans+Hebrew:wght@400;600;700&display=swap"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Noto+Sans+Hebrew:wght@400;600;700&display=swap"
-      />
-    </noscript>
-    {% endif %}
-
-    <!-- Theme Prevention Script (MUST run before page renders) -->
-    <script>
-      (function() {
-        const stored = localStorage.getItem('theme');
-        const theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', theme);
-      })();
-    </script>
-
-    <!-- Analytics Configuration -->
-    {% include 'partials/analytics.html' %}
-
-    <!-- Main Stylesheet (includes RTL styles) -->
-    <link rel="stylesheet" href="/assets/css/main.css">
-
-    <!-- Security Headers (Additional headers set via .htaccess on server) -->
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
-    <meta
-      http-equiv="Referrer-Policy"
-      content="strict-origin-when-cross-origin"
-    />
-
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Weave Studio",
-        "url": "{{ page.url | url }}",
-        "logo": "/assets/images/logo.png",
-        "description": "Professional web development services creating modern, high-performance websites and experiences.",
-        "foundingDate": "2019",
-        "knowsAbout": [
-          "Web Development",
-          "Web Design",
-          "E-commerce Development",
-          "Website Maintenance",
-          "Performance Optimization",
-          "SEO",
-          "Accessibility"
-        ],
-        "areaServed": [
-          {
-            "@type": "Country",
-            "name": "Israel"
-          },
-          {
-            "@type": "Country",
-            "name": "United States"
-          }
-        ],
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "",
-          "email": "hello@weavestudio.dev",
-          "contactType": "Customer Service",
-          "availableLanguage": ["English", "Hebrew"]
-        },
-        "sameAs": [""]
-      }
-    </script>
+    {% include 'partials/head.html' %}
   </head>
 
   <body
@@ -177,100 +19,19 @@
     <a href="#main-content" class="skip-link sr-only">Skip to main content</a>
 
     <!-- SVG Icon Definitions -->
-    {% include 'svg-icons.html' %}
+    {% include 'components/svg-icons.html' %}
 
     <!-- Global Navigation -->
-    {% include 'nav.html' %}
+    {% include 'components/nav.html' %}
 
     <!-- Page content injected here -->
     {{ content }}
 
     <!-- Global Footer -->
-    {% include 'footer.html' %}
+    {% include 'components/footer.html' %}
 
-    <!-- JavaScript Modules -->
-    <script type="module">
-      import { initAnalytics } from '/assets/js/analytics.js';
-      import { initTheme } from '/assets/js/theme.js';
-      import { initLanguage } from '/assets/js/language.js';
-      import { initNavigation } from '/assets/js/navigation.js';
-      import { initRotatingText } from '/assets/js/rotating-text.js';
-      import { initContactForm } from '/assets/js/form-validation.js';
-      import { initNavbarScroll } from '/assets/js/scroll-behavior.js';
-      import { initSmoothScroll } from '/assets/js/scroll-behavior.js';
-      import { initBackToTop } from '/assets/js/back-to-top.js';
-      import { initLazyLoading } from '/assets/js/lazy-loading.js';
-      import { FAQAccordion } from '/assets/js/accordion.js';
-      import ScrollAnimations from '/assets/js/scroll-animations.js';
-      import { FAQFilter } from '/assets/js/faq-filter.js';
-
-      // Initialize analytics (runs privacy checks before loading scripts)
-      initAnalytics();
-
-      // Initialize theme functionality
-      initTheme();
-
-      // Initialize language switching
-      initLanguage();
-
-      // Initialize navigation
-      initNavigation();
-
-      // Initialize interactive components
-      initRotatingText();
-      initContactForm();
-      initNavbarScroll();
-      initSmoothScroll();
-      initBackToTop();
-
-      // Initialize FAQ accordion on home page
-      const faqSection = document.querySelector('.faq');
-      if (faqSection) {
-        new FAQAccordion(faqSection);
-      }
-
-      // Initialize FAQ filter on home page
-      const homeFaqFilters = document.querySelector('.faq__filters');
-      if (homeFaqFilters) {
-        new FAQFilter(homeFaqFilters);
-      }
-
-      // Initialize FAQ accordion on FAQ listing page
-      const faqListingSection = document.querySelector('.faq-listing');
-      if (faqListingSection) {
-        new FAQAccordion(faqListingSection);
-      }
-
-      // Initialize FAQ filter on FAQ listing page
-      const faqFilters = document.querySelector('.faq-listing__filters');
-      if (faqFilters) {
-        new FAQFilter(faqFilters);
-      }
-
-      // Initialize scroll animations
-      new ScrollAnimations();
-
-      // Initialize performance features
-      initLazyLoading();
-
-      // Performance observation (removed console.logs for production)
-    </script>
-
-    <!-- Fallback for browsers without module support -->
-    <script nomodule>
-      console.warn('This site requires JavaScript modules. Please update your browser.');
-    </script>
-
-    <!-- Lucide Icons - Loaded asynchronously to not block rendering -->
-    <script src="https://unpkg.com/lucide@latest" async></script>
-    <script>
-      // Initialize Lucide icons after script loads
-      window.addEventListener('load', function() {
-        if (typeof lucide !== 'undefined') {
-          lucide.createIcons();
-        }
-      });
-    </script>
+    <!-- JavaScript Initialization -->
+    {% include 'partials/scripts.html' %}
 
   </body>
 </html>

@@ -1,0 +1,126 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- SEO, Open Graph, and Twitter Meta Tags -->
+{% include 'partials/meta-tags.html' %}
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico" />
+<link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="/assets/images/apple-touch-icon.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href="/assets/images/favicon-32x32.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="/assets/images/favicon-16x16.png"
+/>
+<link rel="manifest" href="/assets/images/site.webmanifest" />
+
+<!-- Preconnect to external domains (MUST be before any external resource loading) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="dns-prefetch" href="https://unpkg.com" />
+
+<!-- Inter font - Preload critical weights for better performance -->
+<link
+  rel="preload"
+  as="style"
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+/>
+
+<!-- Hebrew fonts (only load when language is Hebrew) -->
+{% if language == "he" %}
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Noto+Sans+Hebrew:wght@400;600;700&display=swap"
+/>
+{% else %}
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Noto+Sans+Hebrew:wght@400;600;700&display=swap"
+  media="print"
+  onload="this.media='all'"
+/>
+<noscript>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Noto+Sans+Hebrew:wght@400;600;700&display=swap"
+  />
+</noscript>
+{% endif %}
+
+<!-- Theme Prevention Script (MUST run before page renders) -->
+<script>
+  (function() {
+    const stored = localStorage.getItem('theme');
+    const theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
+
+<!-- Analytics Configuration -->
+{% include 'partials/analytics.html' %}
+
+<!-- Main Stylesheet (includes RTL styles) -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!-- Security Headers (Additional headers set via .htaccess on server) -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+<meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+<meta
+  http-equiv="Referrer-Policy"
+  content="strict-origin-when-cross-origin"
+/>
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Weave Studio",
+    "url": "{{ page.url | url }}",
+    "logo": "/assets/images/logo.png",
+    "description": "Professional web development services creating modern, high-performance websites and experiences.",
+    "foundingDate": "2019",
+    "knowsAbout": [
+      "Web Development",
+      "Web Design",
+      "E-commerce Development",
+      "Website Maintenance",
+      "Performance Optimization",
+      "SEO",
+      "Accessibility"
+    ],
+    "areaServed": [
+      {
+        "@type": "Country",
+        "name": "Israel"
+      },
+      {
+        "@type": "Country",
+        "name": "United States"
+      }
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "",
+      "email": "hello@weavestudio.dev",
+      "contactType": "Customer Service",
+      "availableLanguage": ["English", "Hebrew"]
+    },
+    "sameAs": [""]
+  }
+</script>

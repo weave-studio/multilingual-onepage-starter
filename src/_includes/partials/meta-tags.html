@@ -1,0 +1,35 @@
+<!-- SEO Meta Tags -->
+<title>
+  {% if title %}{{ title }}{% else %}Weave Studio - Professional Web
+  Development{% endif %}
+</title>
+<meta
+  name="description"
+  content="{% if description %}{{ description }}{% else %}Professional web development services creating modern, high-performance websites and experiences.{% endif %}"
+/>
+
+<!-- Open Graph Meta Tags -->
+<meta
+  property="og:title"
+  content="{% if title %}{{ title }}{% else %}Weave Studio - Professional Web Development{% endif %}"
+/>
+<meta
+  property="og:description"
+  content="{% if description %}{{ description }}{% else %}Professional web development services creating modern, high-performance websites and experiences.{% endif %}"
+/>
+<meta property="og:image" content="https://weavewebdesign.com/assets/images/og-default.jpg" />
+<meta property="og:url" content="https://weavewebdesign.com{{ page.url | url }}" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Weave Studio" />
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta
+  name="twitter:title"
+  content="{% if title %}{{ title }}{% else %}Weave Studio - Professional Web Development{% endif %}"
+/>
+<meta
+  name="twitter:description"
+  content="{% if description %}{{ description }}{% else %}Professional web development services creating modern, high-performance websites and experiences.{% endif %}"
+/>
+<meta name="twitter:image" content="https://weavewebdesign.com/assets/images/og-default.jpg" />

@@ -9,42 +9,7 @@ language: en
 <!-- Navigation is now in base.html layout -->
 
 <main id="main-content" class="main" role="main">
-  <section id="hero" class="hero" aria-labelledby="hero-title">
-    <div class="hero__container">
-      <div class="hero__content">
-        <h1 id="hero-title" class="hero__title">
-          <span class="hero__title-line" data-i18n="hero.titleFirstLine">Weaving ideas into</span>
-          <span class="hero__title-animated" data-rotating-text></span>
-        </h1>
-        <p class="hero__description" data-i18n="hero.description">
-          Beautifully designed, professional websites. Developed especially for
-          small businesses, freelancers, and creatives.
-        </p>
-        <div class="hero__actions">
-          <a href="#contact" class="btn btn--primary hero__cta"
-            data-i18n="hero.ctaPrimary">Learn More</a
-          >
-          <a href="#services" class="btn btn--secondary hero__learn-more"
-            data-i18n="hero.ctaLearnMore">Our Services</a
-          >
-        </div>
-      </div>
-      <div class="hero__visual" aria-hidden="true">
-        <!-- Hero visual/illustration will be added here -->
-      </div>
-    </div>
-
-    <a
-      href="#welcome"
-      class="hero__scroll-hint"
-      aria-label="Scroll down to learn more"
-    >
-      <span class="sr-only">Scroll down to learn more</span>
-      <svg class="hero__scroll-icon" focusable="false" aria-hidden="true">
-        <use href="#icon-arrow-down"></use>
-      </svg>
-    </a>
-  </section>
+  {% include 'components/hero.html' %}
 
   <section id="welcome" class="welcome" aria-labelledby="welcome-title">
     <div class="welcome__container">

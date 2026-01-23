@@ -1,0 +1,83 @@
+<!-- JavaScript Modules -->
+<script type="module">
+  import { initAnalytics } from '/assets/js/analytics.js';
+  import { initTheme } from '/assets/js/theme.js';
+  import { initLanguage } from '/assets/js/language.js';
+  import { initNavigation } from '/assets/js/navigation.js';
+  import { initRotatingText } from '/assets/js/rotating-text.js';
+  import { initContactForm } from '/assets/js/form-validation.js';
+  import { initNavbarScroll } from '/assets/js/scroll-behavior.js';
+  import { initSmoothScroll } from '/assets/js/scroll-behavior.js';
+  import { initBackToTop } from '/assets/js/back-to-top.js';
+  import { initLazyLoading } from '/assets/js/lazy-loading.js';
+  import { FAQAccordion } from '/assets/js/accordion.js';
+  import ScrollAnimations from '/assets/js/scroll-animations.js';
+  import { FAQFilter } from '/assets/js/faq-filter.js';
+
+  // Initialize analytics (runs privacy checks before loading scripts)
+  initAnalytics();
+
+  // Initialize theme functionality
+  initTheme();
+
+  // Initialize language switching
+  initLanguage();
+
+  // Initialize navigation
+  initNavigation();
+
+  // Initialize interactive components
+  initRotatingText();
+  initContactForm();
+  initNavbarScroll();
+  initSmoothScroll();
+  initBackToTop();
+
+  // Initialize FAQ accordion on home page
+  const faqSection = document.querySelector('.faq');
+  if (faqSection) {
+    new FAQAccordion(faqSection);
+  }
+
+  // Initialize FAQ filter on home page
+  const homeFaqFilters = document.querySelector('.faq__filters');
+  if (homeFaqFilters) {
+    new FAQFilter(homeFaqFilters);
+  }
+
+  // Initialize FAQ accordion on FAQ listing page
+  const faqListingSection = document.querySelector('.faq-listing');
+  if (faqListingSection) {
+    new FAQAccordion(faqListingSection);
+  }
+
+  // Initialize FAQ filter on FAQ listing page
+  const faqFilters = document.querySelector('.faq-listing__filters');
+  if (faqFilters) {
+    new FAQFilter(faqFilters);
+  }
+
+  // Initialize scroll animations
+  new ScrollAnimations();
+
+  // Initialize performance features
+  initLazyLoading();
+
+  // Performance observation (removed console.logs for production)
+</script>
+
+<!-- Fallback for browsers without module support -->
+<script nomodule>
+  console.warn('This site requires JavaScript modules. Please update your browser.');
+</script>
+
+<!-- Lucide Icons - Loaded asynchronously to not block rendering -->
+<script src="https://unpkg.com/lucide@latest" async></script>
+<script>
+  // Initialize Lucide icons after script loads
+  window.addEventListener('load', function() {
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  });
+</script>
