@@ -42,7 +42,7 @@
 />
 
 <!-- Hebrew fonts (only load when language is Hebrew) -->
-{% if language == "he" %}
+{% if language | isRTL %}
 <link
   rel="stylesheet"
   href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Noto+Sans+Hebrew:wght@400;600;700&display=swap"

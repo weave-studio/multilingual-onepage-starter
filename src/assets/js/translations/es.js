@@ -37,7 +37,12 @@ export default {
   hero: {
     titleFirstLine: 'Tejiendo ideas en',
     titleAnimated: 'sitios web',
-    rotatingWords: ['sitios web', 'portafolios', 'tiendas en línea', 'tu visión'],
+    rotatingWords: [
+      'sitios web',
+      'portafolios',
+      'tiendas en línea',
+      'tu visión'
+    ],
     description:
       'Sitios web hermosamente diseñados y profesionales. Desarrollados especialmente para pequeños negocios, autónomos y creativos.',
     ctaPrimary: 'Saber Más',
@@ -90,7 +95,8 @@ export default {
       },
       {
         title: 'Comercio Electrónico',
-        description: 'Tiendas en línea perfectas con integraciones de pago seguro.'
+        description:
+          'Tiendas en línea perfectas con integraciones de pago seguro.'
       },
       {
         title: 'SEO',
@@ -156,7 +162,8 @@ export default {
         },
         {
           title: 'Paquete de Comercio Electrónico',
-          description: 'Tiendas en línea personalizadas construidas para resultados.',
+          description:
+            'Tiendas en línea personalizadas construidas para resultados.',
           features: [
             'Diseño personalizado de tienda Shopify',
             'Procesamiento de pago seguro',
@@ -195,7 +202,8 @@ export default {
   // Portfolio section
   portfolio: {
     title: 'Trabajo Reciente',
-    subtitle: 'Construyendo un portafolio de proyectos de los que estamos orgullosos',
+    subtitle:
+      'Construyendo un portafolio de proyectos de los que estamos orgullosos',
     content: {
       paragraph1:
         'Selectivo con los proyectos que se aceptan, enfocándose en calidad sobre cantidad.<br>Cada proyecto recibe atención completa y energía creativa para entregar resultados excepcionales.',
@@ -244,7 +252,8 @@ export default {
     listingTitle: 'Blog',
     listingDescription:
       'Información útil y orientación honesta sobre desarrollo web, diseño y rendimiento.',
-    emptyMessage: 'Sin artículos de blog aún. ¡Regresa pronto para los últimos conocimientos!',
+    emptyMessage:
+      'Sin artículos de blog aún. ¡Regresa pronto para los últimos conocimientos!',
     backToBlog: '← Volver al Blog',
     readTimeLabel: 'min de lectura'
   },
@@ -272,7 +281,8 @@ export default {
   faq: {
     title: 'Preguntas Comunes',
     homeTitle: 'Preguntas Comunes',
-    homeSubtitle: 'Respuestas rápidas y simples que te ayudan a saber qué esperar',
+    homeSubtitle:
+      'Respuestas rápidas y simples que te ayudan a saber qué esperar',
     listingTitle: 'Preguntas Frecuentes',
     listingDescription:
       'Encuentra respuestas a preguntas comunes sobre nuestros servicios, precios y proceso.',
@@ -379,7 +389,8 @@ export default {
     expectations: {
       title: 'Qué Esperar:',
       list1: 'Discusión inicial: Entender tus necesidades y objetivos',
-      list2: 'Descripción clara del proyecto: Alcance detallado, cronograma y precios',
+      list2:
+        'Descripción clara del proyecto: Alcance detallado, cronograma y precios',
       list3:
         'Proceso colaborativo: Actualizaciones regulares y comentarios durante todo el desarrollo'
     },
@@ -450,7 +461,8 @@ export default {
     },
     returnHome: 'Volver a la Página de Inicio',
     viewServices: 'Ver Nuestros Servicios',
-    urgentMessage: '¿Necesitas asistencia inmediata? Envíanos un correo electrónico directamente a'
+    urgentMessage:
+      '¿Necesitas asistencia inmediata? Envíanos un correo electrónico directamente a'
   },
 
   // Footer
@@ -466,7 +478,14 @@ export default {
       },
       company: {
         title: 'Explorar',
-        links: ['Acerca de', 'Servicios', 'Portafolio', 'Blog', 'Preguntas Frecuentes', 'Contacto']
+        links: [
+          'Acerca de',
+          'Servicios',
+          'Portafolio',
+          'Blog',
+          'Preguntas Frecuentes',
+          'Contacto'
+        ]
       },
       connect: {
         title: 'Conectar',

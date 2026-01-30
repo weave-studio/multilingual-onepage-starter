@@ -1,7 +1,7 @@
 <!doctype html>
 <html
   lang="{% if language %}{{ language }}{% else %}en{% endif %}"
-  {% if language == "he" %}
+  {% if language | isRTL %}
   dir="rtl"
   {%
   endif
@@ -12,7 +12,7 @@
   </head>
 
   <body
-    class="{% if language == 'he' %}rtl{% endif %}{% if pageClass %} {{ pageClass }}{% endif %}"
+    class="{% if language | isRTL %}rtl{% endif %}{% if pageClass %} {{ pageClass }}{% endif %}"
     data-language="{% if language %}{{ language }}{% else %}en{% endif %}"
   >
     <!-- Skip to main content link for accessibility -->

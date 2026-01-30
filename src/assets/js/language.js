@@ -13,7 +13,11 @@ const CONFIG = {
     { code: 'en', name: 'English', nativeName: 'English', dir: 'ltr' },
     { code: 'he', name: 'Hebrew', nativeName: 'עברית', dir: 'rtl' },
     { code: 'es', name: 'Spanish', nativeName: 'Español', dir: 'ltr' }
-  ]
+  ],
+  blog: {
+    defaultPath: '/blog/',
+    langPath: '/blog/{langCode}/'
+  }
 }
 
 // Runtime state
@@ -775,16 +779,22 @@ function handleBlogLanguageSwitch(postArticle) {
   const nextIndex = (currentIndex + 1) % CONFIG.languages.length
   const nextLang = CONFIG.languages[nextIndex]
 
-  // Build new URL (simplified for now - assumes /blog/ for default, /blog/he/ for Hebrew)
+  // Build new URL using blog path patterns from config
   let newUrl = currentPostUrl
 
-  // This is a simplified version - in a real implementation,
-  // you'd want to read blog path patterns from config
-  if (currentPostLang === 'he' && nextLang.code === 'en') {
-    newUrl = newUrl.replace('/blog/he/', '/blog/')
-  } else if (currentPostLang === 'en' && nextLang.code === 'he') {
-    newUrl = newUrl.replace('/blog/', '/blog/he/')
-  }
+  // Get current and next path patterns
+  const currentPath =
+    currentPostLang === CONFIG.defaultLanguage
+      ? CONFIG.blog.defaultPath
+      : CONFIG.blog.langPath.replace('{langCode}', currentPostLang)
+
+  const nextPath =
+    nextLang.code === CONFIG.defaultLanguage
+      ? CONFIG.blog.defaultPath
+      : CONFIG.blog.langPath.replace('{langCode}', nextLang.code)
+
+  // Replace the path in the URL
+  newUrl = newUrl.replace(currentPath, nextPath)
 
   window.location.href = newUrl
 }

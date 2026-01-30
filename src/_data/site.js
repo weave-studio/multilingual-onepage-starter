@@ -32,7 +32,16 @@ module.exports = {
         nativeName: 'Español',
         dir: 'ltr'
       }
-    ]
+    ],
+
+    // Blog URL pattern configuration
+    // Used for language switching on blog posts
+    blog: {
+      // Default path for default language (usually just /blog/)
+      defaultPath: '/blog/',
+      // Pattern for non-default languages: {langCode} will be replaced with language code
+      langPath: '/blog/{langCode}/'
+    }
   },
 
   // Analytics Configuration

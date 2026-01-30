@@ -92,6 +92,13 @@ module.exports = function(eleventyConfig) {
     return categoryMap[category] || category;
   });
 
+  // Add RTL detection filter
+  eleventyConfig.addFilter("isRTL", function(langCode) {
+    if (!langCode) return false;
+    const lang = languages.find(l => l.code === langCode);
+    return lang ? lang.dir === 'rtl' : false;
+  });
+
   // Markdown settings if needed
   let markdownItOptions = {
     html: true,
