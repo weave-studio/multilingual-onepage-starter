@@ -1,0 +1,99 @@
+# AI Assistant Rules - Multilingual One-Page Starter
+
+This template includes comprehensive AI development features. Read the context files below to understand the project architecture, patterns, and customization options.
+
+## Working Files (During Template Development)
+
+If you're currently developing THIS template (not using it for a project), use these working files for accurate context:
+
+- **[IMPLEMENTATION_PLAN.md](./IMPLEMENTATION_PLAN.md)** - Complete development plan and phase tracking
+- **[progress.md](./progress.md)** - Current status and progress
+- **[activeContext.md](./activeContext.md)** - Active session context
+
+**For template USERS** (not developers), ignore these files and use the .ai/ context files below instead.
+
+## Context Files
+
+Read these files to understand the project:
+
+- **[.ai/README.md](./.ai/README.md)** - AI features overview and how to use with different tools
+- **[.ai/context/project-overview.md](./.ai/context/project-overview.md)** - Template features and your project details
+- **[.ai/context/architecture.md](./.ai/context/architecture.md)** - Complete technical documentation
+- **[.ai/context/patterns.md](./.ai/context/patterns.md)** - Code patterns with real examples
+- **[.ai/context/customization-guide.md](./.ai/context/customization-guide.md)** - How-to guides for common tasks
+
+## Workflow Skills
+
+Available task workflows in [.ai/skills/](./.ai/skills/) (to be created):
+
+Skills provide step-by-step guides for common tasks like adding languages, customizing themes, creating sections, and deploying the site.
+
+## Code Guidelines
+
+### Always Maintain
+
+- **Accessibility:** WCAG 2.1 AA compliance (ARIA labels, keyboard nav, screen readers)
+- **RTL Support:** Works for Hebrew, Arabic, and other RTL languages
+- **Dark Mode:** All components support light and dark themes
+- **Multilingual:** All user-facing text uses `data-i18n` attributes
+- **Mobile Responsive:** Works on 375px to 1920px+ viewports
+- **Performance:** Lighthouse scores 90+ performance, 100 accessibility
+
+### Code Patterns to Follow
+
+- **HTML:** BEM naming convention, semantic HTML, Nunjucks templating
+- **SCSS:** Component-based, use variables/mixins, CSS custom properties for theming
+- **JavaScript:** Vanilla ES6+, no frameworks, class-based components for complex UI
+- **Accessibility:** Proper ARIA, keyboard navigation, focus management
+- **Translations:** Use `data-i18n` for all text, dot notation for nested keys
+
+### Don'ts
+
+- Don't use jQuery or other frameworks
+- Don't hardcode colors (use CSS custom properties)
+- Don't hardcode text (use `data-i18n` attributes)
+- Don't skip ARIA labels or accessibility features
+- Don't use directional properties without RTL overrides
+- Don't break dark mode support
+
+## File Structure
+
+```
+src/
+├── _data/site.js          # Site configuration
+├── _includes/
+│   ├── layouts/           # Page layouts
+│   ├── components/        # Reusable UI components
+│   └── partials/          # Small snippets
+├── assets/
+│   ├── scss/             # Organized SCSS
+│   ├── js/               # JavaScript modules
+│   │   └── translations/ # Translation files
+│   └── images/           # Images and assets
+├── blog/                 # Blog posts (Markdown)
+└── index.html            # Homepage
+```
+
+## Common Tasks
+
+- **Add new language:** Copy `translations/_template.js`, translate, register in `index.js` and `site.js`
+- **Add new section:** Create HTML, SCSS component, add dark/RTL styles, add translations
+- **Customize colors:** Edit `_variables.scss`, update CSS custom properties
+- **Add new page:** Create `.html` file with frontmatter, add translations, link from nav
+
+See [customization-guide.md](./.ai/context/customization-guide.md) for detailed steps.
+
+## Cross-Tool Compatibility
+
+These rules work with:
+- Claude Code
+- Cline
+- Cursor
+- GitHub Copilot
+
+For tool-specific usage, see [.ai/README.md](./.ai/README.md).
+
+---
+
+**Template Version:** 1.0.0 (in development)
+**Last Updated:** 2026-01-29

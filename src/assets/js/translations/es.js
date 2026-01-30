@@ -3,10 +3,6 @@
  * @language es
  * @dir ltr
  * @nativeName Español
- *
- * NOTE: This is a TEST file with English placeholder content.
- * For production use, translate all text values to Spanish.
- * The structure matches en.js exactly to ensure compatibility.
  */
 export default {
   meta: {
@@ -21,354 +17,354 @@ export default {
     logo: 'Weave Studio',
     logoWeave: 'Weave',
     logoStudio: 'Studio',
-    services: 'Services',
-    portfolio: 'Portfolio',
-    about: 'About',
+    services: 'Servicios',
+    portfolio: 'Portafolio',
+    about: 'Acerca de',
     blog: 'Blog',
-    faq: 'FAQ',
-    contact: 'Get Started',
-    toggleTheme: 'Toggle theme',
-    currentLanguage: 'Language currently set to [Language Name]',
-    switchToHebrew: 'Switch website language to Hebrew'
+    faq: 'Preguntas Frecuentes',
+    contact: 'Comenzar',
+    toggleTheme: 'Cambiar tema',
+    currentLanguage: 'Idioma actualmente establecido en Español',
+    switchToHebrew: 'Cambiar idioma del sitio web a hebreo'
   },
 
   // Skip link
   skipLink: {
-    main: 'Skip to main content'
+    main: 'Ir al contenido principal'
   },
 
   // Hero section
   hero: {
-    titleFirstLine: 'Weaving ideas into',
-    titleAnimated: 'websites',
-    rotatingWords: ['websites', 'portfolios', 'online stores', 'your vision'],
+    titleFirstLine: 'Tejiendo ideas en',
+    titleAnimated: 'sitios web',
+    rotatingWords: ['sitios web', 'portafolios', 'tiendas en línea', 'tu visión'],
     description:
-      'Beautifully designed, professional websites. Developed especially for small businesses, freelancers, and creatives.',
-    ctaPrimary: 'Learn More',
-    ctaLearnMore: 'Our Services',
-    scrollHint: 'Scroll down to learn more'
+      'Sitios web hermosamente diseñados y profesionales. Desarrollados especialmente para pequeños negocios, autónomos y creativos.',
+    ctaPrimary: 'Saber Más',
+    ctaLearnMore: 'Nuestros Servicios',
+    scrollHint: 'Desplázate hacia abajo para saber más'
   },
 
   // Welcome section
   welcome: {
-    title: 'Welcome to Weave Studio',
-    subtitle: 'An Independent Web Design Studio',
+    title: 'Bienvenido a Weave Studio',
+    subtitle: 'Un Estudio Independiente de Diseño Web',
     content: {
       paragraph1:
-        'Tending to all your website needs, so that you can focus on what really matters.'
+        'Atiendemos todas tus necesidades de sitio web, para que te enfoques en lo que realmente importa.'
     }
   },
 
   // Services section
   services: {
-    title: 'What We Do',
-    subtitle: 'Websites that work for you',
+    title: 'Lo Que Hacemos',
+    subtitle: 'Sitios web que trabajan para ti',
     intro: {
       paragraph1:
-        "Every website is built to do more than just look good — it's designed to work hard for your business.",
+        'Cada sitio web está construido para hacer mucho más que verse bien — está diseñado para trabajar duro por tu negocio.',
       paragraph2:
-        'Whether you need a simple landing page, portfolio, a business website, or a full-fledged e-commerce store, be ensured that your website is professional-looking, user-friendly, and optimized for maximum results.',
+        'Ya sea que necesites una página de destino simple, un portafolio, un sitio web comercial o una tienda de comercio electrónico completa, puedes estar seguro de que tu sitio web se verá profesional, será fácil de usar y estará optimizado para obtener resultados máximos.',
       paragraph3:
-        "From custom development to maintenance, staying focused on performance, clarity, and results is at the core. Whether you're launching something new or refining your current setup, Weave Studio creates fast, functional websites that truly deliver."
+        'Desde el desarrollo personalizado hasta el mantenimiento, mantener el enfoque en el rendimiento, la claridad y los resultados es lo fundamental. Ya sea que estés lanzando algo nuevo o refinando tu configuración actual, Weave Studio crea sitios web rápidos y funcionales que realmente entregan resultados.'
     },
     items: [
       {
-        title: 'Website Development',
+        title: 'Desarrollo de Sitios Web',
         description:
-          'Professional-looking and optimized websites built to perform on all devices.'
+          'Sitios web con apariencia profesional y optimizados para funcionar en todos los dispositivos.'
       },
       {
-        title: 'Custom Designs',
+        title: 'Diseños Personalizados',
         description:
-          'Tailor-made layouts to match your brand and your audience.'
+          'Diseños hechos a medida para coincidir con tu marca y tu audiencia.'
       },
       {
-        title: 'Content Writing',
+        title: 'Redacción de Contenido',
         description:
-          'Clear, engaging, and SEO-friendly copywriting for your website.'
+          'Copywriting claro, atractivo y optimizado para SEO para tu sitio web.'
       },
       {
-        title: 'Website Maintenance',
+        title: 'Mantenimiento de Sitios Web',
         description:
-          'Regular updates, backups, and support to keep your website healthy.'
+          'Actualizaciones regulares, copias de seguridad y soporte para mantener tu sitio web saludable.'
       },
       {
-        title: 'E-Commerce',
-        description: 'Seamless online stores with secure payment integrations.'
+        title: 'Comercio Electrónico',
+        description: 'Tiendas en línea perfectas con integraciones de pago seguro.'
       },
       {
         title: 'SEO',
         description:
-          'Technical and on-page optimisation to help your website rank higher.'
+          'Optimización técnica y en la página para ayudar a tu sitio web a posicionarse mejor.'
       }
     ],
     cta: {
       paragraph:
-        "From custom development to maintenance, staying focused on performance, clarity, and results is at the core. Whether you're launching something new or refining your current setup, Weave Studio creates fast, functional websites that truly deliver.",
-      text: "Let's Build Something Great Together",
-      button: 'Get Started'
+        'Desde el desarrollo personalizado hasta el mantenimiento, mantener el enfoque en el rendimiento, la claridad y los resultados es lo fundamental. Ya sea que estés lanzando algo nuevo o refinando tu configuración actual, Weave Studio crea sitios web rápidos y funcionales que realmente entregan resultados.',
+      text: 'Construyamos Algo Increíble Juntos',
+      button: 'Comenzar'
     },
     features: {
-      title: 'Key Features',
+      title: 'Características Clave',
       list1: {
-        title: 'Mobile First Design. Fully Responsive',
+        title: 'Diseño Mobile First. Totalmente Responsivo',
         description:
-          'Websites that look great on all mobile, tablet, and desktop sizes so visitors can access your beautiful website from anywhere.'
+          'Sitios web que se ven genial en todos los tamaños móviles, tabletas y escritorio para que los visitantes puedan acceder a tu hermoso sitio web desde cualquier lugar.'
       },
       list2: {
-        title: 'Powerful Performance. Optimized Page Speed',
+        title: 'Rendimiento Potente. Velocidad de Página Optimizada',
         description:
-          'Smartly coded and well-maintained websites load in 1 second or less, ensuring maximum reach and visibility.'
+          'Sitios web inteligentemente codificados y bien mantenidos que se cargan en 1 segundo o menos, asegurando el máximo alcance y visibilidad.'
       },
       list3: {
-        title: 'Solid Code. Secure & Reliable',
+        title: 'Código Sólido. Seguro y Confiable',
         description:
-          'No bloated plugins or sketchy themes. Just solid, well-maintained code you can rely on.'
+          'Sin complementos inflados ni temas sospechosos. Solo código sólido y bien mantenido en el que puedas confiar.'
       }
     },
     guarantee: {
-      title: 'Money Back Guarantee',
+      title: 'Garantía de Devolución de Dinero',
       description:
-        "If I can't design something you like, you get your money back and the contract is cancelled. I stand by my work."
+        'Si no puedo diseñar algo que te guste, te devuelvo el dinero y el contrato se cancela. Respaldo mi trabajo.'
     },
     pricing: {
-      title: 'Pricing Options',
+      title: 'Opciones de Precios',
       packages: [
         {
-          title: 'Standard Website Package',
+          title: 'Paquete de Sitio Web Estándar',
           description:
-            'Perfect for businesses ready to establish their online presence.',
+            'Perfecto para empresas listas para establecer su presencia en línea.',
           features: [
-            '5 professionally designed pages',
-            'Mobile-optimized and lightning fast',
-            'Contact forms and SEO setup',
-            'Payment: 50% upfront, 50% on completion',
-            'Add-ons available: Extra pages, blog setup, content management system'
+            '5 páginas diseñadas profesionalmente',
+            'Optimizado para móviles y extremadamente rápido',
+            'Formularios de contacto y configuración de SEO',
+            'Pago: 50% por adelantado, 50% al finalizar',
+            'Complementos disponibles: Páginas adicionales, configuración de blog, sistema de gestión de contenido'
           ]
         },
         {
-          title: 'Website + Support Package',
+          title: 'Paquete de Sitio Web + Soporte',
           description:
-            'Everything in the standard package, plus ongoing partnership.',
+            'Todo en el paquete estándar, más una asociación continua.',
           features: [
-            'All standard website features',
-            '12 months free hosting',
-            '12 months unlimited edits',
-            'Priority support for changes and additions',
-            'Payment: Monthly installments over 12 months'
+            'Todas las características del sitio web estándar',
+            '12 meses de hosting gratuito',
+            '12 meses de ediciones ilimitadas',
+            'Soporte prioritario para cambios y adiciones',
+            'Pago: Cuotas mensuales durante 12 meses'
           ]
         },
         {
-          title: 'E-Commerce Package',
-          description: 'Custom online stores built for results.',
+          title: 'Paquete de Comercio Electrónico',
+          description: 'Tiendas en línea personalizadas construidas para resultados.',
           features: [
-            'Custom Shopify store design',
-            'Secure payment processing',
-            'Integrated shipping',
-            'Shopify tutorial walkthrough',
-            'Full product management in Shopify CMS',
-            'Custom pricing based on requirements'
+            'Diseño personalizado de tienda Shopify',
+            'Procesamiento de pago seguro',
+            'Envío integrado',
+            'Tutorial de Shopify paso a paso',
+            'Gestión completa de productos en Shopify CMS',
+            'Precios personalizados según requisitos'
           ]
         }
       ],
-      subscriptionPlanLabel: 'Subscription Plan',
-      availableSoon: 'Available Soon'
+      subscriptionPlanLabel: 'Plan de Suscripción',
+      availableSoon: 'Disponible Próximamente'
     }
   },
 
   // Performance section
   performance: {
-    title: 'Building Better Websites That Perform',
+    title: 'Construyendo Sitios Web Mejores Que Funcionen',
     subtitle:
-      'When it comes to website load times, not very many can get the Google PageSpeed scores that are achieved with each and every website.',
+      'Cuando se trata de tiempos de carga de sitios web, muy pocos pueden lograr las puntuaciones de Google PageSpeed que se alcanzan con cada sitio web.',
     content: {
       paragraph1:
-        'Test your website load times with Google PageSpeed Insights and see what your current website is scoring right now.'
+        'Prueba los tiempos de carga de tu sitio web con Google PageSpeed Insights y observa qué puntuación está obteniendo actualmente tu sitio web.'
     },
-    benefitsTitle: 'Why Performance Matters:',
+    benefitsTitle: 'Por Qué el Rendimiento Importa:',
     benefits: {
       list1:
-        'Better load times means more traffic and more website conversions over time',
+        'Tiempos de carga mejores significa más tráfico y más conversiones del sitio web a lo largo del tiempo',
       list2:
-        'Faster websites can help improve SEO and your Google ads performance',
+        'Los sitios web más rápidos pueden ayudar a mejorar el SEO y el rendimiento de tus anuncios de Google',
       list3:
-        'All websites load instantly in under 1 second or less, which leads to a better user experience and conversions'
+        'Todos los sitios web se cargan instantáneamente en menos de 1 segundo, lo que lleva a una mejor experiencia del usuario y conversiones'
     }
   },
 
   // Portfolio section
   portfolio: {
-    title: 'Recent Work',
-    subtitle: "Building a portfolio of projects we're proud of",
+    title: 'Trabajo Reciente',
+    subtitle: 'Construyendo un portafolio de proyectos de los que estamos orgullosos',
     content: {
       paragraph1:
-        'Selective about the projects taken on, focusing on quality over quantity.<br>Each project receives full attention and creative energy to deliver exceptional results.',
+        'Selectivo con los proyectos que se aceptan, enfocándose en calidad sobre cantidad.<br>Cada proyecto recibe atención completa y energía creativa para entregar resultados excepcionales.',
       paragraph2:
-        'Your project could be featured here next. Actively working with businesses who value quality, aesthetics, and a thoughtful approach to web development.'
+        'Tu proyecto podría ser presentado aquí a continuación. Trabajando activamente con empresas que valoran la calidad, la estética y un enfoque reflexivo para el desarrollo web.'
     },
     featured: {
-      title: 'Featured Project',
+      title: 'Proyecto Destacado',
       description:
-        '<strong>SoulCollage®</strong> – A professional landing page showcasing an art therapy workshop. Built with a focus on visual storytelling, accessibility, and seamless user experience.<br><br><a href="https://david-artfacilitator.co.il/" target="_blank" rel="noopener noreferrer">Visit site →</a>'
+        '<strong>SoulCollage®</strong> – Una página de destino profesional que muestra un taller de terapia de arte. Construida con enfoque en la narración visual, accesibilidad y experiencia de usuario perfecta.<br><br><a href="https://david-artfacilitator.co.il/" target="_blank" rel="noopener noreferrer">Visitar sitio →</a>'
     },
     cta: {
-      text: "Let's Build Something Great Together",
-      button: 'Get Started'
+      text: 'Construyamos Algo Increíble Juntos',
+      button: 'Comenzar'
     }
   },
 
   // Blog preview section
   blog: {
-    title: 'Recently From the Blog',
-    subtitle: 'Helpful insights and honest guidance',
-    viewAll: 'View All Posts',
-    readMore: 'Read More →',
-    minRead: 'min read',
+    title: 'Recientemente del Blog',
+    subtitle: 'Información útil y orientación honesta',
+    viewAll: 'Ver Todos los Artículos',
+    readMore: 'Leer Más →',
+    minRead: 'min de lectura',
     categories: {
-      webDevelopment: 'Web Development',
-      design: 'Design',
-      performance: 'Performance',
+      webDevelopment: 'Desarrollo Web',
+      design: 'Diseño',
+      performance: 'Rendimiento',
       seo: 'SEO'
     },
     placeholder: {
-      title: 'Coming Soon',
+      title: 'Próximamente',
       excerpt1:
-        'Blog posts will appear here with the latest insights and tips from our team.',
+        'Los artículos del blog aparecerán aquí con los últimos conocimientos y consejos de nuestro equipo.',
       excerpt2:
-        'Stay tuned for articles about the latest trends in web design and development.',
+        'Mantente atento a artículos sobre las últimas tendencias en diseño y desarrollo web.',
       excerpt3:
-        'Learn about optimizing your website for better performance and user experience.',
+        'Aprende sobre la optimización de tu sitio web para un mejor rendimiento y experiencia del usuario.',
       excerpt4:
-        'Discover strategies to improve your search engine rankings and drive more traffic.'
+        'Descubre estrategias para mejorar tu clasificación en los motores de búsqueda y atraer más tráfico.'
     },
-    published: 'Published',
-    share: 'Share',
-    prevPost: 'Previous',
-    nextPost: 'Next',
+    published: 'Publicado',
+    share: 'Compartir',
+    prevPost: 'Anterior',
+    nextPost: 'Siguiente',
     listingTitle: 'Blog',
     listingDescription:
-      'Helpful insights and honest guidance on web development, design, and performance.',
-    emptyMessage: 'No blog posts yet. Check back soon for the latest insights!',
-    backToBlog: '← Back to Blog',
-    readTimeLabel: 'min read'
+      'Información útil y orientación honesta sobre desarrollo web, diseño y rendimiento.',
+    emptyMessage: 'Sin artículos de blog aún. ¡Regresa pronto para los últimos conocimientos!',
+    backToBlog: '← Volver al Blog',
+    readTimeLabel: 'min de lectura'
   },
 
   // About section
   about: {
-    title: 'Behind The Scenes',
+    title: 'Detrás de Escenas',
     content: {
-      paragraph1: 'Weave Studio is a one-man operation.',
+      paragraph1: 'Weave Studio es una operación de un solo hombre.',
       paragraph2:
-        'A freelance web developer focused on crafting clean, professional-looking websites that feel good to use on any device.',
+        'Un desarrollador web autónomo enfocado en crear sitios web limpios y con apariencia profesional que se sientan bien de usar en cualquier dispositivo.',
       paragraph3:
-        'Building custom-coded websites and teaming up with designers, copywriters, and SEO specialists when needed, to make sure every project delivers — both visually and strategically.',
+        'Construyendo sitios web codificados personalizados y asociándome con diseñadores, redactores y especialistas en SEO cuando sea necesario, para asegurar que cada proyecto entregue — tanto visual como estratégicamente.',
       paragraph4:
-        'The goal is simple: to help small businesses and entrepreneurs bring their ideas to life online through powerful, engaging digital experiences.'
+        'El objetivo es simple: ayudar a pequeños negocios y emprendedores a llevar sus ideas a la vida en línea a través de experiencias digitales poderosas y atractivas.'
     },
-    altText: 'Weave Studio Profile Picture',
+    altText: 'Foto de Perfil de Weave Studio',
     profile: {
       name: 'Assaf Yechiel',
-      title: 'Front End Developer'
+      title: 'Desarrollador Frontend'
     }
   },
 
   // FAQ section
   faq: {
-    title: 'Common Questions',
-    homeTitle: 'Common Questions',
-    homeSubtitle: 'Quick, simple answers that help you know what to expect',
-    listingTitle: 'Frequently Asked Questions',
+    title: 'Preguntas Comunes',
+    homeTitle: 'Preguntas Comunes',
+    homeSubtitle: 'Respuestas rápidas y simples que te ayudan a saber qué esperar',
+    listingTitle: 'Preguntas Frecuentes',
     listingDescription:
-      'Find answers to common questions about our services, pricing, and process.',
-    viewAll: 'View All FAQs',
+      'Encuentra respuestas a preguntas comunes sobre nuestros servicios, precios y proceso.',
+    viewAll: 'Ver Todas las Preguntas Frecuentes',
     filters: {
-      all: 'All Questions',
-      process: 'Process',
-      pricing: 'Pricing',
-      technical: 'Technical'
+      all: 'Todas las Preguntas',
+      process: 'Proceso',
+      pricing: 'Precios',
+      technical: 'Técnico'
     },
     questions: [
       {
-        question: 'What is your development process?',
+        question: '¿Cuál es tu proceso de desarrollo?',
         answer:
-          "We follow an iterative approach starting with discovery and planning, moving through design and development, and ending with testing and launch. You'll be involved at every stage to ensure the final result meets your vision and goals."
+          'Seguimos un enfoque iterativo que comienza con descubrimiento y planificación, pasando por diseño y desarrollo, y terminando con pruebas y lanzamiento. Estarás involucrado en cada etapa para asegurar que el resultado final cumpla con tu visión y objetivos.'
       },
       {
-        question: 'How long does a typical project take?',
+        question: '¿Cuánto tiempo toma un proyecto típico?',
         answer:
-          "Timeline varies based on complexity, but most websites take 6-12 weeks from start to finish. We'll provide a detailed timeline during our initial consultation and keep you updated throughout the process."
+          'El cronograma varía según la complejidad, pero la mayoría de los sitios web toman 6-12 semanas de principio a fin. Te proporcionaremos un cronograma detallado durante nuestra consulta inicial y te mantendremos actualizado durante todo el proceso.'
       },
       {
-        question: 'Do you offer ongoing maintenance?',
+        question: '¿Ofreces mantenimiento continuo?',
         answer:
-          'Yes, we offer flexible maintenance packages including security updates, content changes, performance monitoring, and technical support to keep your site running smoothly after launch.'
+          'Sí, ofrecemos paquetes de mantenimiento flexibles que incluyen actualizaciones de seguridad, cambios de contenido, monitoreo de rendimiento y soporte técnico para mantener tu sitio funcionando sin problemas después del lanzamiento.'
       }
     ],
     categories: {
       process: {
         q1: {
-          question: 'How does your web design process work?',
+          question: '¿Cómo funciona tu proceso de diseño web?',
           answer:
-            'Each project starts with a short discovery call to understand your goals, audience, and overall style — no "perfect brand" required. From there, I create a personalized website plan and design direction before moving into development. You\'ll see progress in clear stages, with space for feedback at every step.'
+            'Cada proyecto comienza con una breve llamada de descubrimiento para entender tus objetivos, audiencia y estilo general — no se requiere una "marca perfecta". Desde allí, creo un plan personalizado de sitio web y dirección de diseño antes de pasar al desarrollo. Verás progreso en etapas claras, con espacio para comentarios en cada paso.'
         },
         q2: {
-          question: 'How long does a typical project take?',
+          question: '¿Cuánto tiempo toma un proyecto típico?',
           answer:
-            "A website can take anywhere from 2–6 weeks, depending on project size, how quickly content is ready, and how many refinements we make together. You'll get a clear timeline before we start so you always know what to expect."
+            'Un sitio web puede tomar entre 2 y 6 semanas, dependiendo del tamaño del proyecto, la rapidez con la que el contenido esté listo y cuántos refinamientos hagamos juntos. Obtendrás un cronograma claro antes de comenzar para que siempre sepas qué esperar.'
         },
         q3: {
-          question: 'What do you need from me to get started?',
+          question: '¿Qué necesitas de mí para comenzar?',
           answer:
-            "Once we agree on the project details and pricing, I'll ask for your text, images, logo (if you have one), and a few examples of sites or styles you like. Don't worry if everything isn't ready — I'll guide you through what's needed, step by step."
+            'Una vez que acordemos los detalles del proyecto y el precio, te pediré tu texto, imágenes, logo (si tienes uno) y algunos ejemplos de sitios o estilos que te gusten. No te preocupes si no todo está listo — te guiaré a través de lo que se necesita, paso a paso.'
         },
         q4: {
-          question: 'Do you offer revisions?',
+          question: '¿Ofreces revisiones?',
           answer:
-            'Yes — every project includes two rounds of revisions, with flexibility if we need an extra round to fine-tune things. The goal is always to make sure your site feels just right, not to rush the process.'
+            'Sí — cada proyecto incluye dos rondas de revisiones, con flexibilidad si necesitamos una ronda extra para ajustar las cosas. El objetivo es siempre asegurarse de que tu sitio se sienta exactamente bien, no apresurar el proceso.'
         }
       },
       pricing: {
         q1: {
-          question: 'How much does a website cost?',
+          question: '¿Cuánto cuesta un sitio web?',
           answer:
-            "Every project is different. A custom 5 page website starts at $1,500 (₪4500). The exact price depends on the number of pages, level of design detail, and any special features. After our initial chat, you'll receive a clear proposal and quote — no surprises."
+            'Cada proyecto es diferente. Un sitio web personalizado de 5 páginas comienza en $1,500 (₪4500). El precio exacto depende del número de páginas, nivel de detalle de diseño y características especiales. Después de nuestro chat inicial, recibirás una propuesta clara y presupuesto — sin sorpresas.'
         },
         q2: {
-          question: 'What is your payment structure like?',
+          question: '¿Cuál es tu estructura de pago?',
           answer:
-            "Payments are paid 50% upfront and 50% on completion. I'm also piloting a subscription option, which spreads costs over time and includes ongoing support — contact me if you'd like early access."
+            'Los pagos se realizan 50% por adelantado y 50% al finalizar. También estoy pilotando una opción de suscripción, que distribuye los costos a lo largo del tiempo e incluye soporte continuo — contáctame si deseas acceso anticipado.'
         },
         q3: {
-          question: "What's included in your packages?",
+          question: '¿Qué se incluye en tus paquetes?',
           answer:
-            "All projects include planning, custom design, responsive development (mobile, tablet & laptop), basic SEO setup, and performance optimization. You'll also receive a handover guide for any necessary technical know-how and support after launch to make sure everything runs smoothly."
+            'Todos los proyectos incluyen planificación, diseño personalizado, desarrollo responsivo (móvil, tableta y portátil), configuración básica de SEO y optimización de rendimiento. También recibirás una guía de entrega para cualquier conocimiento técnico necesario y soporte después del lanzamiento para asegurar que todo funcione sin problemas.'
         },
         q4: {
-          question: 'What if I already have a website?',
+          question: '¿Y si ya tengo un sitio web?',
           answer:
-            "That's totally fine — I can refresh or rebuild your existing site, keeping what still works and improving what doesn't. It's a great way to modernize your online presence without starting from scratch."
+            'Eso está totalmente bien — puedo actualizar o reconstruir tu sitio web existente, manteniendo lo que aún funciona y mejorando lo que no. Es una excelente manera de modernizar tu presencia en línea sin empezar desde cero.'
         }
       },
       technical: {
         q1: {
-          question: 'What platforms do you use?',
+          question: '¿Qué plataformas utilizas?',
           answer:
-            'I build using lightweight, modern tools — not site builders like WordPress or Wix. This means faster load times, better security, and more flexibility for your website. Each site is coded by hand to fit your business, not a template.'
+            'Construyo usando herramientas modernas y ligeras — no constructores de sitios como WordPress o Wix. Esto significa tiempos de carga más rápidos, mejor seguridad y más flexibilidad para tu sitio web. Cada sitio está codificado a mano para ajustarse a tu negocio, no a una plantilla.'
         },
         q2: {
-          question: 'Will I be able to update my website myself?',
+          question: '¿Podré actualizar mi sitio web yo mismo?',
           answer:
-            "Yes. If you'd like to make simple updates (like changing text or images, uploading blog posts, etc.), I can connect a lightweight content management system (CMS). It works a bit like a WordPress dashboard but without the clutter — letting you edit content safely through a simple interface. For advanced edits, I'm always available to help."
+            'Sí. Si deseas hacer actualizaciones simples (como cambiar texto o imágenes, cargar publicaciones de blog, etc.), puedo conectar un sistema de gestión de contenido (CMS) ligero. Funciona un poco como un panel de control de WordPress pero sin el desorden — permitiéndote editar contenido de forma segura a través de una interfaz simple. Para ediciones avanzadas, siempre estoy disponible para ayudar.'
         },
         q3: {
-          question: 'Do you provide hosting or maintenance?',
+          question: '¿Proporcionas hosting o mantenimiento?',
           answer:
-            'Yes — I handle domain registration and hosting setup for you. Domains are billed annually, and hosting can be billed monthly or yearly, depending on your preference. Ongoing maintenance (such as updates, performance monitoring, backups) is optional, and can be added anytime.'
+            'Sí — manejo el registro de dominio y la configuración de hosting para ti. Los dominios se facturan anualmente y el hosting se puede facturar mensual o anualmente, según tu preferencia. El mantenimiento continuo (como actualizaciones, monitoreo de rendimiento, copias de seguridad) es opcional y puede añadirse en cualquier momento.'
         },
         q4: {
-          question: 'How do you keep websites fast and reliable?',
+          question: '¿Cómo mantienes los sitios web rápidos y confiables?',
           answer:
-            'Each site is built to be responsive, fast-loading, and accessible across devices. I focus on clean, efficient code and modern best practices — so your website performs smoothly for years to come.'
+            'Cada sitio está construido para ser responsivo, de carga rápida y accesible en todos los dispositivos. Me enfoco en código limpio y eficiente y en las mejores prácticas modernas — para que tu sitio web funcione sin problemas durante años.'
         }
       }
     }
@@ -376,161 +372,161 @@ export default {
 
   // Contact section
   contact: {
-    title: "Let's Build Something Great Together",
-    subtitle: 'Ready to discuss your project?',
+    title: 'Construyamos Algo Increíble Juntos',
+    subtitle: '¿Listo para discutir tu proyecto?',
     description:
-      "If you're looking for a reliable developer to create or improve your website, I'd be happy to learn more about your project.",
+      'Si buscas un desarrollador confiable para crear o mejorar tu sitio web, me encantaría saber más sobre tu proyecto.',
     expectations: {
-      title: 'What to Expect:',
-      list1: 'Initial discussion: Understanding your needs and goals',
-      list2: 'Clear project outline: Detailed scope, timeline, and pricing',
+      title: 'Qué Esperar:',
+      list1: 'Discusión inicial: Entender tus necesidades y objetivos',
+      list2: 'Descripción clara del proyecto: Alcance detallado, cronograma y precios',
       list3:
-        'Collaborative process: Regular updates and feedback throughout development'
+        'Proceso colaborativo: Actualizaciones regulares y comentarios durante todo el desarrollo'
     },
     details: {
-      email: { label: 'Email', value: 'assaf@weavewebdesign.com' },
-      response: { label: 'Response Time', value: 'Within 24 hours' }
+      email: { label: 'Correo Electrónico', value: 'assaf@weavewebdesign.com' },
+      response: { label: 'Tiempo de Respuesta', value: 'Dentro de 24 horas' }
     },
     form: {
-      title: 'Get in Touch',
+      title: 'Ponte en Contacto',
       fields: {
         name: {
-          label: 'Name',
+          label: 'Nombre',
           placeholder: '',
-          error: 'Name is required'
+          error: 'El nombre es requerido'
         },
         email: {
-          label: 'Email',
+          label: 'Correo Electrónico',
           placeholder: '',
-          error: 'Please enter a valid email address'
+          error: 'Por favor ingresa una dirección de correo electrónico válida'
         },
         company: {
-          label: 'Company',
+          label: 'Empresa',
           placeholder: '',
-          error: 'Company is required'
+          error: 'La empresa es requerida'
         },
         phone: {
-          label: 'Phone',
+          label: 'Teléfono',
           placeholder: '',
-          error: 'Phone is required'
+          error: 'El teléfono es requerido'
         },
         projectType: {
-          label: 'Project Type',
+          label: 'Tipo de Proyecto',
           options: [
-            'Select a project type',
-            'New Website',
-            'Website Redesign',
-            'E-commerce Store',
-            'Maintenance & Support',
-            'Other'
+            'Selecciona un tipo de proyecto',
+            'Sitio Web Nuevo',
+            'Rediseño de Sitio Web',
+            'Tienda de Comercio Electrónico',
+            'Mantenimiento y Soporte',
+            'Otro'
           ]
         },
         message: {
-          label: 'Message',
+          label: 'Mensaje',
           placeholder:
-            'Tell us about your project, timeline, and any specific requirements...',
-          error: 'Message is required'
+            'Cuéntanos sobre tu proyecto, cronograma y cualquier requisito específico...',
+          error: 'El mensaje es requerido'
         }
       },
-      submit: 'Send Message',
-      success: 'Message sent successfully!',
-      error: 'There was an error sending your message. Please try again.'
+      submit: 'Enviar Mensaje',
+      success: '¡Mensaje enviado exitosamente!',
+      error: 'Hubo un error al enviar tu mensaje. Por favor intenta de nuevo.'
     }
   },
 
   // Thank You Page
   thankYou: {
-    title: 'Thank You for Reaching Out!',
+    title: '¡Gracias por Comunicarte!',
     message:
-      'Your message has been successfully sent. We appreciate you taking the time to contact us and will get back to you as soon as possible, usually within 24 hours.',
+      'Tu mensaje ha sido enviado exitosamente. Apreciamos que hayas tomado el tiempo para contactarnos y nos pondremos en contacto contigo lo antes posible, generalmente dentro de 24 horas.',
     nextSteps: {
-      title: 'What Happens Next?',
+      title: '¿Qué Sucede Ahora?',
       step1:
-        "<strong>Review:</strong> We'll carefully review your message and project details",
+        '<strong>Revisión:</strong> Revisaremos cuidadosamente tu mensaje y detalles del proyecto',
       step2:
-        "<strong>Response:</strong> You'll receive a personalized reply within 24 hours",
+        '<strong>Respuesta:</strong> Recibirás una respuesta personalizada dentro de 24 horas',
       step3:
-        "<strong>Discussion:</strong> We'll schedule a call to discuss your project in detail"
+        '<strong>Discusión:</strong> Programaremos una llamada para discutir tu proyecto en detalle'
     },
-    returnHome: 'Return to Homepage',
-    viewServices: 'View Our Services',
-    urgentMessage: 'Need immediate assistance? Email us directly at'
+    returnHome: 'Volver a la Página de Inicio',
+    viewServices: 'Ver Nuestros Servicios',
+    urgentMessage: '¿Necesitas asistencia inmediata? Envíanos un correo electrónico directamente a'
   },
 
   // Footer
   footer: {
     logo: 'Weave Studio',
-    tagline: 'Weave. Got You Covered.',
+    tagline: 'Weave. Cubierto.',
     description:
-      'Professional web development services creating modern, high-performance digital experiences.',
+      'Servicios de desarrollo web profesional que crean experiencias digitales modernas y de alto rendimiento.',
     sections: {
       services: {
-        title: 'Connect',
-        links: ['Email', 'LinkedIn', 'Twitter', 'GitHub']
+        title: 'Conectar',
+        links: ['Correo Electrónico', 'LinkedIn', 'Twitter', 'GitHub']
       },
       company: {
-        title: 'Explore',
-        links: ['About', 'Services', 'Portfolio', 'Blog', 'FAQ', 'Contact']
+        title: 'Explorar',
+        links: ['Acerca de', 'Servicios', 'Portafolio', 'Blog', 'Preguntas Frecuentes', 'Contacto']
       },
       connect: {
-        title: 'Connect',
-        links: ['Email', 'LinkedIn', 'Twitter', 'GitHub']
+        title: 'Conectar',
+        links: ['Correo Electrónico', 'LinkedIn', 'Twitter', 'GitHub']
       }
     },
-    copyright: '© Copyright 2025 Weave Studio | All Rights Reserved.',
-    legal: ['Legal Notice']
+    copyright: '© Copyright 2025 Weave Studio | Todos los Derechos Reservados.',
+    legal: ['Aviso Legal']
   },
 
   // Legal Notice page
   legalNotice: {
-    title: 'Legal Notice',
-    backButton: 'Back to Home',
-    returnHome: 'Return to Homepage',
-    lastUpdated: 'Last Updated: January 2025',
+    title: 'Aviso Legal',
+    backButton: 'Volver a Inicio',
+    returnHome: 'Volver a la Página de Inicio',
+    lastUpdated: 'Última Actualización: Enero 2025',
     sections: {
       businessInfo: {
-        title: 'Business Information',
+        title: 'Información de Negocios',
         content:
-          '<strong>Business Name:</strong> Weave Studio<br><strong>Owner:</strong> Assaf Yechiel<br><strong>Email:</strong> <a href="mailto:assaf@weavewebdesign.com">assaf@weavewebdesign.com</a>'
+          '<strong>Nombre del Negocio:</strong> Weave Studio<br><strong>Propietario:</strong> Assaf Yechiel<br><strong>Correo Electrónico:</strong> <a href="mailto:assaf@weavewebdesign.com">assaf@weavewebdesign.com</a>'
       },
       disclaimer: {
-        title: 'Disclaimer',
+        title: 'Descargo de Responsabilidad',
         content:
-          'The information provided on this website is for general informational purposes only. While we strive to keep the information up to date and correct, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose.'
+          'La información proporcionada en este sitio web es únicamente para propósitos informativos generales. Si bien nos esforzamos por mantener la información actualizada y correcta, no hacemos representaciones ni garantías de ningún tipo, expresas o implícitas, sobre la integridad, precisión, confiabilidad, idoneidad o disponibilidad con respecto al sitio web o la información, productos, servicios o gráficos relacionados contenidos en el sitio web para ningún propósito.'
       },
       liability: {
-        title: 'Limitation of Liability',
+        title: 'Limitación de Responsabilidad',
         content:
-          'In no event will we be liable for any loss or damage including without limitation, indirect or consequential loss or damage, or any loss or damage whatsoever arising from loss of data or profits arising out of, or in connection with, the use of this website.'
+          'En ningún caso seremos responsables por ninguna pérdida o daño, incluida sin limitación, pérdida o daño indirecto o consecuente, o ninguna pérdida o daño que surja de la pérdida de datos o ganancias que surja de, o en conexión con, el uso de este sitio web.'
       },
       externalLinks: {
-        title: 'External Links',
+        title: 'Enlaces Externos',
         content:
-          'Through this website you may be able to link to other websites which are not under the control of Weave Studio. We have no control over the nature, content, and availability of those sites. The inclusion of any links does not necessarily imply a recommendation or endorse the views expressed within them.'
+          'A través de este sitio web, es posible que puedas vincularte a otros sitios web que no están bajo el control de Weave Studio. No tenemos control sobre la naturaleza, contenido y disponibilidad de esos sitios. La inclusión de enlaces no implica necesariamente una recomendación o respalda las opiniones expresadas en ellos.'
       },
       copyright: {
-        title: 'Copyright Notice',
+        title: 'Aviso de Copyright',
         content:
-          'This website and its content are copyright of Weave Studio - © 2025. All rights reserved. Any redistribution or reproduction of part or all of the contents in any form is prohibited other than the following: you may print or download to a local hard disk extracts for your personal and non-commercial use only.'
+          'Este sitio web y su contenido son propiedad de Weave Studio - © 2025. Todos los derechos reservados. Cualquier redistribución o reproducción de parte o la totalidad del contenido en cualquier forma está prohibida excepto por lo siguiente: puedes imprimir o descargar a un disco duro local extractos para tu uso personal y no comercial únicamente.'
       },
       contact: {
-        title: 'Contact',
+        title: 'Contacto',
         content:
-          'If you have any questions about this legal notice, please contact us at <a href="mailto:assaf@weavewebdesign.com">assaf@weavewebdesign.com</a>'
+          'Si tienes preguntas sobre este aviso legal, contáctanos en <a href="mailto:assaf@weavewebdesign.com">assaf@weavewebdesign.com</a>'
       }
     }
   },
 
   // Page meta information (SEO)
   pageMeta: {
-    title: 'Weave Studio - Professional Web Development',
+    title: 'Weave Studio - Desarrollo Web Profesional',
     description:
-      'Professional web development services creating modern, high-performance websites and experiences.',
+      'Servicios de desarrollo web profesional que crean sitios web modernos y de alto rendimiento y experiencias.',
     keywords:
-      'web development, web design, e-commerce, responsive design, performance optimization',
-    ogTitle: 'Weave Studio - Professional Web Development',
+      'desarrollo web, diseño web, comercio electrónico, diseño responsivo, optimización de rendimiento',
+    ogTitle: 'Weave Studio - Desarrollo Web Profesional',
     ogDescription:
-      'Transform your business with modern, high-performance websites. Expert web development services.',
+      'Transforma tu negocio con sitios web modernos y de alto rendimiento. Servicios expertos de desarrollo web.',
     twitterCard: 'summary_large_image'
   }
 }

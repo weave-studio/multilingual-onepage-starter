@@ -269,7 +269,7 @@
           left: 0;
           width: 100%;
           height: 1px;
-          background: var(--theme-accent-terracotta);
+          background: var(--theme-accent-primary);
           transform: scaleX(0);
           transform-origin: right;
           transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -705,7 +705,7 @@
       transform: translateX(-50%);
       width: 60px;
       height: 3px;
-      background: linear-gradient(90deg, var(--theme-accent-terracotta), $color-primary-500);
+      background: linear-gradient(90deg, var(--theme-accent-primary), $color-primary-500);
       border-radius: 2px;
     }
 

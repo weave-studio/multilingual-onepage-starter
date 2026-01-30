@@ -20,9 +20,9 @@
   --theme-bg-faq: #151f2d;
   --theme-bg-contact: #0a1628;
   /* Dark mode: existing brownish terracotta that goes DARKER on hover */
-  --theme-accent-terracotta: #c9826b;
-  --theme-accent-terracotta-light: #e5b5a4;
-  --theme-accent-terracotta-hover: #b57359;
+  --theme-accent-primary: #c9826b;
+  --theme-accent-primary-light: #e5b5a4;
+  --theme-accent-primary-hover: #b57359;
   --theme-text-primary: #e8edf4;
   --theme-text-secondary: #8b9cb3;
   --theme-border: rgba(255, 255, 255, 0.08);
@@ -62,7 +62,7 @@
 }
 
 [data-theme='dark'] .nav__logo-text-accent {
-  color: var(--theme-accent-terracotta-light);
+  color: var(--theme-accent-primary-light);
 }
 
 // Mobile menu
@@ -160,7 +160,7 @@
 }
 
 [data-theme='dark'] .nav__language-indicator {
-  background: var(--theme-accent-terracotta);
+  background: var(--theme-accent-primary);
   box-shadow: 0 0 10px rgba(201, 130, 107, 0.4);
 }
 
@@ -720,7 +720,7 @@
 }
 
 [data-theme='dark'] .footer__nav-logo-text-accent {
-  color: var(--theme-accent-terracotta-light);
+  color: var(--theme-accent-primary-light);
 }
 
 [data-theme='dark'] .footer__tagline {
@@ -796,7 +796,7 @@
   background: linear-gradient(
     135deg,
     var(--color-primary-400),
-    var(--theme-accent-terracotta-light)
+    var(--theme-accent-primary-light)
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -806,7 +806,7 @@
   background: linear-gradient(
     225deg,
     var(--color-primary-400),
-    var(--theme-accent-terracotta-light)
+    var(--theme-accent-primary-light)
   );
 }
 

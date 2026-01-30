@@ -37,7 +37,7 @@
       135deg,
       $color-primary-400,
       $color-primary-600,
-      var(--theme-accent-terracotta)
+      var(--theme-accent-primary)
     );
     -webkit-mask:
       linear-gradient(#fff 0 0) content-box,
@@ -193,7 +193,7 @@
 
     .feature-item__icon {
       transform: translateY(-4px) scale(1.1);
-      /* color: var(--theme-accent-terracotta); */
+      /* color: var(--theme-accent-primary); */
     }
   }
 
@@ -276,7 +276,7 @@
   &:hover {
     transform: translateY(-4px);
     box-shadow: $shadow-lg;
-    border-color: var(--theme-accent-terracotta);
+    border-color: var(--theme-accent-primary);
   }
 
   h4 {
@@ -309,7 +309,7 @@
       content: '✓';
       position: absolute;
       left: 0;
-      color: var(--theme-accent-terracotta);
+      color: var(--theme-accent-primary);
       font-weight: bold;
     }
   }
@@ -317,7 +317,7 @@
 
 /* Highlight recommended package */
 .pricing-grid .pricing-package:nth-child(2) {
-  border-color: var(--theme-accent-terracotta);
+  border-color: var(--theme-accent-primary);
   border-width: 2px;
   position: relative;
 
@@ -327,7 +327,7 @@
     top: -12px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--theme-accent-terracotta);
+    background: var(--theme-accent-primary);
     color: white;
     padding: $space-1 $space-3;
     border-radius: $border-radius-full;
@@ -374,7 +374,7 @@
 }
 
 .pricing-package__overlay-text {
-  background: var(--theme-accent-terracotta);
+  background: var(--theme-accent-primary);
   color: white;
   padding: $space-3 $space-6;
   border-radius: $border-radius-lg;
@@ -891,14 +891,14 @@
       position: absolute;
       inset-inline-start: 0;
       top: 0.1rem;
-      color: var(--theme-accent-terracotta);
+      color: var(--theme-accent-primary);
       font-weight: $font-weight-bold;
     }
   }
 }
 
 .contact__get-started {
-  background: var(--theme-accent-terracotta);
+  background: var(--theme-accent-primary);
   padding: $space-6;
   border-radius: $border-radius-xl;
   color: white;
@@ -928,13 +928,13 @@
   }
 
   a {
-    color: var(--theme-accent-terracotta);
+    color: var(--theme-accent-primary);
     font-weight: $font-weight-medium;
     text-decoration: none;
     transition: color $transition-fast;
 
     &:hover {
-      color: var(--theme-accent-terracotta-hover);
+      color: var(--theme-accent-primary-hover);
     }
   }
 }
@@ -945,7 +945,7 @@
   background: $color-neutral-50;
   padding: $space-8;
   border-radius: $border-radius-2xl;
-  border: 2px solid var(--theme-accent-terracotta);
+  border: 2px solid var(--theme-accent-primary);
   box-shadow: $shadow-sm;
   text-align: center;
 }

@@ -108,7 +108,7 @@
   font-family: serif;
   font-weight: 300;
   font-style: italic;
-  color: var(--theme-accent-terracotta) !important;
+  color: var(--theme-accent-primary) !important;
   transition: color $transition-fast;
   text-decoration: none !important;
 
@@ -165,7 +165,7 @@
       left: 0;
       width: 100%;
       height: 1px;
-      background: var(--theme-accent-terracotta);
+      background: var(--theme-accent-primary);
       transform: scaleX(0);
       transform-origin: right;
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -227,7 +227,7 @@
       left: 0;
       width: 100%;
       height: 1px;
-      background: var(--theme-accent-terracotta);
+      background: var(--theme-accent-primary);
       transform: scaleX(0);
       transform-origin: right;
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -287,9 +287,9 @@
     border: 1px solid $color-neutral-200;
 
     &:hover {
-      background: var(--theme-accent-terracotta);
+      background: var(--theme-accent-primary);
       color: var(--color-neutral-50);
-      border-color: var(--theme-accent-terracotta);
+      border-color: var(--theme-accent-primary);
       transform: translateY(-2px);
     }
   }
@@ -350,7 +350,7 @@
       left: 0;
       width: 100%;
       height: 1px;
-      background: var(--theme-accent-terracotta);
+      background: var(--theme-accent-primary);
       transform: scaleX(0);
       transform-origin: right;
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);

@@ -122,7 +122,7 @@
   font-family: serif;
   font-weight: 300;
   font-style: italic;
-  color: var(--theme-accent-terracotta) !important;
+  color: var(--theme-accent-primary) !important;
   transition: color $transition-fast;
   text-decoration: none !important;
 
@@ -218,7 +218,7 @@
     left: 0;
     width: 100%;
     height: 1px;
-    background: var(--theme-accent-terracotta);
+    background: var(--theme-accent-primary);
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -406,7 +406,7 @@
 
     .nav__language-pill {
       background: $color-neutral-200;
-      border-color: var(--theme-accent-terracotta);
+      border-color: var(--theme-accent-primary);
     }
   }
 }
@@ -495,7 +495,7 @@
   left: 3px;
   bottom: 3px;
   width: calc(50% - 6px);
-  background: $theme-accent-terracotta;
+  background: $theme-accent-primary;
   border-radius: $border-radius-full;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1;
@@ -587,7 +587,7 @@
   }
 
   &--active {
-    background: var(--theme-accent-terracotta);
+    background: var(--theme-accent-primary);
     color: white;
 
     .nav__language-menu-code,
@@ -596,7 +596,7 @@
     }
 
     &:hover {
-      background: var(--theme-accent-terracotta);
+      background: var(--theme-accent-primary);
       opacity: 0.9;
     }
   }

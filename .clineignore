@@ -1,0 +1,44 @@
+# AI Assistant Ignore Patterns
+
+# Build output
+dist/
+.eleventy-cache/
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# Generated/Compiled files
+src/assets/css/main.css
+*.min.js
+*.min.css
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Personal development files (gitignored)
+
+
+# Documentation artifacts (development phase only)
+docs/TEMPLATE_EXTRACTION_PLAN.md
+docs/TEMPLATE_CONVERSATION_REFERENCE.md
+docs/scss-fix-plan.md
+
+# Legacy/unused files
+src/assets/js/main.js
+src/assets/js/translations-data.js
