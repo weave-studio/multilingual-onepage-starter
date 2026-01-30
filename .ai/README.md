@@ -19,14 +19,29 @@ These files are **pre-filled** with accurate information about the template's ar
 
 ### 2. Skills (Executable Workflows)
 
-Located in [`.ai/skills/`](./skills/), these are step-by-step workflow guides for common tasks. Skills will be created in Phase 7 and will include:
+Located in [`.ai/skills/`](./skills/), these are step-by-step workflow guides for common tasks. Each skill includes real code examples, validation checklists, and troubleshooting guidance:
 
-- Adding new languages
-- Creating page sections
-- Customizing themes
-- Setting up analytics
-- Deploying the site
-- And more...
+**Project Setup:**
+- [setup-fresh-project.md](./skills/setup-fresh-project.md) - Initial project setup (start here!)
+
+**Language Management:**
+- [add-new-language.md](./skills/add-new-language.md) - Add support for a new language
+- [remove-language.md](./skills/remove-language.md) - Remove an existing language
+- [replace-language.md](./skills/replace-language.md) - Swap one language for another
+
+**Content & Sections:**
+- [create-page-section.md](./skills/create-page-section.md) - Add homepage sections
+- [add-blog-post.md](./skills/add-blog-post.md) - Create blog posts
+
+**Design & Theme:**
+- [customize-theme.md](./skills/customize-theme.md) - Change colors, fonts, spacing
+
+**Infrastructure:**
+- [setup-analytics.md](./skills/setup-analytics.md) - Configure GA4, Plausible, or Fathom
+- [optimize-images.md](./skills/optimize-images.md) - Optimize images for performance
+- [deploy-site.md](./skills/deploy-site.md) - Deploy to Netlify, Vercel, or GitHub Pages
+
+See [skills/README.md](./skills/README.md) for detailed usage instructions.
 
 ### 3. Example Templates
 

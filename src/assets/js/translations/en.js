@@ -14,9 +14,9 @@ export default {
 
   // Navigation
   nav: {
-    logo: 'Weave Studio',
-    logoWeave: 'Weave',
-    logoStudio: 'Studio',
+    logo: 'Your Brand',
+    logoText1: 'Your',
+    logoText2: 'Brand',
     services: 'Services',
     portfolio: 'Portfolio',
     about: 'About',

@@ -14,9 +14,9 @@ export default {
 
   // Navigation
   nav: {
-    logo: 'Weave Studio',
-    logoWeave: 'Weave',
-    logoStudio: 'Studio',
+    logo: 'המותג שלך',
+    logoText1: 'המותג',
+    logoText2: 'שלך',
     services: 'שירותים',
     portfolio: 'תיק עבודות',
     about: 'אודות',
